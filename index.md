@@ -1,5 +1,5 @@
 <center>
-<h2>June 5-9, 2017</h2>
+<h2>July 16-20, 2018</h2>
 <h2>Texas Advanced Computing Center</h2></center>
 <center><img src="https://www.tacc.utexas.edu/documents/1084364/1275944/tacc.png" alt="Drawing" style="height:100px;"/></center>
 
@@ -8,10 +8,7 @@ Learn the basic skills necessary to develop and execute life sciences workflows 
 Participants should bring their laptops and plan to participate actively. Laptops will require a terminal application for accessing compute resources.
 
 ## Instructors: 
-### [Joe Allen, Brian Beck, James Carson, Erik Ferlanti, John Fonner, Jawon Song, Greg Zynda](docs/instructors.md)
-
-## Etherpad
-[https://public.etherpad-mozilla.org/p/ctls2017](https://public.etherpad-mozilla.org/p/ctls2017)
+### [Joe Allen, Brian Beck, James Carson, Charlie Dey, Erik Ferlanti, John Fonner, Harika Gurram, Jawon Song, Joshua Urrutia, Greg Zynda](docs/instructors.md)
 
 ## Topic Index
 
