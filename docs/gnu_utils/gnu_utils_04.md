@@ -147,6 +147,9 @@ $ head fileA.bed | wc -l
   - `Name=MJ49_RS00725;` => `MJ49_RS00725`
 - Count how many sequences are in `ecoli.fasta`
 <br>
+
+[Click here for solution](gnu_utils_04_solution.md)
+<br>
 <br>
 
 [Back - Filtering Files](gnu_utils_03.md) &nbsp;&nbsp;&nbsp;&nbsp; [Next - Manipulating Files](gnu_utils_05.md)

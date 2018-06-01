@@ -26,8 +26,9 @@ $ cd ../../../
 $ ls dir0/folder0/subfolder0/   # this saves a few steps, would still take a long time
 ```
 
+
+<!--- $ tree ./           # use tree to print a file hierarchy and scroll through --->
 ```
-$ tree ./           # use tree to print a file hierarchy and scroll through
 $ find . -type f    # what do you think this command is doing?
 ```
 

@@ -24,7 +24,7 @@ $ paste A.txt B.txt
 2  B
 ```
 
-If you have worked with databases before, this is called an outer join. This command is useful to append information to regions in a bedgraph file.
+If you have worked with databases before, this is called an outer join. This command is useful to append information to regions in a bed file.
 
 ```
 $ paste fileA.bed fileB.bed

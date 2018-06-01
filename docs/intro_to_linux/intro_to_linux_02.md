@@ -4,7 +4,7 @@ On a Windows or Mac desktop, our present location determines what files and fold
 
 ```
 $ pwd
-/home1/03439/wallen 
+/home1/03439/wallen
 ```
 
 This home location on the Linux filesystem is unique for each user, and it is roughly analogous to C:\Users\username on Windows, or /Users/username on Mac.
@@ -82,14 +82,15 @@ We are back in our home directory. Finally, use the  `rmdir` (remove directory) 
 
 ```
 $ mkdir junkfolder
-$ ls 
+$ ls
 folder1 folder2 folder3 junkfolder
 $ rmdir junkfolder
 $ ls
 folder1 folder2 folder3
 ```
 
-A bonus command available on some Linux operating systems is called `tree`. (This is not found on your cheat sheet. Consider writing it in.) The `tree` command displays files and folders in a hierarchical view. Use another Linux shortcut, `.`, to indicate that you want to list files and folders in your **present location**.
+<!---
+A bonus command available on some Linux operating systems is called `tree` (this is not found on your cheat sheet, consider writing it in). The `tree` command displays files and folders in a hierarchical view. Use another Linux shortcut, `.`, to indicate that you want to list files and folders in your **present location**.
 
 ```
 $ tree .
@@ -101,6 +102,8 @@ $ tree .
 |-- folder2
 `-- folder3
 ```
+
+--->
 
 ### Exercise
 
@@ -125,7 +128,7 @@ $ tree .
 | `mkdir dir_name/` | make a new directory |
 | `cd dir_name/`    | navigate into a directory |
 | `rmdir dir_name/` | remove an empty directory |
-| `tree`            | list files and directories hierarchically |
+<!---| `tree`            | list files and directories hierarchically | --->
 | `.` or `./`       | refers to the present location |
 | `..` or `../`     | refers to the parent directory |
 

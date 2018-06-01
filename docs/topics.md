@@ -1,7 +1,7 @@
 # Course Topic Reference Index
 
 **[WELCOME											](welcome/welcome_01.md)**
-* [Logging into a supercomputer (Lonestar5)			](welcome/welcome_01.md)
+* [Logging into a supercomputer (Stampede2)			](welcome/welcome_01.md)
 * [Role of supercomputers							](welcome/welcome_02.md)
 
 **[INTRODUCTION TO LINUX							](intro_to_linux/intro_to_linux_01.md)**

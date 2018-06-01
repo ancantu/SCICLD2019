@@ -1,17 +1,17 @@
 
 1) How large is `Homo_sapiens.GRCh38.dna.chromosome.21.fa` before and after compression?
 ```
-$ cd 
+$ cd
 $ cd IntroToLinuxHPC/Lab02
 $ ls -l Homo_sapiens.GRCh38.dna.chromosome.21.fa
   # 42384874 bytes before compression
-$ gzip -v Homo_sapiens.GRCh38.dna.chromosome.21.fa.gz
+$ gzip -v Homo_sapiens.GRCh38.dna.chromosome.21.fa
   # 11772051 bytes after compression
 ```
 
 2) How large is `websters.txt` before and after compression?
 ```
-$ cd 
+$ cd
 $ cd IntroToLinuxHPC/Lab01
 $ ls -l websters.txt
   # 2493109 bytes before compression
@@ -25,4 +25,3 @@ The fasta file is 27.8% of the original size, and the dictionary is 30.2% of the
 
 
 [Return](intro_to_linux_05.md)
-

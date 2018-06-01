@@ -2,7 +2,7 @@
 
 ### Module Objectives
 
-This module will be fully interactive. Participants are **strongly encouraged** to follow along on the command line. Even if you already have Linux familiarity, please follow along becuase we will create files / directories that we use later on in the workshop. After taking this module, participants should be able to:
+This module will be fully interactive. Participants are **strongly encouraged** to follow along on the command line. Even if you already have Linux familiarity, please follow along becuase we will create files / directories that we use later on in the workshop. After completing this module, participants should be able to:
 
  * Describe basic functions of essential Linux commands
  * Use Linux commands to navigate a file system and manipulate files
@@ -37,8 +37,9 @@ These are all good reasons to use Linux. But the *real* reasons we are learning 
  * Shortcuts (`Tab, Up Arrow, Ctrl+c, Ctrl+d, ./, ../, ~/, >, >>, *, |, &`)
  * Text editing with vim (insert mode, normal mode, navigating, saving, quitting)
 
+
 ### Etherpad
-[https://public.etherpad-mozilla.org/p/ctls2017](https://public.etherpad-mozilla.org/p/ctls2017)
+[https://public.etherpad-mozilla.org/p/ctls2018](https://public.etherpad-mozilla.org/p/ctls2018)
+
 
 Next: [Looking and Moving Around](intro_to_linux_02.md) | Top: [Course Overview](../../index.md)
-

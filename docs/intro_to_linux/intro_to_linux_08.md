@@ -14,7 +14,7 @@ Entering VIM insert mode:
 > i
 ```
 
-Entering VIM nodmal mode:
+Entering VIM normal mode:
 ```
 > Esc
 ```
@@ -22,23 +22,23 @@ Entering VIM nodmal mode:
 A summary of the most important keys to know for normal mode are (more on your cheat sheet):
 ```
 # Navigating the file:
-  
+
 arrow keys        move up, down, left, right
     Ctrl+u        page up
     Ctrl+d        page down
- 
+
          0        move to beginning of line
          $        move to end of line
- 
+
         gg        move to beginning of file
          G        move to end of file
         :N        move to line N
-  
+
 # Saving and quitting:
- 
+
         :q        quit editing the file
         :q!        quit editing the file without saving
- 
+
         :w        save the file, continue editing
         :wq        save and quit
 ```
@@ -46,7 +46,7 @@ arrow keys        move up, down, left, right
 
 For more information, see:
   * [http://openvim.com/](http://openvim.com/)
-  * [http://vim-adventures.com/](http://vim-adventures.com/) 
+  * [http://vim-adventures.com/](http://vim-adventures.com/)
   * Or type on the command line: `vimtutor`
 
 ### Exercise
@@ -71,4 +71,3 @@ For more information, see:
 | `:wq`           | save and quit |
 
 Previous: [Miscellaneous Commands](intro_to_linux_07.md) | Top: [Course Overview](../../index.md)
-

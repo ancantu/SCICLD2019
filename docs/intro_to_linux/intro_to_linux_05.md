@@ -19,9 +19,9 @@ Here we have a fasta file containing the DNA sequence of human chromosome 21. It
 ```
 $ cp Homo_sapiens.GRCh38.dna.chromosome.21.fa chr21.fa
 $ ls -l
--rwx------ 1 wallen G-815499 42384874 May 26 12:59 chr21.fa*
--rwx------ 1 wallen G-815499 42384874 May 25 09:24 Homo_sapiens.GRCh38.dna.chromosome.21.fa*
--rwx------ 1 wallen G-815499      656 May 25 09:24 README*
+-rwx------ 1 wallen G-815499 42384874 May 26 12:59 chr21.fa
+-rwx------ 1 wallen G-815499 42384874 May 25 09:24 Homo_sapiens.GRCh38.dna.chromosome.21.fa
+-rwx------ 1 wallen G-815499      648 May 25 09:24 README
 ```
 
 The copy and original are identical in size. Use gzip to compress the copy:
@@ -42,7 +42,7 @@ A "tar archive" is a collection of files and directories all bundled up into a s
 
 ```
 $ cd ../
-$ pwd 
+$ pwd
 /work/03439/wallen/public/IntroToLinuxHPC
 $ tar -cvf Lab02.tar Lab02/
 Lab02/
@@ -109,4 +109,3 @@ There will be more on linking and changing permissions in the context of Data Ma
 
 
 Previous: [Looking at the Contents of Files](intro_to_linux_04.md) | Next: [Network and File Transfers](intro_to_linux_06.md) | Top: [Course Overview](../../index.md)
-
