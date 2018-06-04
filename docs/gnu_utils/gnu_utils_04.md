@@ -33,14 +33,10 @@ This is especially useful when dealing with large outputs
 $ head -n 400000 SRR2014925_1.fastq > 100k_reads.fastq
 ```
 
-#### Explore
-
-- Write all exons from `ecoli.gff3` to a file
-- Write all SRR2014925 reads to a single file
 
 ### Appending Output
 
-The `>>` command will do everything that `>` does, but instead of writing to the beginning of a file, it will append the text to an existing file.
+The `>>` command will do everything that `>` does, but instead of writing to the beginning of a new file, it will append the text to an existing file.
 
 ```
 $ cat fileA.bed > one.bed
@@ -73,11 +69,6 @@ or not use append the first time.
 $ head -n 4 SRR2014925_1.fastq > one.bed
 $ head -n 4 SRR2014925_1.fastq >> one.bed
 ```
-
-#### Explore
-
-- Write the first two reads from both SRR2014925 fastq files to a single file
-- Write all exons and gene records from `ecoli.gff3` to a single file
 
 ### Redirecting Input
 
