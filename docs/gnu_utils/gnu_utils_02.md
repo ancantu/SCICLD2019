@@ -8,7 +8,7 @@ In this section, we will learn to view text files using
 - `less`
 
 While "text files" may not sound exciting, most bioinformatics data formats are simple text files.
-We will be using actual data files pulled from [NCBI](https://www.ncbi.nlm.nih.gov/) in our exercises, so a basic understanding will be beneficial.
+We will be using actual data files pulled from [NCBI](https://www.ncbi.nlm.nih.gov/) in our exercises, so a basic understanding of common data formats will be beneficial.
 
 ## Data Formats
 
@@ -130,7 +130,7 @@ Header sequences are prefixed by `#` characters. More information about the GFF3
 Now that you have a basic understanding of these file formats, lets learn to view them. We first need some files to work with, so lets download some data I pre-formatted.
 
 ```
-cp /work/03076/gzynda/public/data/ctls2017/* .
+cp /work/05369/urrutia/public/data/ctls2018/* .
 ```
 
 ### Printing a whole file
@@ -216,11 +216,11 @@ Instead of printing an entire file, or a specific part of a file, you can also b
 
 | Key | Description |
 |-----|---------|
-|Q|Quit|
+|q|Quit|
 |&uarr; &darr;|Move up or down a line|
 |&larr; &rarr;|Scroll left or right|
 |space bar|Scroll down a "page"|
-|B|Scroll up a "page"|
+|b|Scroll up a "page"|
 
 Try using it on fileA.bed
 
@@ -240,7 +240,7 @@ You can also search for specific patterns with `less`.
 | Key | Description |
 |-----|---------|
 | `/<text>` | Search for `<text>` in the file |
-| N | Next match |
+| n | Next match |
 | shift+N | Previous match |
 
 Try to find "exon" and "gene" regions in `ecoli.gff3`.
@@ -284,6 +284,9 @@ SRR2014925.bam: gzip compressed data, extra field
 - Print the first 2 reads of a fastq file
 - Print the last read of a fastq file
 - What chromosome in `ecoli.fasta` contains `TCCAACTTATTGATAGTGTTTTATGTTCAGATAATGCCGATG`?
+<br>
+
+[Click here for solution](gnu_utils_02_solution.md)
 <br>
 
 [Back - Introduction](gnu_utils_01.md) &nbsp;&nbsp;&nbsp; [Next - Filtering Files](gnu_utils_03.md)

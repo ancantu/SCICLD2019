@@ -33,14 +33,10 @@ This is especially useful when dealing with large outputs
 $ head -n 400000 SRR2014925_1.fastq > 100k_reads.fastq
 ```
 
-#### Explore
-
-- Write all exons from `ecoli.gff3` to a file
-- Write all SRR2014925 reads to a single file
 
 ### Appending Output
 
-The `>>` command will do everything that `>` does, but instead of writing to the beginning of a file, it will append the text to an existing file.
+The `>>` command will do everything that `>` does, but instead of writing to the beginning of a new file, it will append the text to an existing file.
 
 ```
 $ cat fileA.bed > one.bed
@@ -73,11 +69,6 @@ or not use append the first time.
 $ head -n 4 SRR2014925_1.fastq > one.bed
 $ head -n 4 SRR2014925_1.fastq >> one.bed
 ```
-
-#### Explore
-
-- Write the first two reads from both SRR2014925 fastq files to a single file
-- Write all exons and gene records from `ecoli.gff3` to a single file
 
 ### Redirecting Input
 
@@ -113,14 +104,14 @@ The pipe is a form of redirection, but instead of writing the output to a file, 
 Right now, you can make a pipeline with temporary files.
 
 ```
-$ grep "NZ_CP013024.1" ecoli.gff3 > NZ_CP013024.1.gff3
-$ grep "exon" NZ_CP013024.1.gff3 > NZ_CP013024.1_exons.gff3
+$ grep "NZ_CP013025.1" ecoli.gff3 > NZ_CP013025.1.gff3
+$ grep "exon" NZ_CP013025.1.gff3 > NZ_CP013025.1_exons.gff3
 ```
 
 But pipes allow you to simplify your workflow down to
 
 ```
-$ grep "NZ_CP013024.1" ecoli.gff3 | grep "exon" NZ_CP013024.1.gff3 > NZ_CP013024.1_exons.gff3
+$ grep "NZ_CP013025.1" ecoli.gff3 | grep "exon" > NZ_CP013025.1_exons.gff3
 ```
 
 while also producing the same output. You can even simplify our nested input example.
@@ -146,6 +137,9 @@ $ head fileA.bed | wc -l
 - For each record, only print the name value
   - `Name=MJ49_RS00725;` => `MJ49_RS00725`
 - Count how many sequences are in `ecoli.fasta`
+<br>
+
+[Click here for solution](gnu_utils_04_solution.md)
 <br>
 <br>
 

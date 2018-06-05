@@ -19,11 +19,12 @@ The `which` command tells the user the location of a command or program that is 
 
 ```
 $ which ls
-/bin/ls
+alias ls='ls --color=auto'
+	/bin/ls
 $ which python
-/usr/bin/python
+/opt/apps/intel17/python/2.7.13/bin/python
 $ python --version
-Python 2.6.9
+Python 2.7.13
 ```
 
 Finally, the `history` command prints your command line history. It is useful to scroll through previous commands:
@@ -54,4 +55,3 @@ $ history
 
 
 Previous: [Network and File Transfers](intro_to_linux_06.md) | Next: [Text Editing with VIM](intro_to_linux_08.md) | Top: [Course Overview](../../index.md)
-

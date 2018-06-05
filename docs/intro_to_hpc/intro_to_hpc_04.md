@@ -24,18 +24,18 @@ $ source ~/.bashrc
 Finally, as suggested in the `.bashrc` file, an alternative method for customizing your module environment is with the `module save` command:
 ```
 $ module reset   # reset to system defaults
-$ module load blast/2.2.31
+$ module load blast/2.6.0
 $ module save
 ```
 
-Now each time you log in, `blast/2.2.31` will automatically be loaded.
+Now each time you log in, `blast/2.6.0` will automatically be loaded.
 
 
 Note: TACC clusters primarily use `.bashrc` for issuing commands on log in. Other shells and other clusters may use a different file by default. If you are unsure, ask the administrator of the cluster.
 
 ### Exercise
 
-1. Assuming you put `blast/2.2.31` into your default modules using `module save`, how do you undo that change?
+1. Assuming you put `blast/2.6.0` into your default modules using `module save`, how do you undo that change?
 
 [Click here for solution](intro_to_hpc_04_solution.md)
 
@@ -50,5 +50,3 @@ Note: TACC clusters primarily use `.bashrc` for issuing commands on log in. Othe
 
 
 Previous: [Modules](intro_to_hpc_03.md) | Next: [Batch Job Submission](intro_to_hpc_05.md) | Top: [Course Overview](../../index.md)
-
-

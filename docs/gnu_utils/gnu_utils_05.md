@@ -24,7 +24,7 @@ $ paste A.txt B.txt
 2  B
 ```
 
-If you have worked with databases before, this is called an outer join. This command is useful to append information to regions in a bedgraph file.
+If you have worked with databases before, this is called an outer join. This command is useful to append information to regions in a bed file.
 
 ```
 $ paste fileA.bed fileB.bed
@@ -98,11 +98,6 @@ We can also assume that the sequence names have no unicode characters.
 $ LC_ALL=C sort -S 100M -k1,1 -k2,2n -k3,3n SRR2014925.bed | uniq | head
 ```
 
-#### Explore
-
-- Sort `ecoli.gff3`
-- Check to see which files are sorted
-- Find any duplicate reads in `SRR2014925.bed`
 
 ### Comparing Files
 
@@ -140,10 +135,6 @@ $ diff <( sort -k1,1 -k2,2n fileA.bed ) <( sort -k1,1 -k2,2n fileC.bed )
 
 These files contain the same lines, just in a different order. This is one of those cases where sort helps.
 
-#### Explore
-
-- Try to find where `fileB.bed` came from in SRR2014925.bed
-- Try patching a file you make changes to with `patch`
 
 ### Search and Replace
 
@@ -173,7 +164,9 @@ $ sed -e "s/NZ_CP013025.1/Chr1/" fileA.bed
 You can even make this change in-place with the `-i` argument
 
 ```
-$ sed -i "s/NZ_CP013025.1/Chr1/" fileA.bed
+$ cp fileA.bed edited_fileA.bed
+$ sed -i "s/NZ_CP013025.1/Chr1/" edited_fileA.bed
+$ head edited_fileA.bed
 $ head fileA.bed
 ```
 
@@ -190,11 +183,6 @@ or deleting whole lines that match the text
 ```
 sed -e "/^#/d" ecoli.gff3 | head
 ```
-
-#### Explore
-
-- Replace all the tabs in `fileA.bed` with commas
-- Convert `SRR2014925_1.fastq` into a FASTA file
 
 ### AWK Programming
 
@@ -236,7 +224,7 @@ AWK will even recognize when a column is a number, so you can do math!
 $ awk 'BEGIN { print "START" } { print $2+1 } END { print "STOP"  }' fileC.bed
 ```
 
-You can even add completely columns somewhat like you did with paste.
+You can even add completely new columns somewhat like you did with paste.
 
 ```
 $ awk 'BEGIN { print "START" } { print $0"\tC4" } END { print "STOP"  }' fileC.bed
@@ -289,12 +277,21 @@ You can apply this to location ranges too.
 If you master AWK you will be ready to generate many useful file statistics right from the command line.
 
 #### Explore
+- Replace all the tabs in `fileA.bed` with commas
+
+- Convert `SRR2014925_1.fastq` into a FASTA file
 
 - Transform `ecoli.gff3` into a BED file
   - Pull out specific columns
   - Change indexing
 - Calculate the average sequence depth for `NZ_CP013025.1` from `SRR2014925.bedgraph`
   - You will need to use a sum variable and NR after some grepping
+
+  <br>
+
+  [Click here for solution](gnu_utils_05_solution.md)
+  <br>
+  <br>
 
 ## Extra Inspiration
 
@@ -303,11 +300,12 @@ If you master AWK you will be ready to generate many useful file statistics righ
 
 ## Application
 
-Here is a real-worl pipeline that you can use with the data we downloaded.
+Here is a real-world pipeline that you can use with the data we downloaded.
 
-First, load the necessary modules and generate some index files.
+First ssh to a compute node by typing `idev`, load the necessary modules, and generate some index files.
 
 ```
+$ idev
 $ module load samtools bwa bedtools
 
 $ bwa index ecoli.fasta
@@ -317,37 +315,37 @@ $ bedtools makewindows -g ecoli.fasta.fai -w 1000 > ecoli.bed
 
 #### Align reads
 ```
-$ bwa mem -t 24 ecoli.fasta SRR*_[12].fastq > aligned.sam
+$ bwa mem -t 24 ecoli.fasta SRR2014925_[12].fastq  > aligned.sam
 ```
 
 #### Convert to BAM
 
 ```
-$ bwa mem -t 24 ecoli.fasta SRR*_[12].fastq | samtools view -bS - > aligned.bam
+$ bwa mem -t 24 ecoli.fasta SRR2014925_[12].fastq | samtools view -bS - > aligned.bam
 ```
 
 #### Convert to bed
 
 ```
-$ bwa mem -t 24 ecoli.fasta SRR*_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 > aligned.bed
+$ bwa mem -t 24 ecoli.fasta SRR2014925_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 > aligned.bed
 ```
 
 #### Pull out reads that map to genome
 
 ```
-$ bwa mem -t 24 ecoli.fasta SRR*_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 | grep "^NZ_CP013025.1" > genome.bed
+$ bwa mem -t 24 ecoli.fasta SRR2014925_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 | grep "^NZ_CP013025.1" > genome.bed
 ```
 
 #### Calculate sequencing coverage
 
 ```
-bwa mem -t 24 ecoli.fasta SRR*_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 | grep "^NZ_CP013025.1" | bedtools intersect -a ecoli.bed -b - -c > coverage.bedgraph
+bwa mem -t 24 ecoli.fasta SRR2014925_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 | grep "^NZ_CP013025.1" | bedtools intersect -a ecoli.bed -b - -c > coverage.bedgraph
 ```
 
 #### Calculate average sequencing coverage
 
 ```
-bwa mem -t 24 ecoli.fasta SRR*_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 | grep "^NZ_CP013025.1" | bedtools intersect -a ecoli.bed -b - -c | awk 'BEGIN {sum=0;} {sum+=$4;} END {print "Average Coverag: "sum/NR"x";}'
+bwa mem -t 24 ecoli.fasta SRR2014925_[12].fastq | samtools view -bS - | bedtools bamtobed -i - | cut -f 1-3 | grep "^NZ_CP013025.1" | bedtools intersect -a ecoli.bed -b - -c | awk 'BEGIN {sum=0;} {sum+=$4;} END {print "Average Coverag: "sum/NR"x";}'
 ```
 
 #### DONE!

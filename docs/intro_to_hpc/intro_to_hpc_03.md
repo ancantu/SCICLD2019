@@ -27,17 +27,17 @@ $ module key genomics
 
 Each module, when loaded, will modify your environment variables so that you can run the desired application. To see what the effect of loading a module is, do:
 ```
-$ module show blast/2.2.31
+$ module show blast/2.6.0
 ```
 
 Once you have identified the module you are interested in, you can `load` it to put it in your `PATH`, and `unload` it to remove it from your `PATH`:
 ```
 $ module list
-$ module load blast/2.2.31
+$ module load blast/2.6.0
 $ module list
-$ module unload blast/2.2.31
+$ module unload blast/2.6.0
 $ module list
-$ ml blast/2.2.31               # ml is a shortcut for module load
+$ ml blast/2.6.0               # ml is a shortcut for module load
 ```
 
 Finally, find more help on using module commands by doing:
@@ -72,5 +72,3 @@ $ module help
 
 
 Previous: [Environment Variables](intro_to_hpc_02.md) | Next: [The .bashrc](intro_to_hpc_04.md) | Top: [Course Overview](../../index.md)
-
-
