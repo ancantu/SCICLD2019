@@ -164,7 +164,9 @@ $ sed -e "s/NZ_CP013025.1/Chr1/" fileA.bed
 You can even make this change in-place with the `-i` argument
 
 ```
-$ sed -i "s/NZ_CP013025.1/Chr1/" fileA.bed
+$ cp fileA.bed edited_fileA.bed
+$ sed -i "s/NZ_CP013025.1/Chr1/" edited_fileA.bed
+$ head edited_fileA.bed
 $ head fileA.bed
 ```
 
@@ -300,7 +302,7 @@ If you master AWK you will be ready to generate many useful file statistics righ
 
 Here is a real-world pipeline that you can use with the data we downloaded.
 
-First, load the necessary modules and generate some index files.
+First ssh to a compute node by typing `idev`, load the necessary modules, and generate some index files.
 
 ```
 $ idev
