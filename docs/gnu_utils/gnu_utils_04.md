@@ -104,14 +104,14 @@ The pipe is a form of redirection, but instead of writing the output to a file, 
 Right now, you can make a pipeline with temporary files.
 
 ```
-$ grep "NZ_CP013024.1" ecoli.gff3 > NZ_CP013024.1.gff3
-$ grep "exon" NZ_CP013024.1.gff3 > NZ_CP013024.1_exons.gff3
+$ grep "NZ_CP013025.1" ecoli.gff3 > NZ_CP013025.1.gff3
+$ grep "exon" NZ_CP013025.1.gff3 > NZ_CP013025.1_exons.gff3
 ```
 
 But pipes allow you to simplify your workflow down to
 
 ```
-$ grep "NZ_CP013024.1" ecoli.gff3 | grep "exon" NZ_CP013024.1.gff3 > NZ_CP013024.1_exons.gff3
+$ grep "NZ_CP013025.1" ecoli.gff3 | grep "exon" > NZ_CP013025.1_exons.gff3
 ```
 
 while also producing the same output. You can even simplify our nested input example.
