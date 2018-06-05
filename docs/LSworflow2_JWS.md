@@ -7,7 +7,7 @@ The main objective of this course is to demonstrate how a bioinformatics workflo
 
 ### 1. Transcriptome analysis
 
-![Alt text](http://physiolgenomics.physiology.org/content/physiolgenomics/45/1/28/F9.large.jpg)
+![Alt text](https://www.genome.gov/images/content/transcriptome.jpg)
 
 Transcriptome is simply defined as all of RNA molecules in a single cell. 
 
