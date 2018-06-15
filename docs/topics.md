@@ -22,7 +22,7 @@
 * [Manipulating files: paste, sort, diff, sed, awk	](gnu_utils/gnu_utils_05.md)		
 * [Application: example sequence analysis pipeline	](gnu_utils/gnu_utils_05.md)
 
-**[Applied Hands-on Command Line - Examples for Life Sciences]](intro_to_hpc/intro_to_hpc_01.md)**
+**[Applied Hands-on Command Line - Examples for Life Sciences](intro_to_hpc/intro_to_hpc_01.md)**
 * [Basic HPC architecture							](intro_to_hpc/intro_to_hpc_01.md)
 * [Environment variables: env, echo, export			](intro_to_hpc/intro_to_hpc_02.md)
 * [Modules											](intro_to_hpc/intro_to_hpc_03.md)
