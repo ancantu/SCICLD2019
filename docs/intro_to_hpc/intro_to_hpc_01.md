@@ -30,7 +30,7 @@ HPC systems are shared resources. Your jobs and activity on a cluster, if misman
 
 ### Topics Covered
 
- * Environment variables – purpose, printing, and defining (`echo, env, export`).
+ * Environment variables – purpose, printing, defining and piping (`echo, env, export, |`).
  * Modules – listing, loading, and unloading.
  * Automating environment variables, module commands, and aliases in `.bashrc`.
  * Batch job submission, commands dependent on system (`sbatch, showq, scancel`).

@@ -13,7 +13,7 @@ To print all of the environment variables currently defined in your shell, use t
 $ env
 ```
 
-There are quite a few, many of which you will never need to use. There are some important ones, however. To filter the output, you can print the contents of a specific variable. Use the `echo` command to print the contents of an environment variable called `PATH` or the `env | grep` combination::
+There are quite a few, many of which you will never need to use. There are some important ones, however. To filter the output, you can print the contents of a specific variable. Use the `echo` command to print the contents of an environment variable called `PATH` and you can pipe the output of env to the `grep` command (more on piping in the next section)::
 ```
 $ echo $PATH
 $ env | grep PATH
@@ -38,6 +38,23 @@ Environment variables can be reset by logging out and in:
 $ logout
 ```
 
+## Piping
+
+Every program we run from the command line has three data streams associated with it:
+1) STDIN (0) -- Standard input, the data that is fed into the program
+2) STDOUT (1) -- Standard output, the data that is output by the program
+3) STDERR (2) -- Standard error, error messages from the program
+
+With piping, we can direct these data streams from one program into another. A pipe uses the operator `(|)`, and takes the output `STDOUT` from the program on the left, and uses that as the input `STDIN` for the program on the right.
+
+```
+$ env
+$ env | head -n 4
+$ env | tail -n 5
+$ env | head -n 4 | tail -n 1
+```
+
+Pipes can be used to quickly chain together multiple applications into a pipeline.  
 
 ### Exercise
 
@@ -45,6 +62,7 @@ $ logout
 2. What files exist in some of the directories found in the `PATH` environment variable?
 3. Find an environment variable that stores your username.
 4. Store Webster's dictionary in an environment variable called `DICTIONARY`.
+5. Use a pipeline to search for every word that contains 'ei' in the `DICTIONARY`, and print the 5th word.
 
 [Click here for solution](intro_to_hpc_02_solution.md)
 
@@ -55,10 +73,8 @@ $ logout
 | `env`                    | print all environment variables |
 | `echo $VAR`              | print the contents of an the environment variable "VAR" |
 | `export VAR="value"`     | set an environment variable "VAR" to "value" |
-| `env | grep "PATTERN"`   | search for "PATTERN" among environment variables | 
+| `env` | grep "PATTERN"`   | search for "PATTERN" among environment variables |
 
 
 
 Previous: [Introduction to HPC](intro_to_hpc_01.md) | Next: [Modules](intro_to_hpc_03.md) | Top: [Course Overview](../../index.md)
-
-

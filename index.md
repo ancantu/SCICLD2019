@@ -25,9 +25,9 @@ Click [here](docs/topics.md) for a summary of all topics covered as well as link
 | 10:00 - 10:15 | Break |
 | 10:15 - 11:45 | [Introduction to High Performance Computing I: Introduction to Linux](docs/intro_to_linux/intro_to_linux_01.md) |
 | 11:45 - 13:00 | Lunch and Small Group Discussions|
-| 13:00 - 14:30 | [Introduction to High Performance Computing II: Command Line Utilities](docs/gnu_utils/gnu_utils_01.md) |
+| 13:00 - 14:30 | [Introduction to High Performance Computing II: Command Line Utilities](docs/intro_to_hpc/intro_to_hpc_01.md) |
 | 14:30 - 14:45 | Break |
-| 14:45 - 16:15 | [Applied Hands-on Command Line - Examples for Life Sciences](docs/intro_to_hpc/intro_to_hpc_01.md) |
+| 14:45 - 16:15 | [Applied Hands-on Command Line - Examples for Life Sciences](docs/gnu_utils/gnu_utils_01.md) |
 | 16:15 - 16:30 | Break |
 | 16:30 - 17:00 | [Daily Review and Hands-on Exercises](docs/hands_on_01.md) |
 

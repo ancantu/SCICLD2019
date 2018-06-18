@@ -35,5 +35,10 @@ aal
 ...
 ```
 
-[Return](intro_to_hpc_02.md)
+5) Print the 5th word in the dictionary that contains the string 'ei'
+```
+$ cat $DICTIONARY | grep "ei" | head -n 5 | tail -n 
+acetyltropeine
+```
 
+[Return](intro_to_hpc_02.md)
