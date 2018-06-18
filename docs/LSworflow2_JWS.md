@@ -24,7 +24,9 @@ Only a decade ago, the study of gene expression was limited to human genetics fo
 ![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image2.png)
 ![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image3.png)
 
-Transcriptome studies often give high-impact results as it describes status of cells in different conditions in context of expression levels. Here are some examples of these in Science, Nature and Cell (Impact Factor 34.661, 38.138, 28.710 respectively)
+Transcriptome studies often give high-impact results as it describes status of cells in different conditions in context of expression levels. Here are some examples of these in Science, Nature and Cell (Impact Factor 34.661, 38.138, 28.710 respectively).
+
+More recent development of <b>Single-cell RNA-seq</b> giving cell to cell variation of expression levels and single out rare cell types instead of averaging values from millions of different cells. 
 
 #### b. Scientific background
 The pipeline uses Next-generation sequencing RNA-seq data to as a raw input. These are prepared by (experimental workflow). 
@@ -32,7 +34,7 @@ The pipeline uses Next-generation sequencing RNA-seq data to as a raw input. The
 <https://www.nature.com/article-assets/npg/nrg/journal/v12/n10/images/nrg3068-f1.jpg>
 
 ### 2. Transcriptome analysis workflow using TopHat suite
-![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image7.png)
+<!---![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image7.png)--->
 
 ![Alt text](https://image.slidesharecdn.com/rnaseqanalysisngsapplication2-150908195147-lva1-app6892/95/rnaseq-experiment-design-10-638.jpg)
 
