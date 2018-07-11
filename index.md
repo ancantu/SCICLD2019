@@ -31,13 +31,15 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  8:30 - 10:00 | [HPC Software Environment Part 1](docs/hpc_software_environment/hpc_software_environment_01.md) |
+|  8:30 - 10:00 | [HPC Software Environment](docs/hpc_software_environment/hpc_software_environment_01.md) |
 | 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | [HPC Software Environment Part 2](docs/hpc_software_environment/hpc_software_environment_01.md) |
+| 10:15 - 11:45 | [Data Management and Collaboration Best Practices](docs/data_management/data_management.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | [Data Management and Collaboration](docs/data_management/data_management.md) |
+| 13:00 - 14:30 | Programming Break-out. Choice of Intro to Python, Intro to RStudio, or Intermediate Bash |
 | 14:30 - 14:45 | Break |
-| 14:45 - 17:00 | [Hands-on Exercises & Bring-your-own-code Workshop](docs/hands_on_02.md) |
+| 14:45 - 16:15 | Programming Break-out. Choice of Intermediate Python, Intermediate RStudio, or Advanced Bash |
+| 16:15 - 16:30 | Break |
+| 16:30 - 17:00 | [Hands-on Exercises & Bring-your-own-code Workshop](docs/hands_on_02.md) |
 
 ### Wednesday
 
@@ -47,27 +49,31 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 10:00 - 10:15 | Break |
 | 10:15 - 11:45 | [Developing Life Sciences Workflows Part 2](docs/LSworflow2_JWS.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | [Optimization and Parallelization of Workflows for HPC](docs/optimization_parallelization/optimization_parallelization_01.md) |
+| 13:00 - 14:30 | [Optimization and Parallelization of Workflows for HPC Part 1](docs/optimization_parallelization/optimization_parallelization_01.md) |
 | 14:30 - 14:45 | Break |
-| 14:45 - 17:00 | Hands-on Exercises & Bring-your-own-code Workshop |
+| 14:45 - 16:15 | [Optimization and Parallelization of Workflows for HPC Part 2](docs/optimization_parallelization/optimization_parallelization_04.md) |
+| 16:15 - 16:30 | Break |
+| 16:30 - 17:00 | Hands-on Exercises & Bring-your-own-code Workshop |
 
 ### Thursday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  8:30 - 10:00 | [Python for Research Computing Part 1](docs/intro_to_python/intro_to_python.md) |
+|  8:30 - 10:00 | Best Practices for Reproducibility in Research |
 | 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | [Python for Research Computing Part 2](docs/intro_to_python/intro_to_python.md) |
+| 10:15 - 11:45 | Best Practices for Reproducibility in Research |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | [Python for Research Computing Part 3](docs/intro_to_python/intro_to_python.md) |
+| 13:00 - 14:30 | Best Practices for Reproducibility in Research |
 | 14:30 - 14:45 | Break |
-| 14:45 - 17:00 | [Hands-on Exercises & Bring-your-own-code Workshop](docs/intro_to_python/intro_to_python.md) |
+| 14:45 - 16:15 | Best Practices for Reproducibility in Research |
+| 16:15 - 16:30 | Break |
+| 16:30 - 17:00 | Daily Review and Hands-on Exercises  |
 
 ### Friday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  8:30 - 10:00 | Invited Talk: Dr. Claus Wilke, UT Austin |
-| 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | Next Steps |
+|  8:30 - 9:30  | Course Review and Next Steps |
+|  9:30 - 11:45 | Bring your own code workshop / one-on-one assitance |
 | 11:45 - 13:00 | Lunch |
+| 13:00 - 17:00 | Bring your own code workshop / one-on-one assitance |
