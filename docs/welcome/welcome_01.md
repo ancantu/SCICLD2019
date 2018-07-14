@@ -30,10 +30,12 @@ Windows:
 
  Provide attendees the basic skills needed to:
 
- 1. Execute life sciences workflows on large-scale systems
- 2. Run parallel analyses
- 3. Use Bash/Python/Perl to chain common life sciences applications together to form more complex workflows
- 4. Analyze and visualize result data in order to gain useful insights
+ 1. Nagivate access to data and software on large-scale compute systems
+ 2. Use Bash to chain common life sciences applications together to form more complex workflows
+ 3. Design tasks to run in parallel to appropriately utilizie large-scale resources
+ 2. Use reproducible software approaches and to share your analysis in a way that others can reproduce
+ 
+ In addition, attendees will receive feedback and support on their specific research challenges and goals.
 
 ### Etherpad
 [https://public.etherpad-mozilla.org/p/ctls2018](https://public.etherpad-mozilla.org/p/ctls2018)
