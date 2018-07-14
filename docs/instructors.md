@@ -8,7 +8,7 @@ All instructors for this Institute are part of the Life Science Computing group 
 
 **James Carson** applies image informatics to a variety of biomedical research projects across neuroscience, pulmonology, and genomics. James leverages HPC to work with extremely large images and to develop computational workflows to efficiently utilize resources. 
 
-**Charlie Dey** 
+**Charlie Dey** develops content and builds curriculums for TACC's academic course selections taught in conjunction with several departments at the University of Texas at Austin, as well as for TACC's professional development and educational training.
 
 **Erik Ferlanti** is a full stack software engineer specializing in developing tools for bioinformatics research. At TACC, he works on portal development, building tools for cloud computing, and helping researchers design genomics workflows in an HPC environment.
 
