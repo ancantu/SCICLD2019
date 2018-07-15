@@ -35,9 +35,9 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 10:00 - 10:15 | Break |
 | 10:15 - 11:45 | [Data Management and Collaboration Best Practices](docs/data_management/data_management.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | Programming Break-out. Choice of Intro to Python, Intro to RStudio, or Intermediate Bash |
+| 13:00 - 14:30 | Choice of Intro to Python, Intro to RStudio, or Intermediate Bash |
 | 14:30 - 14:45 | Break |
-| 14:45 - 16:15 | Programming Break-out. Choice of Intermediate Python, Intermediate RStudio, or Advanced Bash |
+| 14:45 - 16:15 | Choice of Intermediate Python, Intermediate RStudio, or Advanced Bash |
 | 16:15 - 16:30 | Break |
 | 16:30 - 17:00 | [Hands-on Exercises & Bring-your-own-code Workshop](docs/hands_on_02.md) |
 
