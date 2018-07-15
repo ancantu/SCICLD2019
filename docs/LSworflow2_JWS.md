@@ -7,7 +7,7 @@ The main objective of this course is to demonstrate how a bioinformatics workflo
 
 ### 1. Transcriptome analysis
 
-![Alt text](https://www.genome.gov/images/content/transcriptome.jpg)
+![Alt text](https://www.genome.gov/Images/content/fs_tc.jpg)
 
 Transcriptome is simply defined as all of RNA molecules in a single cell. 
 
@@ -24,27 +24,24 @@ Only a decade ago, the study of gene expression was limited to human genetics fo
 ![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image2.png)
 ![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image3.png)
 
-Transcriptome studies often give high-impact results as it describes status of cells in different conditions in context of expression levels. Here are some examples of these in Science, Nature and Cell (Impact Factor 34.661, 38.138, 28.710 respectively).
-
-More recent development of <b>Single-cell RNA-seq</b> giving cell to cell variation of expression levels and single out rare cell types instead of averaging values from millions of different cells. 
+Transcriptome studies are often featured in give high-impact journals as it describes status of cells in different conditions in context of expression levels. Here are some recent examples of these in Science, Nature and Cell
 
 #### b. Scientific background
-The pipeline uses Next-generation sequencing RNA-seq data to as a raw input. These are prepared by (experimental workflow). 
-
-<https://www.nature.com/article-assets/npg/nrg/journal/v12/n10/images/nrg3068-f1.jpg>
+The pipeline uses Next-generation sequencing RNA-seq data to as a raw input. 
 
 ### 2. Transcriptome analysis workflow using TopHat suite
-<!---![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image7.png)--->
+![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image7.png)
 
+In more practical view;
 ![Alt text](https://image.slidesharecdn.com/rnaseqanalysisngsapplication2-150908195147-lva1-app6892/95/rnaseq-experiment-design-10-638.jpg)
 
 ### 3. Where to find required test-dataset
 Sequence Read Archive
 
-<https://www.ncbi.nlm.nih.gov/sra/SRX2771645>
+<https://www.ncbi.nlm.nih.gov/sra/SRX2771645><br/>
 <https://www.ncbi.nlm.nih.gov/sra/SRX2771647>
 
-Genome index and annotation
+Genome index and annotation</br>
 <https://ccb.jhu.edu/software/tophat/igenomes.shtml> 
 
 * Hands-on: Try downloading and extracting genome index and annotation files to a directory
@@ -55,13 +52,13 @@ tar -zxvf Arabidopsis_thaliana_Ensembl_TAIR10.tar.gz
 ```
 
 ### 4. Tools used in this session
-SRAtoolKit
+~~SRAtoolKit~~
 
 Tuxedo suite:
 includes: TopHat, Cufflinks, Cuffmerge, Cuffdiff (cite)
 <https://www.nature.com/article-assets/npg/nprot/journal/v7/n3/images_article/nprot.2012.016-F1.jpg>
 
-Samtools
+~~Samtools~~
 
 ### 5. Benchmarking analysis (TopHat)
 What is the advantage of using TACC vs. workstation on transcriptome analysis?
@@ -97,41 +94,41 @@ scratch_cache
 prefetch SRR5488800 ; fastq-dump SRR5488800 
 prefetch SRR5488802 ; fastq-dump SRR5488802
 ```
-`cp /scratch/02114/wonaya/SSI/SRR5488800.fastq . ; cp /scratch/02114/wonaya/SSI/SRR5488802.fastq . `
+```cp /scratch/02114/wonaya/SSI/SRR5488800.fastq . ```</br>
+```cp /scratch/02114/wonaya/SSI/SRR5488802.fastq . ```
 
 (2 minutes)
 
 ### 7. TopHat and Cufflink demo/hands-on
 
+stampede2:</br>
 ```
-module load perl bowtie tophat
+module load bowtie tophat
 ```
-`module load boost` on ls5
-
-What happens if you do just `module load tophat` without prerequisite modules?
+```module load boost``` on ls5
 
 TopHat run: Aligning sequences on arabidopsis genome guided with gene annotations
 
-#### Remember Do NOT run long processes (more than 5 minutes) on compute node 
+#### Remember Do NOT run long processes (more than 5 minutes) on login node 
 
 ```
-tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800.fastq
-tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802.fastq
+tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800_1m.fq
+tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802_1m.fq
 ```
 `cp -r /scratch/02114/wonaya/SSI/test_1/ . ; cp -r /scratch/02114/wonaya/SSI/test_2/ .`
 (15*2 minutes)
 
 Cufflinks: 
 ```
-cufflinks -o wt_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_1/accepted_hits.bam
-cufflinks -o sa_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_2/accepted_hits.bam
+cufflinks -p 16 -o wt_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_1/accepted_hits.bam
+cufflinks -p 16-o sa_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_2/accepted_hits.bam
 ```
 `cp -r /scratch/02114/wonaya/SSI/wt_cuff/ . ; cp -r /scratch/02114/wonaya/SSI/sa_cuff/ .`
-(7*2 minutes)
+(1*2 minutes)
 
 Cuffmerge: 
 ```
-cuffmerge -g Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -s Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/WholeGenomeFasta/genome.fa -p 16 cuffmerge.txt
+cuffmerge -p 16 -g Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -s Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/WholeGenomeFasta/genome.fa cuffmerge.txt
 ```
 in which the content of cuffmerge.txt should be (using text editor such as vim): 
 ```
@@ -139,7 +136,7 @@ wt_cuff/transcripts.gtf
 sa_cuff/transcripts.gtf 
 ```
 `cp /scratch/02114/wonaya/SSI/cuffmerge.txt . `
-(2 minutes)
+(1 minutes)
 
 Cuffdiff: 
 ```
