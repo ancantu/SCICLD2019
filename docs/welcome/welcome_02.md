@@ -14,7 +14,7 @@ A little about us:
 ### TACC Systems at a Glance
 
 
-<center><img src="../../resources/machines.png" style="height:300px;"></center>
+<center><img src="../../resources/machines2018.png" style="height:300px;"></center>
 
 
 
