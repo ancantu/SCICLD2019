@@ -29,7 +29,7 @@ login1.stampede2$             # logout one more time and you will be back on the
 4) Copy the file `chr21.fa` to your local computer.
 ```
 # from new Terminal session
-[local]$ ssh wallen@stampede2.tacc.utexas.edu:~/IntroToLinuxHPC/Lab02/chr21.fa ./
+[local]$ scp wallen@stampede2.tacc.utexas.edu:~/IntroToLinuxHPC/Lab02/chr21.fa ./
 (enter password)
 (enter token)
 ```
