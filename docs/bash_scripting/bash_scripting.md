@@ -6,16 +6,16 @@ This course is designed as an introduction to managing data on high performance 
 
 This course is designed to build upon [Introduction to Linux](docs/intro_to_linux/intro_to_linux_01.md) and [Command Line Utilities](docs/intro_to_hpc/intro_to_hpc_01.md)
 
-This course is divided into 2 section of 5 modules:
- 1. [Intermediate BASH](#intbash)
+This course is divided into 2 sections of 6 modules:
+ [Intermediate BASH](#intbash)
    1. [BASH Scripts](#ib_mod1) shebang, chmod, hello_world
    2. [Variables](#ib_mod2) declare, quotes
    3. [Arithmetic](#ib_mod3) integer, fp
    4. [Strings](#ib_mod4) expr
    5. [Arguments](#ib_mod5)
    6. [Arrays](#ib_mod6)
-
-2. [Advanced BASH](#advbash)
+<br>
+[Advanced BASH](#advbash)
    1. [Loops](#ab_mod1)
    2. [IF/THEN/ELSE](#ab_mod2)
    3. [WHILE](#ab_mod3)
