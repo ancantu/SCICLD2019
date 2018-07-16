@@ -7,8 +7,3 @@ At the end of Day 2, we will have opportunity for some hands-on exercises. This 
 
 2) Start thinking about what data you need for your research. How will you manage and organize the data on TACC resources. Start transferring some data to TACC, and learn to use `rsync` to make syncing data between sites easier. We are here to help if you get stuck.
 
-3) Follow along as I go through the install process for a tool called [Kallisto](https://pachterlab.github.io/kallisto/) which uses `cmake` to configure instead of `./configure`. The `cmake` tool is becoming more common among life science applications, and you will likely run into it sooner or later.
-
-4) We will work through some practical `awk` examples using real data on the command line.
-
-5) Set up Agave accounts so that we can all use juyter notebooks for Python on Thursday.
