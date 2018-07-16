@@ -14,7 +14,9 @@ This course is divided into 2 sections of 6 modules:
    4. [Strings](#ib_mod4) expr
    5. [Arguments](#ib_mod5)
    6. [Arrays](#ib_mod6)
+
 <br>
+
 [Advanced BASH](#advbash)
    1. [Loops](#ab_mod1)
    2. [IF/THEN/ELSE](#ab_mod2)
