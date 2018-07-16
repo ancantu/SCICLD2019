@@ -1,10 +1,10 @@
 ## Sharing an Application
 
-Now that you have installed Tophat in your account and confirmed that it is working, you may want to share it with other members of your lab, or with the wider community. In order to do that, we must change "permissions" on the Tophat installation folder so that other Lonestar5 users can see it.
+Now that you have installed Tophat in your account and confirmed that it is working, you may want to share it with other members of your lab, or with the wider community. In order to do that, we must change "permissions" on the Tophat installation folder so that other Wrangler users can see it.
 
-Navigate to your `apps` directory on Lonestar and find your `tophat` folder:
+Navigate to your `apps` directory on Wrangler and find your `tophat` folder:
 ```
-$ cd /work/03439/wallen/lonestar/apps
+$ cd /work/03439/wallen/wrangler/apps
 $ ls -l
 drwx------  3 wallen G-815499       4096 Jun  2 14:16 tophat/
 ```
@@ -16,24 +16,24 @@ $ ls -l
 drwxr-x---  3 wallen G-815499       4096 Jun  2 14:16 tophat/
 ```
 
-The `-R` flag is used to change permissions recursively (all folders and files within `tophat`). The `g=u-w` directive is used to give members of the same Linux group the same permissions as the owner, minus write permissions. To do the same thing but for all others on Lonestar5, do:
+The `-R` flag is used to change permissions recursively (all folders and files within `tophat`). The `g=u-w` directive is used to give members of the same Linux group the same permissions as the owner, minus write permissions. To do the same thing but for all others on Wrangler, do:
 ```
 $ chmod -R go=u-w tophat/
 $ ls -l
 drwxr-xr-x  3 wallen G-815499       4096 Jun  2 14:16 tophat/
 ```
 
-Notice the new `o` in `go=u-w`. The permissions have been changed for all files within the `tophat` directory. But, we are not done quite yet. We need to walk up and change permissions on the `apps`, `lonestar`, and `wallen` directories as well:
+Notice the new `o` in `go=u-w`. The permissions have been changed for all files within the `tophat` directory. But, we are not done quite yet. We need to walk up and change permissions on the `apps`, `wrangler`, and `wallen` directories as well:
 ```
 $ cd ../
 $ pwd
-/work/03439/wallen/lonestar
+/work/03439/wallen/wrangler
 $ chmod go=u-w apps/
  
 $ cd ../
 $ pwd
 /work/03439/wallen
-$ chmod go=u-w lonestar/
+$ chmod go=u-w wrangler/
  
 $ cd ../
 $ pwd
@@ -55,5 +55,5 @@ The `go-rwx` directive will remove all read, write, and execute permissions from
 $ ls -l /work/03439/wallen/public
 ```
 
-Previous: [Profiling an Application](hpc_software_environment_05.md) | Next: [Making Modules](hpc_software_environment_07.md) | Top: [Course Overview](../../index.md)
+Previous: [Testing an Application](hpc_software_environment_04.md) | Next: [Making Modules](hpc_software_environment_07.md) | Top: [Course Overview](../../index.md)
 
