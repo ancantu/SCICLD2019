@@ -28,8 +28,7 @@ $ mv file_b folder2/
 $ cp file_c folder3/
 ```
 
-Before listing the results with `ls`<!--- or `tree` --->, try to guess what the result will be.
-<!---
+Before listing the results with `ls` or `tree`, try to guess what the result will be.
 ```
 $ tree .
 .
@@ -44,7 +43,6 @@ $ tree .
 `-- folder3
     `-- file_c
 ```
---->
 
 Two files have been moved into folders, and `file_c` has been copied - so there is still a copy of `file_c` in the home directory. Move and copy commands can also be used to change the name of a file:
 
