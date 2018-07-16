@@ -6,29 +6,21 @@ The first thing to do is decide a good place to install the application. The `$W
 ```
 $ cd $WORK
 $ pwd
-/work/03439/wallen/lonestar
+/work/03439/wallen/wrangler
 $ mkdir apps
 $ cd apps
 $ pwd
-/work/03439/wallen/lonestar/apps
+/work/03439/wallen/wrangler/apps
 ```
 
 According to the Tophat documentation, we need `bowtie2` and `boost` are dependencies. Check your environment and load what we know we need for Tophat:
 ```
-$ module load boost/1.59
-$ module load bowtie/2.2.6
-Lmod has detected the following error:  Cannot load module "bowtie/2.2.6" without these module(s)
-loaded:
-   perl
-```
-
-Whoops! We first need to load `perl` before we can load `bowtie`:
-```
-$ module load perl/5.22.1
-$ module load bowtie/2.2.6
+$ module reset
+$ module load boost/1.55.0
+$ module load bowtie/2.3.4
 $ module list
 Currently Loaded Modules:
-  1) intel/16.0.1   2) cray_mpich/7.3.0   3) TACC/1.0   4) boost/1.59   5) perl/5.22.1   6) bowtie/2.2.6
+  1) TACC-paths   2) Linux   3) cluster-paths   4) intel/15.0.3   5) mvapich2/2.1   6) cluster   7) TACC   8) boost/1.55.0   9) bowtie/2.3.4
 ```
 
 
@@ -53,7 +45,7 @@ A few things to note from the help text:
 
 Try to configure using the `--prefix` and `--enable-intel64` flags:
 ```
-$ ./configure --prefix=/work/03439/wallen/lonestar/apps/tophat/2.1.1 \
+$ ./configure --prefix=/work/03439/wallen/wrangler/apps/tophat/2.1.1 \
               --enable-intel64
 ...
 checking for boostlib >= 1.38.0... configure: error: We could not detect the
@@ -66,8 +58,8 @@ http://randspringer.de/boost for more documentation.
 
 It works for a little bit before giving the boost error above. Perhaps we do need to specify the boost path after all:
 ```
-$ ./configure --prefix=/work/03439/wallen/lonestar/apps/tophat/2.1.1 \
-              --with-boost=/opt/apps/intel16/boost/1.59 \
+$ ./configure --prefix=/work/03439/wallen/wrangler/apps/tophat/2.1.1 \
+              --with-boost=/opt/apps/intel15/boost/1.55.0 \
               --enable-intel64
 ```
 
@@ -76,9 +68,9 @@ This time it got all the way through the `./configure` step, except there is som
 ...
 -- tophat 2.1.1 Configuration Results --
   C++ compiler:        g++ -Wall -Wno-strict-aliasing -g -gdwarf-2 -Wuninitialized  -mtune=nocona -O3  -DNDEBUG -I./samtools-0.1.18 -pthread -I/opt/apps/intel16/boost/1.59/include -I./SeqAn-1.4.2
-  Linker flags:        -L./samtools-0.1.18 -L/opt/apps/intel16/boost/1.59/lib
+  Linker flags:        -L./samtools-0.1.18 -L/opt/apps/intel15/boost/1.55/lib
   BOOST libraries:     -lboost_thread -lboost_system
-  GCC version:         gcc (GCC) 4.9.3
+  GCC version:         gcc (GCC) 4.9.1
   Host System type:    x86_64-unknown-linux-gnu
   Install prefix:      /work/03439/wallen/lonestar/training/apps/tophat/2.1.1
   Install eprefix:     ${prefix}
@@ -111,34 +103,26 @@ $ echo $CXX
 We can force Tophat to use the intel compilers by pointing those variables to the appropriate C and C++ compilers:
 ```
 $ which icc
-/opt/apps/intel/16.0.1.150/compilers_and_libraries_2016.1.150/linux/bin/intel64/icc
+/opt/apps/intel/15/composer_xe_2015.3.187/bin/intel64/icc
 $ export CC=`which icc`
-echo $CC
-/opt/apps/intel/16.0.1.150/compilers_and_libraries_2016.1.150/linux/bin/intel64/icc
+$ echo $CC
+/opt/apps/intel/15/composer_xe_2015.3.187/bin/intel64/icc
 $ export CXX=`which icpc`
 ```
 
-And, if you recall from before, Lonestar5 has nodes with different architectures. Now is our chance to specify a few extra compilation flags so that the binaries can run anywhere:
-```
-$ export CFLAGS="-xAVX -axCORE-AVX2"
-$ export CXXFLAGS="-xAVX -axCORE-AVX2"
-$ export LDFLAGS="-xAVX -axCORE-AVX2"
-```
-
-
 Configure one more time and make sure the output makes sense:
 ```
-$ ./configure --prefix=/work/03439/wallen/lonestar/apps/tophat/2.1.1 \
-              --with-boost=/opt/apps/intel16/boost/1.59 \
+$ ./configure --prefix=/work/03439/wallen/wrangler/apps/tophat/2.1.1 \
+              --with-boost=/opt/apps/intel15/boost/1.55.0 \
               --enable-intel64
 ...
 -- tophat 2.1.1 Configuration Results --
-  C++ compiler:        /opt/apps/intel/16.0.1.150/compilers_and_libraries_2016.1.150/linux/bin/intel64/icpc -Wall -Wno-strict-aliasing -g -gdwarf-2 -Wuninitialized  -mtune=nocona -O3 -xAVX -axCORE-AVX2 -DNDEBUG -I./samtools-0.1.18 -pthread -I/opt/apps/intel16/boost/1.59/include -I./SeqAn-1.4.2
-  Linker flags:        -L./samtools-0.1.18 -L/opt/apps/intel16/boost/1.59/lib -xAVX -axCORE-AVX
-  BOOST libraries:     -lboost_thread -lboost_system
-  GCC version:         icc (ICC) 16.0.1 20151021
+  C++ compiler:        /opt/apps/intel/15/composer_xe_2015.3.187/bin/intel64/icpc -Wall -Wno-strict-aliasing -g -gdwarf-2 -Wuninitialized  -mtune=nocona -O3  -DNDEBUG -I./samtools-0.1.18 -pthread -I/usr/include -I./SeqAn-1.4.2
+  Linker flags:        -L./samtools-0.1.18 -L/usr/lib
+  BOOST libraries:     -lboost_thread 
+  GCC version:         icc (ICC) 15.0.3 20150407
   Host System type:    x86_64-unknown-linux-gnu
-  Install prefix:      /work/03439/wallen/lonestar/apps/tophat/2.1.1
+  Install prefix:      /work/03439/wallen/wrangler/apps/tophat/2.1.1
   Install eprefix:     ${prefix}
 ...
 ```
@@ -153,5 +137,5 @@ $ ls -l ../tophat/2.1.1/bin
 
 The `tophat/2.1.1/bin` directory should be filled with executables.
 
-Previous: [Lonestar5 Basics](hpc_software_environment_02.md) | Next: [Testing an Application](hpc_software_environment_04.md) | Top: [Course Overview](../../index.md)
+Previous: [Wrangler Basics](hpc_software_environment_02.md) | Next: [Testing an Application](hpc_software_environment_04.md) | Top: [Course Overview](../../index.md)
 
