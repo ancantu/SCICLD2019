@@ -89,7 +89,7 @@ $ ls
 folder1 folder2 folder3
 ```
 
-<!---
+
 A bonus command available on some Linux operating systems is called `tree` (this is not found on your cheat sheet, consider writing it in). The `tree` command displays files and folders in a hierarchical view. Use another Linux shortcut, `.`, to indicate that you want to list files and folders in your **present location**.
 
 ```
@@ -103,7 +103,7 @@ $ tree .
 `-- folder3
 ```
 
---->
+
 
 ### Exercise
 
@@ -128,7 +128,7 @@ $ tree .
 | `mkdir dir_name/` | make a new directory |
 | `cd dir_name/`    | navigate into a directory |
 | `rmdir dir_name/` | remove an empty directory |
-<!---| `tree`            | list files and directories hierarchically | --->
+| `tree`            | list files and directories hierarchically |
 | `.` or `./`       | refers to the present location |
 | `..` or `../`     | refers to the parent directory |
 
