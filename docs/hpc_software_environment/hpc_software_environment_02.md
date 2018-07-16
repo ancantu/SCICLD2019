@@ -34,7 +34,7 @@ Or:
 ```
 $ cd $HOME
 $ cd $WORK
-$ cdd $DATA
+$ cd $DATA
 ```
 
 
