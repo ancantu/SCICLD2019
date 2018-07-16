@@ -4,7 +4,7 @@ We installed Tophat, now it is time to test it to make sure it is working. Revis
 
 First, we will create a suitable place to test.
 ```
-$ cd /work/03439/wallen/lonestar/apps/
+$ cd /work/03439/wallen/wrangler/apps/
 $ mkdir tophat-test
 $ cd tophat-test
 ```
@@ -20,7 +20,7 @@ $ ls -l
 Since it is against policy to run applications on the login nodes, we must gain access to a compute node. The TACC tool `idev` is used to start an interactive session on a Lonestar5 compute node. Interactive sessions are helpful to test code, debug code, and practice small jobs before submitting large jobs: 
 ```
 $ idev --help
-$ idev -p normal -m 180 --reservation=CTLS2017
+$ idev -r none -N 1 -n 1 -A TRAINING-OPEN
 ```
 
 
@@ -35,7 +35,7 @@ We also have to put Tophat in our path. There is no module for Tophat yet, so we
 ```
 $ echo $PATH        
 $ which tophat      # no tophat yet
-$ export PATH=$PATH:/work/03439/wallen/lonestar/apps/tophat/2.1.1/bin
+$ export PATH=$PATH:/work/03439/wallen/wrangler/apps/tophat/2.1.1/bin
 $ echo $PATH
 $ which tophat      # tophat now in path
 ```
@@ -60,5 +60,5 @@ Aligned pairs:        50
 50.0% concordant pair alignment rate.
 ```
 
-Previous: [Installing an Application](hpc_software_environment_03.md) | Next: [Profiling an Application](hpc_software_environment_05.md) | Top: [Course Overview](../../index.md)
+Previous: [Installing an Application](hpc_software_environment_03.md) | Next: [Sharing an Application](hpc_software_environment_06.md) | Top: [Course Overview](../../index.md)
 
