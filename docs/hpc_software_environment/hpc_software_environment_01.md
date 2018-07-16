@@ -1,5 +1,6 @@
 # HPC Software Environment: Introduction
 
+<center><img src="../../resources/wrangler_logo.png" style="height:300px;"></center>
 
 ### Getting Set Up
 
