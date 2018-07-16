@@ -15,6 +15,10 @@ Coupon Code: WPiL-1T3C-1J
 
 Click [here](docs/instructors.md) for more information about the course instructors.
 
+## Etherpad
+
+https://public.etherpad-mozilla.org/p/ctls2018
+
 ## Agenda
 
 ### Monday
