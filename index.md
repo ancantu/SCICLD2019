@@ -17,7 +17,7 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 ## Etherpad
 
-https://public.etherpad-mozilla.org/p/ctls2018
+[https://public.etherpad-mozilla.org/p/ctls2018](https://public.etherpad-mozilla.org/p/ctls2018)
 
 ## Agenda
 
