@@ -82,6 +82,6 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | Time | Topic |
 |--------|--------------------------------------------------|
 |  8:30 - 9:30  | Course Review and Next Steps |
-|  9:30 - 11:45 | Bring your own code workshop / one-on-one assitance |
+|  9:30 - 11:45 | Bring your own code workshop / one-on-one assistance |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 17:00 | Bring your own code workshop / one-on-one assitance |
+| 13:00 - 17:00 | Bring your own code workshop / one-on-one assistance |
