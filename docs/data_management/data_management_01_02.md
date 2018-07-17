@@ -13,7 +13,7 @@
 * Several common file systems in use in HPC
 
 #### EXERCISE:
-* What file systems are in use on `lonestar5` ?
+* What file systems are in use on `wrangler` ?
   + let's use the `df` (disk free) command
 
 ```
@@ -59,7 +59,7 @@ c3-5.corral.tacc.utexas.edu:/gpfs/corral3/tacc       nfs      12P  5.5P  5.9P  4
 
 ```
 $ df -hT | awk '{print $2}' | sort | uniq
-ext3
+xfs
 lustre
 nfs
 tmpfs
@@ -68,7 +68,7 @@ Type
 
 * **Disk File Systems:**
   + typical of physically attached disks
-  + `ext3`, `tmpfs`, (also common: `ext4`, `ufs`, `fat32`, `NTFS`)
+  + `xfs`, `tmpfs`, (also common: `ext4`, `ufs`, `fat32`, `NTFS`)
 * **Network File Systems**
   + Allow disk access through the network
   + `NFS`: Networking File System
@@ -86,7 +86,7 @@ Type
 <center><img src="../../resources/RAID6.png" style="height:300px;"></center>
 
 #### `LUSTRE`: Linux + Cluster File System
-* A series of disk servers, each with multiple disks. Disks are used to construct `OSTs`
+* A series of disk servers, each with multiple disks. Disks are used to construct `OSTs`(_Object Storage Targets_)
 * Accessed through the Network, these servers emulate a single file system
 * Files broken in blocks and "striped" across OSTs
   + `myfile`=(stripe1,stripe2,stripe3,stripe4)
