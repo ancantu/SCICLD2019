@@ -94,14 +94,15 @@ scratch_cache
 prefetch SRR5488800 ; fastq-dump SRR5488800 
 prefetch SRR5488802 ; fastq-dump SRR5488802
 ```
-```cp /scratch/02114/wonaya/SSI/SRR5488800.fastq . ```</br>
-```cp /scratch/02114/wonaya/SSI/SRR5488802.fastq . ```
+```cp /scratch/02114/wonaya/SSI/SRR5488800_1m.fastq . ```
+
+```cp /scratch/02114/wonaya/SSI/SRR5488802_1m.fastq . ```
 
 (2 minutes)
 
 ### 7. TopHat and Cufflink demo/hands-on
 
-stampede2:</br>
+stampede2:
 ```
 module load bowtie tophat
 ```
@@ -115,8 +116,8 @@ idev -q normal -t 02:00:00 -A TRAINING-OPEN
 ```
 
 ```
-tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800_1m.fq
-tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802_1m.fq
+tophat2 -p 16 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800_1m.fq
+tophat2 -p 16 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802_1m.fq
 ```
 `cp -r /scratch/02114/wonaya/SSI/test_1/ . ; cp -r /scratch/02114/wonaya/SSI/test_2/ .`
 (15*2 minutes)
@@ -124,7 +125,7 @@ tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -
 Cufflinks: 
 ```
 cufflinks -p 16 -o wt_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_1/accepted_hits.bam
-cufflinks -p 16-o sa_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_2/accepted_hits.bam
+cufflinks -p 16 -o sa_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_2/accepted_hits.bam
 ```
 `cp -r /scratch/02114/wonaya/SSI/wt_cuff/ . ; cp -r /scratch/02114/wonaya/SSI/sa_cuff/ .`
 (1*2 minutes)
