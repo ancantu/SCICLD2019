@@ -7,7 +7,7 @@
 
 ```
 $ scp <USER>@<ORIG_HOSTNAME>:/old/path/filename <USER>@<DESTINATION_HOSTNAME:/path/filename
-$ scp beckbw@ls5.tacc.utexas.edu:/work/03463/beckbw/lonestar/test.tar.gz .
+$ scp beckbw@ls5.tacc.utexas.edu:/work/03463/beckbw/wrangler/test.tar.gz .
 ```
 
 * Let's test it!
