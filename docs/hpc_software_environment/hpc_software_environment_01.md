@@ -4,7 +4,7 @@
 
 ### Getting Set Up
 
-Please log in to the WiFi (see handout), then log in to the Lonestar5 cluster. Follow the instructions for your operating system below.
+Please log in to the WiFi (see handout), then log in to the Wrangler cluster. Follow the instructions for your operating system below.
 
 Mac / Linux:
 
