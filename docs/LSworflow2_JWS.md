@@ -3,7 +3,7 @@
 The main objective of this course is to demonstrate how a bioinformatics workflow can be seamlessly run using TACC resources from raw input to biological interpretation. There are many different types of workflows you can run using the systems we have available here at TACC. In particular, transcriptome analysis will be demoed as it is a familiar concept among wide range of disciplines. 
 
 * Understand Transcriptome analysis
-* Run through a RNA-seq data analysis pipeline using Stampede
+* Run through a RNA-seq data analysis pipeline using Stampede2
 
 ### 1. Transcriptome analysis
 
@@ -71,7 +71,7 @@ The two sequencing files are of a plant model organism, *Arabidopsis Thaliana*.
 
 * A member of the Brassica family
 * A favorite research subject for plant molecular geneticists 
-* Due to its remarkably small genome size (about 100,000 kB, with less than 25% repetitive sequences)
+* Due to its remarkably small genome size (about 135mB, with less than 25% repetitive sequences)
 * And ease of culture in the lab
 * Short stature and life cycle
 * Ameanable to genetic mapping studies and other techniques (such as transformation and gene cloning).
