@@ -9,10 +9,10 @@ This course is designed to build upon [Introduction to Linux](docs/intro_to_linu
 This course is divided into 2 sections of 6 modules:
 
  [Intermediate BASH](#intbash)
-   1. [BASH Scripts](#ib_mod1) shebang, chmod, hello_world
-   2. [Variables](#ib_mod2) declare, quotes
-   3. [Arithmetic](#ib_mod3) integer, fp
-   4. [Strings](#ib_mod4) expr
+   1. [BASH Scripts](#ib_mod1)
+   2. [Variables](#ib_mod2)
+   3. [Arithmetic](#ib_mod3)
+   4. [Strings](#ib_mod4)
    5. [Arguments](#ib_mod5)
    6. [Arrays](#ib_mod6)
 
@@ -33,58 +33,151 @@ This course should be taught in a room equipped with computers (or attendees wit
 
 
 ### Specific Learning Objectives
+[Module1](bash_01_01.md)
+
+| <a name="ib_mod1"></a>Module 1: `bash` script basics|
+|-|
+| |
+|Topics covered in this module:|
+| • The basic format and construction of `bash` scripts
 
 
-[Module 1](data_management_01_01.md)
+[Module 1](bash_01_01.md)
 <table><tbody>
-<tr><th><a name="mod1"></a>Module 1: Overview of HPC Data Management</th></tr>
+<tr><th><a name="ib_mod1"></a>Module 1: `bash` script basics</th></tr>
 <tr><td></td></tr>
 <tr><th> <strong>Topics covered in this module:</strong> </th></tr>
-<tr><td><ul><li> Why do we need best practices in data management? </li><li> Types of file systems used in HPC (NFS, GPFS/Lustre, LTFS, RAID). </li><li> Specific examples of storage infrastructures (TACC Stockyard, Ranch, Corral, WORK, SCRATCH). </li><li> Active vs. inactive data. </li><li> Staging data for compute, analysis, long term storage. </li></ul> </td></tr>
+<tr><td><ul><li> The basic format and construction of `bash` scripts </li></ul> </td></tr>
 <tr><th> <strong>Attendees should be able to...</strong> </th></tr>
-<tr><td><ul><li> List multiple reasons for good data management. </li><li> Describe the similarities and differences of distributed and parallel file systems. </li><li> Determine whether data is backed up or vulnerable. </li><li> Differentiate between active and inactive data. </li><li> Identify the appropriate storage spaces for data at different stages of its life cycle. </li></ul> </td></tr>
+<tr><td><ul><li> Use `vi` to create a script </li><li> Make the script executable using `chmod` </li></ul> </td></tr>
 </tbody></table>
 
 <br>
 
-[Module 2](data_management_02_01.md)
+[Module 2](bash_01_02.md)
 <table><tbody>
-<tr><th><a name="mod2"></a>Module 2: Navigating a File System </th></tr>
+<tr><th><a name="ib_mod2"></a>Module 2: `bash` VARIABLES </th></tr>
 <tr><td></td></tr>
 <tr><th> <strong>Topics covered in this module:</strong> </th></tr>
-<tr><td><ul><li> Introduction to file system limitations (file size, number of files / inodes). </li><li> Determining the size and age of a file. </li><li> Determining the size of a directory, local disk usage (`du, du -h`). </li><li> Total amount of free disk space (`df, df -h`). </li><li> Checking your quota (`quota, lfs quota`). </li></ul></td></tr>
+<tr><td><ul><li> The types and usage of variables and parameters </li></ul> </td></tr>
 <tr><th> <strong>Attendees should be able to...</strong> </th></tr>
-<tr><td><ul><li> Recognize file size and number limitations for a given file system. </li><li> Measure and report the size and age of a file and directory. </li><li> Measure and report disk usage. </li><li> Measure and report the total amount of free disk space. </li><li> Find different storage system mounted to a HPC cluster. </li><li> Determine their disk quota for various file systems. </li></ul></td></tr>
+<tr><td><ul><li> Identify and know the limits of different variables types in `bash` </li></ul> </td></tr>
 </tbody></table>
 
 <br>
-
-[Module 3](data_management_03_01.md)
+[Module 3](bash_01_03.md)
 <table><tbody>
-<tr><th><a name="mod3"></a>Module 3: Moving and Backing up Data</th></tr>
+<tr><th><a name="ib_mod3"></a>Module 3: ARITHMETIC </th></tr>
 <tr><td></td></tr>
 <tr><th> <strong>Topics covered in this module:</strong> </th></tr>
-<tr><td><ul><li> How old is your data and when is it time to archive it? </li><li> Zipping and archiving files and directories (`gzip, gzip -r9, gunzip, tar -czf, tar -xzf`). </li><li> Transferring data from point to point (`rsync, scp, sftp, WinSCP`). </li><li> Staging data on Ranch tape filesystem for archiving. </li></ul></td></tr>
+<tr><td><ul><li> Arithmetic operations for both integer and floatng point variables </li></ul> </td></tr>
 <tr><th> <strong>Attendees should be able to...</strong> </th></tr>
-<tr><td><ul><li> Judge whether it is appropriate to keep active or archive data. </li><li> Zip and unzip files with gzip / gunzip. </li><li> Compress and extract archives with tar. </li><li> Transfer data efficiently between systems. </li><li> Stage data on a tape file systems for transferring to and from. </li></ul></td></tr>
+<tr><td><ul><li>Perform basic arithmetic operations on variables</li></ul> </td></tr>
 </tbody></table>
 
 <br>
-
-[Module 4](data_management_04_01.md)
+[Module 4](bash_01_04.md)
 <table><tbody>
-<tr><th><a name="mod4"></a>Module 4: Tips and Tricks for Maximizing File System Usage</th></tr>
+<tr><th><a name="ib_mod4"></a>Module 4: STRINGS</th></tr>
 <tr><td></td></tr>
 <tr><th> <strong>Topics covered in this module:</strong> </th></tr>
-<tr><td><ul><li> Best practices in directory organization; dates and file names. </li><li> Get rid of duplicate copies of data and duplications within data (dedupe). </li><li> Share files with colleagues instead of duplicating them (permissions - `chmod`, `chown`, `chgrp`; access control lists; `ln`). </li><li> Don’t install common software in your home directory. </li></ul></td></tr>
+<tr><td><ul><li> The construction and usage of character strings, substrings, and string parameters </li></ul> </td></tr>
 <tr><th> <strong>Attendees should be able to...</strong> </th></tr>
-<tr><td><ul><li> Differentiate organized vs. unorganized data. </li><li> Describe strategies to keep data well organized; especially in the context of job submission. </li><li> Remove duplicate copies of data where appropriate. </li><li> Set the correct permissions for sharing data where appropriate. </li></ul></td></tr>
+<tr><td><ul><li>Extract or modify the value of a string or substring</li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 5](bash_01_05.md)
+<table><tbody>
+<tr><th><a name="ib_mod5"></a>Module 5: COMMAND LINE ARGUMENTS</th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li>Parameters that reference, control, and alter command line arguments for a script.</li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li> Identify and extract information passed to or from a `bash` script</li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 6](bash_01_06.md)
+<table><tbody>
+<tr><th><a name="ib_mod6"></a>Module 6: ARRAYS</th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li> How to create and modify collections of common elements that form array. </li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li>Specify and modify entire arrays or just individual array elements </li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 7](bash_02_01.md)
+<table><tbody>
+<tr><th><a name="ab_mod1"></a>Module 7: `bash` LOOPS overview </th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li> The different types and purposes of common `bash` loops. </li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li> Understand the role of different loop types. </li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 8](bash_02_02.md)
+<table><tbody>
+<tr><th><a name="ab_mod2"></a>Module 8: IF/THEN/ELSE</th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li> The syntax and role for conditional comparisons.</li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li> Construct scripts that compare variables </li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 9](bash_02_03.md)
+<table><tbody>
+<tr><th><a name="ab_mod3"></a>Module 9: WHILE LOOPS</th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li>The syntax and role for unbound loops</li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li> Construct scripts that perpetually run until a condition is met. </li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 10](bash_02_04.md)
+<table><tbody>
+<tr><th><a name="ab_mod4"></a>Module 10: FOR LOOPS</th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li> The syntax and role for loops the over lists and ranges </li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li> Construct scripts the execute commands for each member of a list or range </li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 11](bash_02_05.md)
+<table><tbody>
+<tr><th><a name="ab_mod5"></a>Module 11: CASE STATEMENTS</th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li>How to assess when the values of a looped list are known and what actions should be taken.</li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li>Design scripts that allow them to contruct hierarchical menu-like responses. </li></ul> </td></tr>
+</tbody></table>
+
+<br>
+[Module 12](bash_02_06.md)
+<table><tbody>
+<tr><th><a name="ab_mod6"></a>Module 12: SUBFUNCTIONS</th></tr>
+<tr><td></td></tr>
+<tr><th> <strong>Topics covered in this module:</strong> </th></tr>
+<tr><td><ul><li> creation of reusable code blocks</li></ul> </td></tr>
+<tr><th> <strong>Attendees should be able to...</strong> </th></tr>
+<tr><td><ul><li> Construct scripts that reuse common repetitive functions </li></ul> </td></tr>
 </tbody></table>
 
 
 <br>
 
-Prev :arrow_backward: [BASH scripting](bash_scripting.md) | Next :arrow_forward: [BASH scripts](bash_01_02.md) | UP :arrow_up: : [BASH scripting](bash_scripting.md) | Top :arrow_double_up: : [Course Overview](docs/index.md)
+Prev [BASH scripting](bash_scripting.md) | Next [BASH scripts](bash_01_02.md) | UP : [BASH scripting](bash_scripting.md) | Top : [Course Overview](docs/index.md)
 
 <br>
 &copy; 2017 Texas Advanced Computing Center
