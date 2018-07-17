@@ -177,7 +177,7 @@ This course should be taught in a room equipped with computers (or attendees wit
 
 <br>
 
-Prev [BASH scripting](bash_scripting.md) | Next [BASH scripts](bash_01_02.md) | UP : [BASH scripting](bash_scripting.md) | Top : [Course Overview](docs/index.md)
+Prev [BASH scripting](bash_scripting.md) | Next [BASH scripts](bash_01_02.md) | UP : [BASH scripting](bash_scripting.md) | Top : [Course Overview](../../index.md)
 
 <br>
 &copy; 2017 Texas Advanced Computing Center
