@@ -109,7 +109,10 @@ module load bowtie tophat
 
 TopHat run: Aligning sequences on arabidopsis genome guided with gene annotations
 
-#### Remember Do NOT run long processes (more than 5 minutes) on login node 
+#### Remember Do NOT run long processes (more than 10 minutes) on login node 
+```
+idev -q normal -t 02:00:00 -A TRAINING-OPEN
+```
 
 ```
 tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800_1m.fq
