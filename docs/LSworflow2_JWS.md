@@ -87,7 +87,6 @@ First hands on:
 * Convert SRA file to FASTQ
 ```
 module load sratoolkit
-scratch_cache
 prefetch SRR5488800 ; fastq-dump SRR5488800 && prefetch SRR5488802 ; fastq-dump SRR5488802
 ```
 ```cp /scratch/02114/wonaya/SSI/SRR5488800_1m.fastq . ```
