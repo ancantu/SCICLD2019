@@ -47,6 +47,9 @@ Genome index and annotation</br>
 wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Arabidopsis_thaliana/Ensembl/TAIR10/Arabidopsis_thaliana_Ensembl_TAIR10.tar.gz
 tar -zxvf Arabidopsis_thaliana_Ensembl_TAIR10.tar.gz
 ```
+```
+cp -r /scratch/02114/wonaya/SSI/Arabidopsis_thaliana .
+```
 
 ### 4. Tools used in this session
 ~~SRAtoolKit~~
@@ -90,7 +93,6 @@ module load sratoolkit
 prefetch SRR5488800 ; fastq-dump SRR5488800 && prefetch SRR5488802 ; fastq-dump SRR5488802
 ```
 ```cp /scratch/02114/wonaya/SSI/SRR5488800_1m.fastq . ```
-
 ```cp /scratch/02114/wonaya/SSI/SRR5488802_1m.fastq . ```
 
 (2 minutes)
@@ -101,7 +103,6 @@ stampede2:
 ```
 module load bowtie tophat
 ```
-```module load boost``` on ls5
 
 TopHat run: Aligning sequences on arabidopsis genome guided with gene annotations
 
@@ -122,7 +123,7 @@ Cufflinks:
 cufflinks -p 16 -o wt_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_1/accepted_hits.bam > cufflinks.log 2>cufflinks.err &
 cufflinks -p 16 -o sa_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_2/accepted_hits.bam
 ```
-`cp -r /scratch/02114/wonaya/SSI/wt_cuff/ . ; cp -r /scratch/02114/wonaya/SSI/sa_cuff/ .`
+```cp -r /scratch/02114/wonaya/SSI/wt_cuff/ . ; cp -r /scratch/02114/wonaya/SSI/sa_cuff/ .```
 (1*2 minutes)
 
 Cuffmerge: 
