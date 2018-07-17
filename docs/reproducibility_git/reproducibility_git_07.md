@@ -14,9 +14,6 @@ A fork is a personal copy of another user's repository that lives on your accoun
 
 A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or master branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the master branch to publish your changes. For more information, see [About branches](https://help.github.com/articles/about-branches).
 
-[GitHub Glossary](https://help.github.com/articles/github-glossary/)
-
-
 #### Tag
 
  Git has the ability to tag specific points in history as being important. Typically people use this functionality to mark release points (v1.0, and so on).
@@ -24,6 +21,8 @@ A branch is a parallel version of a repository. It is contained within the repos
 #### Pull request
 
 Pull requests are proposed changes to a repository submitted by a user and accepted or rejected by a repository's collaborators. Like issues, pull requests each have their own discussion forum. For more information, see [About pull requests](https://help.github.com/articles/about-pull-requests).
+
+[GitHub Glossary](https://help.github.com/articles/github-glossary/)
 
 
 ## Other Considerations

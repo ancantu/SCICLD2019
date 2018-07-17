@@ -131,7 +131,7 @@ and the log message Git was given when the commit was created.
 1. Take a moment to browse the `.git/` directory to see if you can find where the changes are stored
 
 
-## Making Further Changes
+### Making Further Changes
 
 Now suppose we add more information to the file. Edit the file with `VIM` to add Step 2 of transcriptome analysis:
 
@@ -237,7 +237,7 @@ the current [changeset]({{ page.root }}/reference/#changeset)
 but not yet committed.
 
 
-## Staging Area
+### Staging Area
 
 If you think of Git as taking snapshots of changes over the life of a project,
 `git add` specifies *what* will go in a snapshot
@@ -367,7 +367,7 @@ Date:   Fri Jul 13 10:49:08 2018 -0500
     Started notes on transcriptome analysis
 ```
 
-## Note on Directories
+### Note on Directories
 
 There are a couple important facts you should know about directories in Git. First, Git does not track directories on their own, only files within them. Try it for yourself:
 

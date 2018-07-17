@@ -264,7 +264,7 @@ let her recover the last committed version of her Python script called
 
 
 
-## Summarize Histories
+### Summarize Histories
 
 Exploring history is an important part of git, often it is a challenge to find
 the right commit ID, especially if the commit is from several months ago.
@@ -293,7 +293,10 @@ $ git log --patch transcriptome.txt
 
 You should get a long list of output, and you should be able to see both commit messages and the difference between each commit.
 
-Question: What does the following command do?
+
+### Exercise
+
+What does the following command do?
 
 ```
 $ git log --patch HEAD~3 *.txt

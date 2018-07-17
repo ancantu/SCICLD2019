@@ -28,7 +28,7 @@ a "repository". Repositories can be kept in sync
 across different computers, facilitating collaboration among different people.
 
 
-## Setting up Git
+### Setting up Git
 
 Log on to Stampede2, load the Git module, check which version of Git is in your `PATH`.
 
@@ -40,7 +40,8 @@ $ ssh username@stampede2.tacc.utexas.edu
 $ module list
 
 Currently Loaded Modules:
-  1) intel/17.0.4   2) impi/17.0.3   3) git/2.9.0   4) autotools/1.1   5) python/2.7.13   6) xalt/2.0.7   7) TACC
+  1) intel/17.0.4   2) impi/17.0.3   3) git/2.9.0   4) autotools/1.1
+  5) python/2.7.13   6) xalt/2.0.7   7) TACC
 
 $ git --version
 git version 2.9.0
@@ -71,7 +72,7 @@ another Git host server
 in the future will include this information.
 
 
-## Local Versions of Git
+### Local Versions of Git
 
 A key benefit of Git is that it is platform agnostic. You can use it equally to interact with the same files from your laptop, from a lab computer, or from a cluster. Although we will not be using Git on our laptops in this workshop, instructions to install Git locally can be found [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
