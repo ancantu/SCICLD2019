@@ -70,7 +70,7 @@ lrwxrwxrwx 1 beckbw G-814141 3 Jun  6 07:07 bobby -> bob
 $ find -mtime <days>
 $ find -mtime 1
 $
-$ fine -mtime 0
+$ find -mtime 0
 ./robert
 ./bob
 ./bobby
@@ -82,23 +82,19 @@ $ fine -mtime 0
 `$cd test ` (if not already there)
 ```
 $ for i in $(seq 0 10) ; do mkdir research_$i ; cd research_$i ; for j in $(seq 0 10) ; do touch  data_${i}_${j}; done; cd - ; done
-$ tree
-.
-|-- bob
-|-- bobby -> bob
-|-- research_0
-|   |-- data_0_0
-|   |-- data_0_1
-|   |-- data_0_10
-|   |-- data_0_2
-|   |-- data_0_3
-|   |-- data_0_5
-|   |-- data_0_7
-|   |-- data_0_8
-|   `-- data_0_9
-|-- research_1
-|   |-- data_1_0
-|   |-- data_1_1
+$ ls -R
+.:
+bob    research_0  research_10  research_3  research_5  research_7  research_9
+bobby  research_1  research_2   research_4  research_6  research_8  robert
+
+./research_0:
+data_0_0  data_0_1  data_0_10  data_0_2  data_0_3  data_0_4  data_0_5  data_0_6  data_0_7  data_0_8  data_0_9
+
+./research_1:
+data_1_0  data_1_1  data_1_10  data_1_2  data_1_3  data_1_4  data_1_5  data_1_6  data_1_7  data_1_8  data_1_9
+
+./research_10:
+data_10_0  data_10_1  data_10_10  data_10_2  data_10_3  data_10_4  data_10_5  data_10_6  data_10_7  data_10_8  data_10_9
 ...
 ```
 * Lets alter some files.
@@ -148,6 +144,7 @@ $ du
 27696	.
 ```
 * can we make it human readable?
+
 ```
 $ du -h
 4.0K	./research_10
@@ -163,7 +160,9 @@ $ du -h
 4.0K	./research_3
 28M	.
 '''
+
 * what if I just want the grand total?
+
 ```
 $ du -sh .
 28M	.
@@ -175,15 +174,15 @@ $ du -sh .
 * use the `df` (disk free) command like we did earlier
 
 ```
-$ df /home1
-Filesystem                                                1K-blocks          Used      Available Use% Mounted on
-129.114.54.5:/home1                                     13458257920    2000674816    10773943296  16% /home1
+$ df /home
+Filesystem          1K-blocks      Used  Available Use% Mounted on
+129.114.58.7:/home 6673221632 802356224 5534554112  13% /home
 ```
 * or human readable:
 ```
 $ df -h /home1
-Filesystem           Size  Used Avail Use% Mounted on
-129.114.54.5:/home1   13T  1.9T   11T  16% /home1
+Filesystem          Size  Used Avail Use% Mounted on
+129.114.58.7:/home  6.3T  766G  5.2T  13% /home
 ```
 
 <hr>
@@ -194,23 +193,21 @@ Filesystem           Size  Used Avail Use% Mounted on
   + `quota` will show you how much `/home1` you are using
   ```
   $ quota -s
-Disk quotas for user beckbw (uid 827624):
-     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
-129.114.54.5:/home1
-                  31076  10240M  10445M             198   1000k   1200k        
+Disk quotas for user beckbw (uid 827624): 
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+129.114.58.7:/home
+                   144K  10240M  10254M             158    750k    751k        
   ```
   + `lfs quota` is a LustreFS command that you can apply to Lustre mounted systems like $WORK and $SCRATCH
 
   ```
-$ lfs quota -h $SCRATCH
-Disk quotas for user beckbw (uid 827624):
+$ lfs quota -h /work
+Disk quotas for usr beckbw (uid 827624):
      Filesystem    used   quota   limit   grace   files   quota   limit   grace
-/scratch/03463/beckbw
-                   164k      0k      0k       -     249       0       0       -
-Disk quotas for group G-814141 (gid 814141):
+          /work     10G      0k      1T       -    6202       0 3000000       -
+Disk quotas for grp G-814141 (gid 814141):
      Filesystem    used   quota   limit   grace   files   quota   limit   grace
-/scratch/03463/beckbw
-                 54.58M      0k      0k       -     356       0       0       -
+          /work   12.8T      0k      0k       - 3509052       0       0       -
 
   ```
 
