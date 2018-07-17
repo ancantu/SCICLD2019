@@ -32,9 +32,6 @@ The pipeline uses Next-generation sequencing RNA-seq data to as a raw input.
 ### 2. Transcriptome analysis workflow using TopHat suite
 ![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image7.png)
 
-In more practical view;
-![Alt text](https://image.slidesharecdn.com/rnaseqanalysisngsapplication2-150908195147-lva1-app6892/95/rnaseq-experiment-design-10-638.jpg)
-
 ### 3. Where to find required test-dataset
 Sequence Read Archive
 
