@@ -59,8 +59,8 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 11:45 - 13:00 | Lunch |
 | 13:00 - 14:30 | [Optimization and Parallelization of Workflows for HPC Part 1](docs/optimization_parallelization/optimization_parallelization_01.md) |
 | 14:30 - 14:45 | Break |
-| 14:45 - 16:15 | [Optimization and Parallelization of Workflows for HPC Part 2](docs/optimization_parallelization/optimization_parallelization_04.md) |
-| 16:15 - 16:30 | Break |
+| 14:45 - 16:00 | [Optimization and Parallelization of Workflows for HPC Part 2](docs/optimization_parallelization/optimization_parallelization_04.md) |
+| 16:00 - 16:30 | Break |
 | 16:30 - 17:00 | [Hands-on Exercises & Bring-your-own-code Workshop](docs/hands_on_03.md) |
 
 ### Thursday
