@@ -18,7 +18,7 @@ else
     exit 1
 fi
 
-database="/work/01114/jfonner/public/ctls2017/refseq_protein/refseq_protein"
+database="/work/05369/urrutia/public/ctls2018/refseq_protein/refseq_protein"
 
 
 # run blastp
@@ -40,7 +40,7 @@ At this point, we should also have a time estimate on how long we need to run ou
 
 The `blastp` command can use multiple threads, but (spoiler alert) the scaling is not all that great.  In the Optimization and Parallelization session this afternoon, you will learn how to test and quantify this.  For now, let's purse the strategy of splitting up our file and running independent blastp commands.
 
-Splitting up a fasta file is a common task, and as such, we've already provided a script that does it called `splitfasta.pl`.  You most likely copied it to your local directory at the beginning of this session.  If not, it is availabe at `/work/01114/jfonner/public/ctls2017/splitfasta.pl`.
+Splitting up a fasta file is a common task, and as such, we've already provided a script that does it called `splitfasta.pl`.  You most likely copied it to your local directory at the beginning of this session.  If not, it is availabe at `/work/05369/urrutia/public/ctls2018/splitfasta.pl`.
 
 If we wanted to take our `first10.pep` file and split into individual reads, it would look something like this:
 

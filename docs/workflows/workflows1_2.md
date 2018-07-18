@@ -25,7 +25,7 @@ echo "workflow started at $(date)"
 
 # validate and preprocess our input file(s)
 query="first10.pep"
-database="/work/01114/jfonner/public/ctls2017/refseq_protein/refseq_protein"
+database="/work/05369/urrutia/public/ctls2018/refseq_protein/refseq_protein"
 
 # run blastp
 blastp -num_threads 12 -query $query -db $database
@@ -41,7 +41,7 @@ Nice!  Try running your new script!
 ./blastp_workflow.sh
 ```
 
-If we let it run to completion, it would take a while, so let's stop our script and add some things by **pressing Ctrl+C** to terminate the command.  We will use the time to add helpful features to our script and learn more about bash while we are at it.
+If we let it run to completion, it would take a while, so let's stop our script and add some things by **pressing Ctrl+z** to terminate the command.  We will use the time to add helpful features to our script and learn more about bash while we are at it.
 
 ## Reading command line arguments
 
@@ -100,7 +100,7 @@ The conditions themselves look something like this:
 [[ $# -eq 1 ]]
 ```
 
-That will be true if the number of arguments passed into the script was 1.  Here is a full list of conditional expressions: [https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html)
+That will be true if the number of arguments passed into the script was 1.  Here is a full list of [conditional expressions](https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html).
 
 ## Hands-on
 
