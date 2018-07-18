@@ -2,13 +2,14 @@
 
 According to the [Stanford CPU database](http://cpudb.stanford.edu/), processors haven't gotten faster since 2005.
 
-<center>![clock rates](https://github.com/CODE-at-TACC/summer-2015/raw/master/parallel/images/clock.png)</center>
+<center><img src="https://github.com/CODE-at-TACC/summer-2015/raw/master/parallel/images/clock.png"></center>
 
 No matter how much we've spent on the latest and greatest PC, sequential (single-core) programs won't be going any faster. Even at TACC, Stampede processors ran between 2.7 and 3.5 GHz and Stampede 2 KNL processors run at 1.4 GHz!
 
 However, transistor and core counts are increasing.
 
-<center>![transistors](https://github.com/CODE-at-TACC/summer-2015/raw/master/parallel/images/transistors.png)</center>
+<center><img src="https://github.com/CODE-at-TACC/summer-2015/raw/master/parallel/images/transistors.png"></center>
+
 
 Stampede had 16 cores in the main CPU, while Stampede 2 will have 68! We can take advantage of these resources with threaded code and concurrent task scheduling.
 
