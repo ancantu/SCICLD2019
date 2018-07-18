@@ -108,7 +108,7 @@ nothing to commit, working directory clean
 
 it tells us everything is up to date.
 
-# Check the Project History
+### Check the Project History
 
 If we want to know what we've done recently,
 we can ask Git to show us the project's history using `git log`:

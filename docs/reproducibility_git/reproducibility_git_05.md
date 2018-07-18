@@ -242,8 +242,6 @@ moving backward and forward in time becomes much easier.
 
 ### Exercise
 
-#### Recovering Older Versions of a File
-
 Jennifer has made changes to the Python script that she has been working on for weeks, and the
 modifications she made this morning "broke" the script and it no longer runs. She has spent
 ~ 1hr trying to fix it, with no luck...

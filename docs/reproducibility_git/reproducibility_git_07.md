@@ -24,8 +24,11 @@ Pull requests are proposed changes to a repository submitted by a user and accep
 
 [GitHub Glossary](https://help.github.com/articles/github-glossary/)
 
+[More on different git workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
 
 ## Other Considerations
+
+Most repos will also contain a few standard files in the top directory, including:
 
 `README.md`: The landing page of your repository on GitHub will display the contents of README.md, if it exists. This is a good place to describe your project and list the appropriate citations.
 
