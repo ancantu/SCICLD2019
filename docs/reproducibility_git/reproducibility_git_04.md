@@ -30,6 +30,8 @@ $ cat transcriptome.txt
 Step 1: Map reads with tophat
 ```
 
+### Start Tracking a New File
+
 If we check the status of our project again,
 Git tells us that it's noticed the new file:
 
@@ -68,6 +70,7 @@ Changes to be committed:
 
 	new file:   transcriptome.txt
 ```
+### Commit Changes to the Repo
 
 Git now knows that it's supposed to keep track of `transcriptome.txt`,
 but it hasn't recorded these changes as a commit yet.
@@ -104,6 +107,9 @@ nothing to commit, working directory clean
 ```
 
 it tells us everything is up to date.
+
+# Check the Project History
+
 If we want to know what we've done recently,
 we can ask Git to show us the project's history using `git log`:
 
@@ -233,7 +239,7 @@ but *not* commit some of our work drafting the conclusion
 To allow for this,
 Git has a special *staging area*
 where it keeps track of things that have been added to
-the current [changeset]({{ page.root }}/reference/#changeset)
+the current changeset
 but not yet committed.
 
 
@@ -244,17 +250,6 @@ If you think of Git as taking snapshots of changes over the life of a project,
 (putting things in the staging area),
 and `git commit` then *actually takes* the snapshot, and
 makes a permanent record of it (as a commit).
-If you don't have anything staged when you type `git commit`,
-Git will prompt you to use `git commit -a` or `git commit --all`,
-which is kind of like gathering *everyone* for the picture!
-However, it's almost always better to
-explicitly add things to the staging area, because you might
-commit changes you forgot you made. (Going back to snapshots,
-you might get the extra with incomplete makeup walking on
-the stage for the snapshot because you used `-a`!)
-Try to stage things manually,
-or you might find yourself searching for "git undo commit" more
-than you would like!
 
 ![The Git Staging Area](./fig/git-staging-area.svg)
 
@@ -380,10 +375,7 @@ $ git status
 
 Note, our newly created empty directory `directory` does not appear in
 the list of untracked files even if we explicitly add it (_via_ `git add`) to our
-repository. This is the reason why you will sometimes see `.gitkeep` files
-in otherwise empty directories. Unlike `.gitignore`, these files are not special
-and their sole purpose is to populate a directory so that Git adds it to
-the repository. In fact, you can name such files anything you like.
+repository.
 
 Second, if you create a directory in your Git repository and populate it with files,
 you can add all files in the directory at once by:
@@ -394,11 +386,13 @@ $ git add <directory-with-files>
 
 ### Exercise
 
-1. Add the rest of the steps of transcriptome analysis to your text file
-
+Here are the last two steps of transcriptome analysis:
+```
 Step 5: Compute differential expression with cuffdiff
 Step 6-18: Plot expression data with cummerbund
+```
 
+1. Add the rest of the steps of transcriptome analysis to your text file
 2. Add the modified file to the staging area
 3. Commit the modifications
 4. Browse the `.git/` folder to find where commits are located
