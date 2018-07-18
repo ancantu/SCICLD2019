@@ -36,9 +36,7 @@ index c876e8d..a4a265a 100644
 
 Which is the same as what you would get if you leave out `HEAD` (try it).  The
 real benefit in all this is when you can refer to previous commits.  We do
-that by adding `~1`
-(where "~" is "tilde", pronounced [**til**-d*uh*])
-to refer to the commit one before `HEAD`.
+that by adding `~1` to refer to the commit one before `HEAD`.
 
 ```
 $ git diff HEAD~1 transcriptome.txt
@@ -74,6 +72,7 @@ index fe7c565..a4a265a 100644
 +An ill-considered change
 ```
 
+### More Detailed Histories
 
 We could also use `git show` which shows us what changes we made at an older commit as well as the commit message, rather than the _differences_ between a commit and our working directory that we see by using `git diff`.
 
@@ -100,7 +99,9 @@ The most recent end of the chain is referred to as `HEAD`;
 we can refer to previous commits using the `~` notation,
 so `HEAD~1`
 means "the previous commit",
-while `HEAD~555` goes back 555 commits from where we are now.
+while `HEAD~100` goes back 100 commits from where we are now.
+
+### Look at Changes Given Commit ID
 
 We can also refer to commits using
 those long strings of digits and letters
@@ -147,8 +148,9 @@ index fe7c565..a4a265a 100644
 +Next steps: Back up our results
 ```
 
-All right! So
-we can save changes to files and see what we've changed—now how
+### Restoring Old Versions of Files
+
+We can save changes to files and see what we've changed—now how
 can we restore older versions of things?
 Let's suppose we accidentally overwrite our file:
 
@@ -224,11 +226,6 @@ recent commit (`HEAD~1`), which is commit `cfe5306`:
 
 ![Git Checkout](./fig/git-checkout.svg)
 
-So, to put it all together,
-here's how Git works in cartoon form:
-
-![https://figshare.com/articles/How_Git_works_a_cartoon/1328266](./fig/git_staging.svg)
-
 
 The fact that files can be reverted one by one
 tends to change the way people organize their work.
@@ -251,7 +248,7 @@ Jennifer has made changes to the Python script that she has been working on for 
 modifications she made this morning "broke" the script and it no longer runs. She has spent
 ~ 1hr trying to fix it, with no luck...
 
-Luckily, she has been keeping track of her project's versions using Git! Which commands below will
+Luckily, she has been keeping track of her project's versions using Git. Which commands below will
 let her recover the last committed version of her Python script called
 `data_cruncher.py`?
 
@@ -259,9 +256,6 @@ let her recover the last committed version of her Python script called
 2. `$ git checkout HEAD data_cruncher.py`
 3. `$ git checkout HEAD~1 data_cruncher.py`
 4. `$ git checkout <unique ID of last commit> data_cruncher.py`
-5. Both 2 and 4
-
-
 
 
 ### Summarize Histories
@@ -296,11 +290,8 @@ You should get a long list of output, and you should be able to see both commit 
 
 ### Exercise
 
-What does the following command do?
-
-```
-$ git log --patch HEAD~3 *.txt
-```
+1. What does the following command do? `$ git log --patch HEAD~3 *.txt`
+2. Create a new Git repo in a new folder. Create or copy in two files with text in them (any text is fine). Separately, add and commit those files to the new repo.
 
 
 Previous: [Tracking Changes](reproducibility_git_04.md) | Next: [Link a Local Repository to GitHub](reproducibility_git_06.md) | Top: [Course Overview](../../index.md)
