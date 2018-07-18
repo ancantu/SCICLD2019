@@ -103,6 +103,7 @@ prefetch SRR5488800 ; fastq-dump SRR5488800 && prefetch SRR5488802 ; fastq-dump 
 
 stampede2:
 ```
+module load bowtie
 module load tophat
 ```
 
