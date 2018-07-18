@@ -19,7 +19,16 @@ When you copied over the data files, you already copied over the FLASH source co
 First, compile it using default parameters using the GCC compiler. Notice we will be running all of this from `/dev/shm` so no slowdowns are introduced by the network filesystems. Just like on your home wifi, someone might be streaming ALL of youtube.
 
 ```
-$ cp SRR*fastq /dev/shm
+$ cp /work/03076/gzynda/stampede2/ctls-public/flash_inputs/FLASH_[12].fastq .
+$ cp /work/03076/gzynda/stampede2/ctls-public/FLASH-1.2.11.tar.gz .
+
+
+$ idev -m 180 -p skx-normal -r LF_18_WEDNESDAY -N 1 -n 48
+```
+
+
+```
+$ cp FLASH_[12].fastq /dev/shm/
 $ cd /dev/shm
 $ tar -xzf ~/FLASH-1.2.11.tar.gz
 $ cd FLASH-1.2.11
@@ -71,7 +80,7 @@ This means that several operations can take place during each clock cycle.
 
 ```
 $ make clean
-$ make CC=gcc CFLAGS="-O3 -march=haswell -Wall -std=c99 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64"
+$ make CC=gcc CFLAGS="-O3 -march=broadwell -mtune=broadwell -fno-tree-vectorize -Wall -std=c99 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64"
 $ ./flash -m 20 -M 250 -t 1 ../SRR2014925_1.fastq ../SRR2014925_2.fastq &> avx2.log
 $ tail avx2.log
 ```
@@ -91,12 +100,14 @@ $ done
 
 #### Explore
 
-- Try plotting your runtimes
-- Do you see an obvious slowdown?
+- Try plotting your runtimes from a spreadsheet again
+- Do you see any obvious results?
 
 ## Exercises
 
 - Optimize a tool that you use
+  - GCC - `-march=broadwell -mtune=knl`
+  - ICC - `-xCORE-AVX2 -axMIC-AVX512,CORE-AVX512`
 <br>
 <br>
 
