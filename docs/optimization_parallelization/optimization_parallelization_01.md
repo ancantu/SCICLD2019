@@ -23,9 +23,8 @@ Time - 90 minutes
 
 # Topics Covered
 
-- Monitoring jobs - (`top`, `time`, `remora`)
-- Parallelization - (`threading`, `for/wait`, `xargs`)
-- Distribution - (`launcher`)
+- Monitoring jobs - (`top`, `time`)
+- Parallelization - (`threading`, `launcher`)
 - Code Optimization - (optimization, vectorization)
 - Choosing hardware - (io, cpu, memory)
 <br>

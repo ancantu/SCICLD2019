@@ -1,10 +1,10 @@
-# Parallelizing Jobs
+# Parallelization
 
 According to the [Stanford CPU database](http://cpudb.stanford.edu/), processors haven't gotten faster since 2005.
 
 ![clock rates](https://github.com/CODE-at-TACC/summer-2015/raw/master/parallel/images/clock.png)
 
-No matter how much we've spent on the latest and greatest PC, sequential (single-core) programs won't be going any faster. Even at TACC, Stampede processors ran between 2.7 and 3.5 GHz and Stampede 2 processors run at 1.4 GHz.
+No matter how much we've spent on the latest and greatest PC, sequential (single-core) programs won't be going any faster. Even at TACC, Stampede processors ran between 2.7 and 3.5 GHz and Stampede 2 KNL processors run at 1.4 GHz.
 
 However, transistor and core counts are increasing.
 
@@ -19,12 +19,13 @@ The most proactive thing we can do is run our applications on multiple threads/p
 | TACC System | Cores/Node |
 |--|--|
 | Stampede | 16 |
-| Stampede 2 | 68 |
+| Stampede 2 KNL | 68 |
+| Stampede 2 SKX | 48 |
 | Lonestar 5 | 24 |
 | Maverick | 20 |
 | Wrangler | 24 |
 
-The version of `sort` on LS5 does have a parallel option, so lets give it a try using our standard workflow.
+The version of `sort` on this system does have a parallel option, so lets give it a try using our standard workflow.
 
 ```
 $ time sort -S 100M -k1,1 -k2,2n SRR2014925.bed | head
@@ -37,131 +38,63 @@ We can also use a loop to see where increasing the number of threads becomes ine
 for N in {1..6}
 do
    time sort --parallel $N -S 100M -k1,1 -k2,2n SRR2014925.bed > /dev/null
-done 2>&1 | grep "real" | awk '{ print NR"\t"$0 }'
+done 2>&1 | grep "real" | awk '{ print NR" cores\t"$0 }'
 ```
 
-Time writes to `stderr` instead of `stdout`, so we need the `2>&1` redirection to grep for real time.
+NOTE: `time` writes to `stderr` instead of `stdout`, so we need the `2>&1` redirection to grep for real time.
 
 Do you see a point where extra cores becomes ineffective? Does increasing the memory limit help?
+
+### Workflow scaling
+
+Lets see how well our tophat2 workflow scales.
+I made a convenience script that you can copy to your scratch directory.
+
+```
+$ cp /work/03076/gzynda/stampede2/ctls-public/run_tophat_yeast.sh .
+```
+
+If you take a look at the file
+
+```
+PUBLIC=/work/03076/gzynda/stampede2/ctls-public
+VER=Saccharomyces_cerevisiae/Ensembl/EF4
+GENES=${PUBLIC}/${VER}/Annotation/Genes/genes.gtf
+REF=${PUBLIC}/${VER}/Sequence/Bowtie2Index/genome
+
+SIZE=${1:-500K}
+CORES=${2:-8}
+
+# Load standard module
+ml tophat/2.1.1 bowtie/2.3.2
+
+
+for prefix in WT_{C,N}R_A_${SIZE}; do
+        OUT=${prefix}_n${CORES}_tophat
+        [ -e $OUT ] && rm -rf $OUT
+        tophat2 -p ${CORES} -G $GENES -o $OUT --no-novel-juncs $REF ${PUBLIC}/${prefix}.fastq &> ${OUT}.log
+done
+```
+
+You'll notice that it aligns yeast reads against a reference and annotation that I have in my public work directory, and it takes two parameters:
+
+- number of reads [500K] or 1M
+- number of cores [8]
+
+You can run it 500K reads on 4 cores using the commands
+
+```
+$ bash run_tophat_yeast.sh 500K 4
+```
+
+Lets see how well this scales using the `time` command, and claiming a cell in [this google doc](https://docs.google.com/spreadsheets/d/1InOXKzfxOkoxt2-P3Z_ofARJ3Ls--r-aoi5x5IPx5l8/edit?usp=sharing) to fill out.
+
+Do you see any interesting results?
 
 #### Explore
 
 - Try experimenting with or reading about thread count on other tools you know
-  - BWA
-  - samtools
-  - tophat
-  - bowtie
-
-### Concurrent Processes
-
-When programs don't allow thread scaling, or they do not scale after a certain limit like `sort`, we have the option to run multiple programs at the same time - assuming there is leftover memory and i/o.
-The most basic version of this is multitasking by running multiple programs in the background.
-Starting from a sequential example
-
-```
-time for N in {1..4}
-do
-   sleep 2 && echo "$N - Done - $(date +%s)"
-   sleep 1
-done
-```
-
-The scheduling would look like this
-
-```
-N 123456789012
-1 SSE
-2    SSE
-3       SSE
-4          SSE
-```
-
-This should take about 3 seconds per loop, so hopefully 12 seconds in total. We can run multiple tasks in parallel by launching the sleep/echo line in the background and not waiting for it to complete.
-
-```
-time for N in {1..4}
-do
-   ( sleep 2 && echo "$N - Done - $(date +%s)" ) &
-   sleep 1
-done
-```
-
-The parallel scheduling would look like
-
-```
-N 12345
-1 SE
-2  SE
-3   SE
-4    SE
-```
-
-However, you may notice that time prints before the 4th task finishes.
-That's because the for loop, and `time`, exits before the backgrounded task finishes.
-We cane make this much more apparent with
-
-```
-time for N in {1..4}
-do
-   ( sleep 2 && echo "$N - Done - $(date +%s)" ) &
-done
-```
-
-If we use `wait` at the end of our for loop, the program will block until all the child processes are completed.
-
-```
-time ( for N in {1..4}
-do
-   ( sleep 2 && echo "$N - Done - $(date +%s)" ) &
-done && wait)
-```
-
-The parallel scheduling now looks like
-
-```
-N 12
-1 SE
-2 SE
-3 SE
-4 SE
-```
-
-And assuming we have at least 4 cores in our computer, this is what we want.
-When you start writing workflows with large numbers of tasks, it becomes difficult to schedule everything programmatically, so I recommend the `xargs` command to work through everything for you.
-
-```
-time for N in {1..4}
-do
-   echo "sleep 2 && echo '$N - Done - $(date +%s)'"
-done | xargs -L 1 -P 4 -I {} bash -c {}
-```
-
-When `xargs` recieves the `-L 1` argument, it will run an entire line (which we echo). The `-P` argument controls the number of cores you want to schedule the tasks on, and the `-I {}` argument will substitute the input line as `{}` at the end.
-
-You can also send a list directly to xargs and specify that each word (`-n 1`) be executed on, making it trivial to compress
-
-```
-$ ls *fastq *fasta
-$ ls *fastq *fasta | xargs -n 1 -P 24 gzip
-$ ls *fastq* *fasta*
-```
-
-and decompress files.
-
-```
-$ ls *fastq* *fasta*
-$ ls *fastq* *fasta* | xargs -n 1 -P 24 gzip -d
-$ ls *fastq* *fasta*
-```
-
-#### Explore
-
-- Use for/wait to calculate the line count of each fastq file
-- Use `ls` and `xargs` to count fastq lines in parallel
-
-## Exercises
-
-- Use the `split` command to make a parallel merge-sort
+- Try using `/bin/time -v` to see if memory scales with input size
 <br>
 <br>
 
