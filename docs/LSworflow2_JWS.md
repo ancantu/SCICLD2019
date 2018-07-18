@@ -101,7 +101,7 @@ prefetch SRR5488800 ; fastq-dump SRR5488800 && prefetch SRR5488802 ; fastq-dump 
 
 stampede2:
 ```
-module load bowtie tophat
+module load tophat
 ```
 
 TopHat run: Aligning sequences on arabidopsis genome guided with gene annotations
@@ -112,8 +112,12 @@ idev -q normal -t 02:00:00 -A TRAINING-OPEN
 ```
 
 ```
+mkdir tophat
+```
+
+```
 tophat2 -p 16 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800_1m.fq > alignent1.log 2>alignment1.err &
-tophat2 -p 16 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802_1m.fq > alignent2.log 2>alignment2.err
+tophat2 -p 16 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802_1m.fq
 ```
 `cp -r /scratch/02114/wonaya/SSI/test_1/ . ; cp -r /scratch/02114/wonaya/SSI/test_2/ .`
 (15*2 minutes)
