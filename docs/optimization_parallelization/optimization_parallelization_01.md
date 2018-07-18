@@ -19,7 +19,7 @@ Time - 90 minutes
 * Monitor a job to evaluate performance.
 * Break down a large task into multiple small tasks.
 * Optimize code for a specific architecture.
-* Use the optimal resources for your problem.
+* Use the optimal resources for your work.
 
 # Topics Covered
 

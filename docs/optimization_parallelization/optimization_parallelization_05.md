@@ -98,16 +98,30 @@ $   ./flash -m 20 -M 250 -t $N ../SRR2014925_1.fastq ../SRR2014925_2.fastq &> av
 $ done
 ```
 
-#### Explore
+#### Explore (5 minutes)
 
 - Try plotting your runtimes from a spreadsheet again
 - Do you see any obvious results?
+
+### Final Message
+
+Your code may or may not benefit from compiler optimizations, and is best utilized by linear algebra functions.
+Most bioinformatics code is not significantly affected by vectorization, and I have had best results with
+
+- enabling affinity in threaded code
+- linking to optimized library modules
 
 ## Exercises
 
 - Optimize a tool that you use
   - GCC - `-march=broadwell -mtune=knl`
   - ICC - `-xCORE-AVX2 -axMIC-AVX512,CORE-AVX512`
+- Try adapting `/work/03076/gzynda/stampede2/ctls-public/run_cufflinks_yeast.sh` to use the following modules
+```
+$ ml use /work/03076/gzynda/stampede2/ctls-public/apps/modulefiles
+$ ml intel/18.0.2 cufflinks/intel+opt
+```
+and see if the runtime changes
 <br>
 <br>
 

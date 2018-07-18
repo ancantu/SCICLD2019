@@ -1,8 +1,10 @@
 # Task Distribution
 
-One of the most convenient tools that we have at TACC is [Launcher](https://github.com/TACC/launcher). Launcher is a simple way to work through a list of single-node tasks. In addition to scheduling tasks on a single node, Launcher can also spawn tasks on other nodes allocated to the job. This is good news for everyone that needs to complete a lot of work because every time you submit a job, your priority goes down. If you can bundle all of your work into one large job, you will not only complete a lot of work, you will optimize your scheduling priority.
+One of the most convenient and powerful tools that we have at TACC is [Launcher](https://github.com/TACC/launcher). Launcher is a simple way to work through a list of single-node tasks. In addition to scheduling tasks on a single node, Launcher can also spawn tasks on other nodes allocated to the job (this is how you can *really* take advantage of TACC).
+This is good news for everyone that needs to complete a lot of work because every time you submit a job, your priority goes down.
+If you can bundle all of your work into one large job, you will not only complete a lot of work, you will optimize your scheduling priority.
 
-Launcher works by working through a text file and executing each line as a job. Inside each line
+Launcher works through a text file and executes each line as a separate task. Inside each line
 
 - Output can be piped
 - Commands can be chained
@@ -85,19 +87,19 @@ The output from this job can be viewed at
 - `test_launcher.*.o` - stdout
 - `test_launcher.*.e` - stderr
 
-#### Explore
+#### Explore (5 minutes)
 
 - Try piping each command to a file (make sure you don't overwrite files!!)
 
 ### Running tasks on multiple nodes
 
 Launcher also makes it easy to take any workflow and scale it out to multiple compute nodes.
-You simply need to change:
+Assuming you have enough tasks, you simply need to change:
 
 - `-N` - Number of nodes to used
-- `-n` - Total tasks
+- `-n` - Total concurrent tasks
 
-Lets copy our single-node submission script to `launcher_test_double.sh`
+Lets copy our single-node submission script to the new file `launcher_test_double.sh`
 
 ```
 $ cp launcher_test_single.sh launcher_test_double.sh
@@ -138,11 +140,11 @@ and then submit
 $ sbatch --reservation=LF_18_WEDNESDAY launcher_test_double.sh
 ```
 
-#### Explore
+#### Explore (10 minutes)
 
-- Adapt this to run our sweep of `run_tophat_yeast.sh` across
+- Adapt this to run our sweep of `run_tophat_yeast.sh` across two nodes (`-N 2`), and two tasks per node (`-n 4`)
   - both 1M and 500K reads
-  - {2, 4, 8, 12, 24} cores on two nodes, and two tasks per node.
+  - {4, 8, 12, 24} cores
 
 ### Workflows
 
@@ -183,7 +185,7 @@ export LAUNCHER_JOB_FILE=commandList1
 $LAUNCHER_DIR/paramrun
 ```
 
-#### Explore
+#### Explore (10 minutes)
 
 Use both
 
