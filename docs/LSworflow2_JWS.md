@@ -92,8 +92,10 @@ First hands on:
 module load sratoolkit
 prefetch SRR5488800 ; fastq-dump SRR5488800 && prefetch SRR5488802 ; fastq-dump SRR5488802
 ```
-```cp /scratch/02114/wonaya/SSI/SRR5488800_1m.fastq . ```
-```cp /scratch/02114/wonaya/SSI/SRR5488802_1m.fastq . ```
+
+```cp /scratch/02114/wonaya/SSI/SRR5488800_1m.fq . ```
+
+```cp /scratch/02114/wonaya/SSI/SRR5488802_1m.fq . ```
 
 (2 minutes)
 
@@ -101,7 +103,9 @@ prefetch SRR5488800 ; fastq-dump SRR5488800 && prefetch SRR5488802 ; fastq-dump 
 
 stampede2:
 ```
+module load bowtie
 module load tophat
+module load cufflinks
 ```
 
 TopHat run: Aligning sequences on arabidopsis genome guided with gene annotations
