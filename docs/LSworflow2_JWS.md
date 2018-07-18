@@ -105,6 +105,7 @@ stampede2:
 ```
 module load bowtie
 module load tophat
+module load cufflinks
 ```
 
 TopHat run: Aligning sequences on arabidopsis genome guided with gene annotations
