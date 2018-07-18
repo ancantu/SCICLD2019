@@ -3,7 +3,7 @@
 The main objective of this course is to demonstrate how a bioinformatics workflow can be seamlessly run using TACC resources from raw input to biological interpretation. There are many different types of workflows you can run using the systems we have available here at TACC. In particular, transcriptome analysis will be demoed as it is a familiar concept among wide range of disciplines. 
 
 * Understand Transcriptome analysis
-* Run through a RNA-seq data analysis pipeline using Stampede
+* Run through a RNA-seq data analysis pipeline using Stampede2
 
 ### 1. Transcriptome analysis
 
@@ -32,9 +32,6 @@ The pipeline uses Next-generation sequencing RNA-seq data to as a raw input.
 ### 2. Transcriptome analysis workflow using TopHat suite
 ![Alt text](https://raw.githubusercontent.com/wonaya/test/master/image7.png)
 
-In more practical view;
-![Alt text](https://image.slidesharecdn.com/rnaseqanalysisngsapplication2-150908195147-lva1-app6892/95/rnaseq-experiment-design-10-638.jpg)
-
 ### 3. Where to find required test-dataset
 Sequence Read Archive
 
@@ -49,6 +46,9 @@ Genome index and annotation</br>
 ```
 wget ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Arabidopsis_thaliana/Ensembl/TAIR10/Arabidopsis_thaliana_Ensembl_TAIR10.tar.gz
 tar -zxvf Arabidopsis_thaliana_Ensembl_TAIR10.tar.gz
+```
+```
+cp -r /scratch/02114/wonaya/SSI/Arabidopsis_thaliana .
 ```
 
 ### 4. Tools used in this session
@@ -71,7 +71,7 @@ The two sequencing files are of a plant model organism, *Arabidopsis Thaliana*.
 
 * A member of the Brassica family
 * A favorite research subject for plant molecular geneticists 
-* Due to its remarkably small genome size (about 100,000 kB, with less than 25% repetitive sequences)
+* Due to its remarkably small genome size (about 135mB, with less than 25% repetitive sequences)
 * And ease of culture in the lab
 * Short stature and life cycle
 * Ameanable to genetic mapping studies and other techniques (such as transformation and gene cloning).
@@ -90,22 +90,19 @@ First hands on:
 * Convert SRA file to FASTQ
 ```
 module load sratoolkit
-scratch_cache
-prefetch SRR5488800 ; fastq-dump SRR5488800 
-prefetch SRR5488802 ; fastq-dump SRR5488802
+prefetch SRR5488800 ; fastq-dump SRR5488800 && prefetch SRR5488802 ; fastq-dump SRR5488802
 ```
-```cp /scratch/02114/wonaya/SSI/SRR5488800.fastq . ```</br>
-```cp /scratch/02114/wonaya/SSI/SRR5488802.fastq . ```
+```cp /scratch/02114/wonaya/SSI/SRR5488800_1m.fastq . ```
+```cp /scratch/02114/wonaya/SSI/SRR5488802_1m.fastq . ```
 
 (2 minutes)
 
 ### 7. TopHat and Cufflink demo/hands-on
 
-stampede2:</br>
+stampede2:
 ```
 module load bowtie tophat
 ```
-```module load boost``` on ls5
 
 TopHat run: Aligning sequences on arabidopsis genome guided with gene annotations
 
@@ -115,18 +112,18 @@ idev -q normal -t 02:00:00 -A TRAINING-OPEN
 ```
 
 ```
-tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800_1m.fq
-tophat2 -p 4 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802_1m.fq
+tophat2 -p 16 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_1 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488800_1m.fq > alignent1.log 2>alignment1.err &
+tophat2 -p 16 -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf -o test_2 --no-novel-juncs Arabidopsis_thaliana/Ensembl/TAIR10/Sequence/Bowtie2Index/genome SRR5488802_1m.fq > alignent2.log 2>alignment2.err
 ```
 `cp -r /scratch/02114/wonaya/SSI/test_1/ . ; cp -r /scratch/02114/wonaya/SSI/test_2/ .`
 (15*2 minutes)
 
 Cufflinks: 
 ```
-cufflinks -p 16 -o wt_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_1/accepted_hits.bam
-cufflinks -p 16-o sa_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_2/accepted_hits.bam
+cufflinks -p 16 -o wt_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_1/accepted_hits.bam > cufflinks.log 2>cufflinks.err &
+cufflinks -p 16 -o sa_cuff -G Arabidopsis_thaliana/Ensembl/TAIR10/Annotation/Genes/genes.gtf test_2/accepted_hits.bam
 ```
-`cp -r /scratch/02114/wonaya/SSI/wt_cuff/ . ; cp -r /scratch/02114/wonaya/SSI/sa_cuff/ .`
+```cp -r /scratch/02114/wonaya/SSI/wt_cuff/ . ; cp -r /scratch/02114/wonaya/SSI/sa_cuff/ .```
 (1*2 minutes)
 
 Cuffmerge: 
