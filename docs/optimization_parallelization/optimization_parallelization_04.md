@@ -16,7 +16,7 @@ Lets begin by making a program that writes the task ID and the hostname it was r
 ```
 for task in {1..10}
 do
-        echo "echo \"This is task-${task} on $(hostname)\""
+        echo "echo \"This is task-${task} on \$(hostname)\""
 done
 ```
 
@@ -35,7 +35,7 @@ Now, redirect this to a file called `commandList` so we can run it with launcher
 ```
 for task in {1..10}
 do
-        echo "echo \"This is task-${task} on $(hostname)\""
+        echo "echo \"This is task-${task} on \$(hostname)\""
 done > commandList
 ```
 ### Single node tasks
@@ -59,7 +59,7 @@ We can turn this into a launcher job by creating the SLURM submission script `la
 module load launcher
 
 for task in {1..10}; do
-        echo "echo \"This is task-${task} on $(hostname)\""
+        echo "echo \"This is task-${task} on \$(hostname)\""
 done > commandList
 
 export LAUNCHER_PLUGIN_DIR=${LAUNCHER_DIR}/plugins
@@ -124,7 +124,7 @@ and modify the `SBATCH` header to use two nodes and two tasks.
 module load launcher
 
 for task in {1..10}; do
-        echo "echo \"This is task-${task} on $(hostname)\""
+        echo "echo \"This is task-${task} on \$(hostname)\""
 done > commandList
 
 export LAUNCHER_PLUGIN_DIR=${LAUNCHER_DIR}/plugins
@@ -168,7 +168,7 @@ module load launcher
 
 # Commands for section 1
 for task in {1..10}; do
-        echo "echo \"This is s1-task-${task} on $(hostname)\""
+        echo "echo \"This is s1-task-${task} on \$(hostname)\""
 done > commandList1
 
 export LAUNCHER_PLUGIN_DIR=${LAUNCHER_DIR}/plugins
@@ -178,7 +178,7 @@ $LAUNCHER_DIR/paramrun
 
 # Commands for section 2
 for task in {1..10}; do
-        echo "echo \"This is s2-task-${task} on $(hostname)\""
+        echo "echo \"This is s2-task-${task} on \$(hostname)\""
 done > commandList2
 
 export LAUNCHER_JOB_FILE=commandList1
@@ -193,6 +193,101 @@ Use both
 - /work/03076/gzynda/stampede2/ctls-public/run_tophat_yeast.sh
 
 to run the tophat/cufflinks workflow on both 500K and 1M reads using launcher in a single sbatch script. The shortest job wins!
+
+```
+#!/bin/bash
+#SBATCH -J test_launcher
+#SBATCH -o test_launcher.%j.o
+#SBATCH -e test_launcher.%j.e
+#SBATCH -p skx-normal
+#SBATCH --mail-user=gzynda@tacc.utexas.edu
+#SBATCH --mail-type=begin
+#SBATCH --mail-type=end
+#SBATCH -t 2:00:00
+#SBATCH -A TRAINING-OPEN
+#SBATCH -N 1
+#SBATCH -n 4
+
+# Load standard module
+module load launcher
+ml tophat/2.1.1 bowtie/2.3.2 cufflinks/2.2.1
+
+# Hardcode cores
+CORES=8
+
+# Input paths
+PUBLIC=/work/03076/gzynda/stampede2/ctls-public
+VER=Saccharomyces_cerevisiae/Ensembl/EF4
+GENES=${PUBLIC}/${VER}/Annotation/Genes/genes.gtf
+REF=${PUBLIC}/${VER}/Sequence/Bowtie2Index/genome
+
+# Launcher variables
+export LAUNCHER_PLUGIN_DIR=${LAUNCHER_DIR}/plugins
+export LAUNCHER_RMI=SLURM
+
+###########################################
+# Tophat section
+###########################################
+
+for prefix in WT_{C,N}R_A_{500K,1M}; do
+	# Define out folder
+	OUT=${prefix}_n${CORES}_tophat
+	[ -e $OUT ] && rm -rf $OUT
+	echo "tophat2 -p ${CORES} -G $GENES -o $OUT --no-novel-juncs $REF ${PUBLIC}/${prefix}.fastq &> ${OUT}.log"
+done > tophatCommands
+
+# Run launcher section
+export LAUNCHER_JOB_FILE=tophatCommands
+$LAUNCHER_DIR/paramrun
+
+###########################################
+# Cufflinks section
+###########################################
+
+# four tasks, so use quarter of node
+CORES=12
+
+#### Run cufflinks
+for PRE in WT_{C,N}R_A_{500K,1M}_n${CORES}; do
+	OUT=${PRE}_links
+	[ -e ${OUT} ] && rm -rf ${OUT}
+	echo "cufflinks -p $CORES -o ${OUT} -G $GENES ${PRE}_tophat/accepted_hits.bam &> ${OUT}.log"
+done > cufflinksCommands
+
+# Run launcher section
+export LAUNCHER_JOB_FILE=cufflinksCommands
+$LAUNCHER_DIR/paramrun
+
+# only two tasks, so use half of node
+CORES=24
+
+#### Merge results
+for SIZE in 500K 1M; do
+	MERGE=${SIZE}_n${CORES}_merge
+	[ -e ${MERGE}.txt ] && rm ${MERGE}.txt
+	for PRE in WT_{C,N}R_A_${SIZE}_n${CORES}; do
+		echo "${PRE}_links/transcripts.gtf" >> ${MERGE}.txt
+	done
+	[ -e ${MERGE} ] && rm -rf ${MERGE}
+	echo "cuffmerge -p $CORES -g $GENES -s ${REF}.fa -o ${MERGE} ${MERGE}.txt &> ${MERGE}.log"
+done > cuffmergeCommands
+
+# Run launcher section
+export LAUNCHER_JOB_FILE=cuffmergeCommands
+$LAUNCHER_DIR/paramrun
+
+#### Cuffdiff
+SUFF="_tophat/accepted_hits.bam"
+for SIZE in 500K 1M; do
+	DIFF=${SIZE}_n${CORES}_diff
+	MERGE=${SIZE}_n${CORES}_merge
+	echo "cuffdiff -L CR,NR -p $CORES ${MERGE}/merged.gtf -o ${DIFF} ${CR}${SUFF} ${NR}${SUFF} &> ${DIFF}.log"
+done > cuffdiffCommands
+
+# Run launcher section
+export LAUNCHER_JOB_FILE=cuffdiffCommands
+$LAUNCHER_DIR/paramrun
+```
 
 ### Launcher Limitations
 
