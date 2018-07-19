@@ -101,7 +101,7 @@ Your recipe is now down, and yes, that was fairly straightforward. You just need
 You can build your container using the docker build command.
 
 ```
-$ sudo docker build -t [username]/tophat:0.1 .
+$ sudo docker build -t [username]/tophat:2.1.1 .
 ```
 
 You can make sure your container did build by viewing all your local containers with
@@ -115,7 +115,7 @@ $ sudo docker images
 Make sure your container is functional by testing tophat and printing out the help text
 
 ```
-$ sudo docker run --rm -it [username]/tophat:0.1 tophat -h
+$ sudo docker run --rm -it [username]/tophat:2.1.1 tophat2 -h
 ```
 
 ## Committing your work
@@ -147,7 +147,7 @@ $ sudo docker login -u [username]
 Now that you're logged into your account, you can push the image you just created.
 
 ```
-$ sudo docker push [username]/tophat:0.1
+$ sudo docker push [username]/tophat:2.1.1
 ```
 
 After the upload process is complete, you should see your new image online when you log in to https://hub.docker.com
@@ -166,7 +166,7 @@ Then, load the tacc-singularity module and pull your container from Docker Hub.
 
 ```
 $ module load tacc-singularity/2.5.1
-$ singularity pull docker://[username]/tophat:0.1
+$ singularity pull docker://[username]/tophat:2.1.1
 ```
 
 Since all filesystems are mounted in the container because we added those empty mount points, we just need to comment out our module commands in `run_tophat_yeast.sh`.
@@ -194,7 +194,7 @@ done
 At this point, we can run it in the container
 
 ```
-$ singularity exec docker://[username]/tophat:0.1 run_tophat_yeast.sh
+$ singularity exec docker://[username]/tophat:2.1.1 run_tophat_yeast.sh
 ```
 
 Assuming all went well, you just ran your fully reproducible analysis.
