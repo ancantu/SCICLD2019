@@ -25,7 +25,7 @@ We spent some time already on an Intro to Linux tutorial which we ran on Stamped
 
 What do these series of commands do:
 
-```Dockerfile```
+(contents of `Dockerfile`):
 ```
 FROM ubuntu:16.04
 RUN apt-get update
