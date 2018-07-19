@@ -177,7 +177,7 @@ Print out `/etc/*release` with `cat`
 |--------|:---------|
 | Host   | `cat /etc/*release` |
 | Docker | `sudo docker run --rm -it debian:latest cat /etc/*release` |
-| Singularity | `singularity exec debian-latest.img cat /etc/*release` |
+| Singularity | `singularity exec debian-latest.simg cat /etc/*release` |
 
 > *note*: It is impossible to modify a singularity image without `sudo` so no additional flag like `--rm` is necessary.
 
@@ -217,7 +217,7 @@ You can also enter a container to help prototyping in the actual environment.
 
 ```
 # Singularity
-singularity shell debian-latest.img
+singularity shell debian-latest.simg
 
 # Docker
 sudo docker run --rm -it debian:latest bash
@@ -306,7 +306,7 @@ module load tacc-singularity cuda/8.0
 singularity pull docker://gzynda/tacc-maverick-cuda8:latest
 
 # Run hellow
-ibrun -np 40 singularity exec tacc-maverick-cuda8-latest.img hellow
+ibrun -np 40 singularity exec tacc-maverick-cuda8-latest.simg hellow
 ```
 
 ### GPUs
@@ -346,10 +346,10 @@ git clone https://github.com/tensorflow/models.git
 singularity pull docker://gzynda/tacc-maverick-ml:latest
 
 # Is the GPU detected?
-singularity exec --nv tacc-maverick-ml-latest.img python -c "import tensorflow as tf; tf.test.is_gpu_available()"
+singularity exec --nv tacc-maverick-ml-latest.simg python -c "import tensorflow as tf; tf.test.is_gpu_available()"
 
 # Run the code
-singularity exec --nv tacc-maverick-ml-latest.img python $WORK/models/tutorials/image/mnist/convolutional.py
+singularity exec --nv tacc-maverick-ml-latest.simg python $WORK/models/tutorials/image/mnist/convolutional.py
 ```
 
 ## Explore (10 minutes)
