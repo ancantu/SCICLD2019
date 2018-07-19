@@ -27,9 +27,15 @@ Reproducibility gives validity to science. To present a scientific result as val
 
 What must be known to reproduce an experiment in computational sciences?
 
- * xxxxx
- * xxxxx
- * xxxxx
+ * Data 
+ * Software identity
+ * Software version
+ * Number of replicas
+ * Parameters
+ * Configurations
+ * When something was run
+ * Code
+ * Platform / OS
 
 
 ### How can we Achieve Reproducibility in Computational Science?
