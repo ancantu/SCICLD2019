@@ -47,7 +47,7 @@ Even if you haven’t run or built a docker container, you have probably heard o
      * [Docker Hub](https://hub.docker.com/)
 3. Execute container
 
-While singularity recipes will always work as expected with singularity, you will get more mileage and a larger community utilizing Docker infrastructure.
+While singularity recipes will always work as expected with singularity, you will get more mileage and access to a larger community utilizing Docker infrastructure.
 
 ## Development Environment
 
@@ -60,10 +60,9 @@ on your development systems.
 
 ### Creating a development instance on Jetstream
 
-While singularity can pull and run containers in unprivileged userspace, you cannot create containers without administrative privileges.
-To circumvent system requirements for both docker and singularity, we will be using Ubuntu instances on the Jetstream cloud as our development environment.
+While singularity can pull and run containers in unprivileged userspace, you cannot create containers without administrative privileges (root).
+It would be unreasonable to require that everyone install linux and run new programs as root, so we will be using Ubuntu VM instances on the Jetstream cloud as our development environment.
 
-Next, we will set up our environment to run singularity on Jetstream, TACC's high performance science cloud:
 
 [https://use.jetstream-cloud.org/application/images](https://use.jetstream-cloud.org/application/images)
 
@@ -119,6 +118,8 @@ Again, right-click on the CLI to actually insert the text.
 ### Installing Singularity
 
 ```
+sudo apt-get update
+sudo apt-get install -y libarchive-dev squashfs-tools
 VERSION=2.5.2
 wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
 tar -xvf singularity-$VERSION.tar.gz
