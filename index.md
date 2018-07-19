@@ -73,9 +73,9 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 11:45 - 13:00 | Lunch |
 | 13:00 - 14:30 | [Best Practices for Reproducibility in Research: Reproducible Containers](docs/reproducibility_containers/reproducibility_containers_02.md) |
 | 14:30 - 14:45 | Break |
-| 14:45 - 16:15 | Best Practices for Reproducibility in Research |
+| 14:45 - 16:15 |  [Best Practices for Reproducibility in Research: Reproducible Containers](docs/reproducibility_containers/reproducibility_containers_02.md) |
 | 16:15 - 16:30 | Break |
-| 16:30 - 17:00 | Daily Review and Hands-on Exercises  |
+| 16:30 - 17:00 | [Daily Review and Hands-on Exercises](docs/hands_on_04.md) |
 
 ### Friday
 
