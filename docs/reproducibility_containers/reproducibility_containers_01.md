@@ -1,4 +1,4 @@
-# Singularity @ TACC
+# Best Practices for Reproducibility in Research - Containers
 
 We are continuously rolling out new super computers at TACC, and they're all unique.
 
@@ -84,8 +84,6 @@ To find it, search “ubuntu docker” and it should be the first hit.
 
 Then you need to specify the resources to allocate towards your instance. Choose an m1.small instance on the Jetstream - TACC provider.
 
-***Please be sure to prefix your instance name with your username***
-
 ![choose](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream4.png)
 
 After clicking “Launch Instance” it will take about 10-15 minutes for your instance to deploy and be ready for use. You may also need to refresh the page.
@@ -156,7 +154,7 @@ sudo docker ps
 
 Neither of these commands should result in an error.
 
-### Exploration
+## Exploring the container systems
 
 Lets take a look at different ways to run singularity and docker containers and learn about the environments they present.
 
@@ -353,9 +351,13 @@ singularity exec --nv tacc-maverick-ml-latest.img python -c "import tensorflow a
 singularity exec --nv tacc-maverick-ml-latest.img python $WORK/models/tutorials/image/mnist/convolutional.py
 ```
 
-## Build your own container
+## Explore (10 minutes)
 
-Use any leftover time to create your own container, or explore the examples we provided.
+- Do containers sound appealing?
+- Have you ever built software from source?
+- What technologies would you be interested in?
+- Are there containers for tools you use?
+  - google: "docker [tool]"
 
 ## Additional Resources
 
@@ -391,4 +393,4 @@ Vanessa Sochat, lead developer of Singularity Hub, also has given a great talk o
 
 [Singularity](https://docs.google.com/presentation/d/14-iKKUpGJC_1qpVFVUyUaitc8xFSw9Rp3v_UE9IGgjM/pub?start=false&loop=false&delayms=3000&slide=id.g1c1cec989b_0_154)
 
-Top: [Course Overview](../../index.md)
+Next: [Building Containers for TACC](reproducibility_containers_02.md) | Top: [Course Overview](../../index.md)
