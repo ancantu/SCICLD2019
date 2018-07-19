@@ -21,3 +21,18 @@ We spent some time already on an Intro to Linux tutorial which we ran on Stamped
 
 
 
+#### Bonus
+
+What do these series of commands do:
+
+```Dockerfile```
+```
+FROM ubuntu:16.04
+RUN apt-get update
+RUN apt-get install -y bsdgames
+ENV PATH ${PATH}:/usr/games/
+```
+```
+$ sudo docker build -t bsdgames:1.0 ./
+$ sudo docker run --rm -it bsdgames:1.0 hangman
+```
