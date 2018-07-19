@@ -69,9 +69,9 @@ Click [here](docs/instructors.md) for more information about the course instruct
 |--------|--------------------------------------------------|
 |  8:30 - 10:00 | [Best Practices for Reproducibility: Version Control](docs/reproducibility_git/reproducibility_git_01.md) |
 | 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | Best Practices for Reproducibility in Research |
+| 10:15 - 11:45 | [Best Practices for Reproducibility in Research: Containers](docs/reproducibility_containers/reproducibility_containers_01.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | Best Practices for Reproducibility in Research |
+| 13:00 - 14:30 | [Best Practices for Reproducibility in Research: Reproducible Containers](docs/reproducibility_containers/reproducibility_containers_02.md) |
 | 14:30 - 14:45 | Break |
 | 14:45 - 16:15 | Best Practices for Reproducibility in Research |
 | 16:15 - 16:30 | Break |
