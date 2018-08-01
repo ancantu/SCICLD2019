@@ -191,16 +191,18 @@ Filesystem          Size  Used Avail Use% Mounted on
 * So now I know how big files and disks are. Is there a way to find how much I'm allowed to use?
 * let's explore two commands: `quota` and `lfs quota`
   + `quota` will show you how much `/home1` you are using
-  ```
+
+```
   $ quota -s
 Disk quotas for user beckbw (uid 827624): 
      Filesystem   space   quota   limit   grace   files   quota   limit   grace
 129.114.58.7:/home
                    144K  10240M  10254M             158    750k    751k        
-  ```
-  + `lfs quota` is a LustreFS command that you can apply to Lustre mounted systems like $WORK and $SCRATCH
+```
 
-  ```
++ `lfs quota` is a LustreFS command that you can apply to Lustre mounted systems like $WORK and $SCRATCH
+
+```
 $ lfs quota -h /work
 Disk quotas for usr beckbw (uid 827624):
      Filesystem    used   quota   limit   grace   files   quota   limit   grace
@@ -209,7 +211,7 @@ Disk quotas for grp G-814141 (gid 814141):
      Filesystem    used   quota   limit   grace   files   quota   limit   grace
           /work   12.8T      0k      0k       - 3509052       0       0       -
 
-  ```
+```
 
 
   <br>
