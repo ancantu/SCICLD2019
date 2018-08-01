@@ -77,8 +77,10 @@ $ find -mtime 0
 ```
 
 <hr>
+
 #### What about file size?
 ##### First, Create some files to play with
+
 `$cd test ` (if not already there)
 
 ```
