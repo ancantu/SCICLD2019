@@ -80,6 +80,7 @@ $ find -mtime 0
 #### What about file size?
 #### First, Create some files to play with
 `$cd test ` (if not already there)
+
 ```
 $ for i in $(seq 0 10) ; do mkdir research_$i ; cd research_$i ; for j in $(seq 0 10) ; do touch  data_${i}_${j}; done; cd - ; done
 $ ls -R
@@ -97,6 +98,7 @@ data_1_0  data_1_1  data_1_10  data_1_2  data_1_3  data_1_4  data_1_5  data_1_6 
 data_10_0  data_10_1  data_10_10  data_10_2  data_10_3  data_10_4  data_10_5  data_10_6  data_10_7  data_10_8  data_10_9
 ...
 ```
+
 * Lets alter some files.
 * We'll replace a file with random data
 ```
@@ -104,15 +106,18 @@ $ cat /dev/random > research_6/data_6_7
 ```
 *** ctrl-c after a few seconds
 * now how big is the file?
+
 ```
 $ ls -lh research_6/data_6_7
 ```
 * let's copy a pogram and overwrite a file then make it executable again (`chmod`)
+
 ```
 $ cp /bin/ls research_5/data_5_6
 $ chmod +x research_5/data_5_6
 ```
 * now let's see how `find` explores the meta-data
+
 ```
 $ find . -executable
 $
@@ -121,6 +126,7 @@ $
 $ find . -size +20k
 ```
 * find will execute a command for each file it finds
+
 ```
 $ find . -size +20k -exec ls -lh {} \;
 ```
@@ -159,7 +165,7 @@ $ du -h
 4.0K	./research_1
 4.0K	./research_3
 28M	.
-'''
+```
 
 * what if I just want the grand total?
 
