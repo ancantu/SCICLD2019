@@ -8,7 +8,7 @@ Requirements:
 
 - [GitHub account](https://github.com/)
 - [Docker Hub account](https://hub.docker.com/)
-- Access to Stampede2
+
 
 Objectives:
 
@@ -101,13 +101,13 @@ Your recipe is now down, and yes, that was fairly straightforward. You just need
 You can build your container using the docker build command.
 
 ```
-$ sudo docker build -t [username]/tophat:2.1.1 .
+$ docker build -t [username]/tophat:0.0.1 .
 ```
 
 You can make sure your container did build by viewing all your local containers with
 
 ```
-$ sudo docker images
+$ docker images
 ```
 
 ### Testing the container
@@ -115,7 +115,7 @@ $ sudo docker images
 Make sure your container is functional by testing tophat and printing out the help text
 
 ```
-$ sudo docker run --rm -it [username]/tophat:2.1.1 tophat2 -h
+$ docker run --rm -it [username]/tophat:0.0.1 tophat2 -h
 ```
 
 ## Committing your work
@@ -140,14 +140,14 @@ While Docker Hub does not track Dockerfile, it does store images for you or anyo
 To store your image in the cloud, you first need to log into your account on the CLI.
 
 ```
-$ sudo docker login -u [username]
+$ docker login -u [username]
 [enter password]
 ```
 
 Now that you're logged into your account, you can push the image you just created.
 
 ```
-$ sudo docker push [username]/tophat:2.1.1
+$ docker push [username]/tophat:0.0.1
 ```
 
 After the upload process is complete, you should see your new image online when you log in to https://hub.docker.com
@@ -156,45 +156,23 @@ After the upload process is complete, you should see your new image online when 
 
 Now that your build process and final container are being tracked online, you can pull that image to a TACC system and use it for your work.
 
-First, log in to Stampede2 and start an `idev` session on a compute node for 60 minutes.
-
-```
-$ idev -m 60 -p normal
-```
-
-Then, load the tacc-singularity module and pull your container from Docker Hub.
-
-```
-$ module load tacc-singularity/2.5.1
-$ singularity pull docker://[username]/tophat:2.1.1
-```
-
 Since all filesystems are mounted in the container because we added those empty mount points, we just need to comment out our module commands in `run_tophat_yeast.sh`.
 
 ```
-PUBLIC=/work/03076/gzynda/stampede2/ctls-public
+PUBLIC=/home/urrutia/ctls2019
 VER=Saccharomyces_cerevisiae/Ensembl/EF4
 GENES=${PUBLIC}/${VER}/Annotation/Genes/genes.gtf
 REF=${PUBLIC}/${VER}/Sequence/Bowtie2Index/genome
 
-SIZE=${1:-500K}
-CORES=${2:-8}
 
-# Load standard module
-# ml tophat/2.1.1 bowtie/2.3.2
-
-
-for prefix in WT_{C,N}R_A_${SIZE}; do
-        OUT=${prefix}_n${CORES}_tophat
-        [ -e $OUT ] && rm -rf $OUT
-        tophat2 -p ${CORES} -G $GENES -o $OUT --no-novel-juncs $REF ${PUBLIC}/${prefix}.fastq &> ${OUT}.log
-done
+tophat2 -p 1 -G $GENES -o WT_CR_A_500K_tophat --no-novel-juncs $REF ${PUBLIC}/WT_CR_A_500K.fastq &> WT_CR_A_500K_tophat.log
 ```
 
 At this point, we can run it in the container
 
 ```
-$ singularity exec docker://[username]/tophat:2.1.1 run_tophat_yeast.sh
+$ singularity pull docker://[username]/tophat:0.0.1
+$ singularity exec tophat_2.2.1.sif $PWD/run_tophat_yeast.sh
 ```
 
 Assuming all went well, you just ran your fully reproducible analysis.
@@ -204,7 +182,7 @@ Assuming all went well, you just ran your fully reproducible analysis.
 3. Your portable container is stored on and made accessible through Docker Hub
 
 ## Explore
-
+- Try running with docker: ```docker run [username]/tophat:0.0.1 $PWD/run_tophat_yeast.sh``` What happened and why?
 - Containerize a tool that you use
 
 Back: [Containers](reproducibility_containers_01.md) | Top: [Course Overview](../../index.md)

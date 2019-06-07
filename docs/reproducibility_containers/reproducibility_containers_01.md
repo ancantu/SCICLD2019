@@ -9,7 +9,7 @@ We are continuously rolling out new super computers at TACC, and they're all uni
 | [Lonestar 5](https://portal.tacc.utexas.edu/user-guides/lonestar5) | 24 | Cray Aries | SUSE 11 | Compute, GPUs, Large-mem | UT only, slow external network                              |
 | [Wrangler](https://portal.tacc.utexas.edu/user-guides/wrangler) | 24   | Mellenox FDR | CentOS 7 | SSD Filesystem for fast I/O, Hosted Databases, Hadoop, HDFS | Low node-count           |
 | [Jetstream](https://portal.tacc.utexas.edu/user-guides/jetstream) | 24 | 40 Gb Ethernet | ANY | Long running instances, root access | Limited storage                            |
-| [Maverick](https://portal.tacc.utexas.edu/user-guides/maverick) | 20   | Mellanox FDR | CentOS 6 | GPUs, high memory nodes                   | Deprecated software stack                 |
+| [Maverick2](https://portal.tacc.utexas.edu/user-guides/maverick2) | 16   | Mellanox FDR | CentOS 7 | GPUs: GTX, V100, P100s                   | For machine learning only                 |
 
 This diverse ecosystem requires that each package be compiled from source for each system. To reduce our load and improve usability for users with complex software dependencies or no experience compiling software in user space, we have been supporting [Singularity](http://singularity.lbl.gov/index.html).
 
@@ -51,10 +51,16 @@ While singularity recipes will always work as expected with singularity, you wil
 
 ## Development Environment
 
-You will need to install
+We've already installed Docker and Singularity for you on our training nodes. But to develop container on your laptop you will need to install
 
 - Docker
-- Singularity
+  - [Mac](https://docs.docker.com/docker-for-mac/install/)
+  - [Windows](https://docs.docker.com/docker-for-windows/install/)
+  - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+  - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+  - [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+  - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+- [Singularity](https://singularity.lbl.gov/docs-installation) (optional)
 
 on your development systems.
 
@@ -64,56 +70,7 @@ While singularity can pull and run containers in unprivileged userspace, you can
 It would be unreasonable to require that everyone install linux and run new programs as root, so we will be using Ubuntu VM instances on the Jetstream cloud as our development environment.
 
 
-[https://use.jetstream-cloud.org/application/images](https://use.jetstream-cloud.org/application/images)
 
-Log in to the Jetstream web interface using your XSEDE credentials:
-
-![login](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream1.png)
-
-Click the project tab:
-
-![projects](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream2.png)
-
-Make a new project, and then click "New" to launch a new instance for yourself.
-It will first ask you which image you want to start from.
-Today, we’ll be starting from “Ubuntu 16.04 Devel and Docker”.
-To find it, search “ubuntu docker” and it should be the first hit.
-
-![images](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream3.png)
-
-Then you need to specify the resources to allocate towards your instance. Choose an m1.small instance on the Jetstream - TACC provider.
-
-![choose](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream4.png)
-
-After clicking “Launch Instance” it will take about 10-15 minutes for your instance to deploy and be ready for use. You may also need to refresh the page.
-
-![launch](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream5.png)
-
-You can then select your instance and see all the options for managing it:
-
-![select](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream6.png)
-
-Please choose the “Open Web Shell” option, which will open a new tab to the CLI of your instance:
-
-![shell](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream7.png)
-
-### Interacting with web shell
-
-Pasting text is somewhat clunky, but output formatting is somewhat better in this than the old web shell. Please feel free to try either. If you do want to paste text, please press
-
-`ctrl+alt+shift`
-
-![copy](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream8.png)
-
-Paste your text in the text box, exit the side window by hitting
-
-`ctrl+alt+shift`
-
-![paste](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream9.png)
-
-Again, right-click on the CLI to actually insert the text.
-
-![insert](https://github.com/wjallen/SingularityWorkshop/raw/master/images/jetstream9.png)
 
 ### Installing Singularity
 
@@ -132,25 +89,17 @@ rm -rf singularity*
 singularity --version
 ```
 
-### Installing Docker
-
-Instructions for
-
-- [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
-- [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
-- [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-- [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
 
 ### Checking the Installation
 
 ```
 # Check Singularity
 singularity pull docker://debian:latest
-singularity exec debian-latest.simg cat /etc/*release
-cat /etc/*release
+singularity exec debian_latest.sif cat /etc/os-release
+cat /etc/os-release
 
 # Check Docker
-sudo docker ps
+docker ps
 ```
 
 Neither of these commands should result in an error.
@@ -159,10 +108,10 @@ Neither of these commands should result in an error.
 
 Lets take a look at different ways to run singularity and docker containers and learn about the environments they present.
 
-We already have a debian image for Singularity (`debian-latest.simg`), so lets pull it with docker as well.
+We already have a debian image for Singularity (`debian_latest.sif`), so lets pull it with docker as well.
 
 ```
-sudo docker pull debian:latest
+docker pull debian:latest
 ```
 
 ### Running commands in a container
@@ -171,13 +120,13 @@ Similar to `docker run`, Singularity has `singularity exec`. Both commands run a
 
 #### What OS is running?
 
-Print out `/etc/*release` with `cat`
+Print out `/etc/os-release` with `cat`
 
 | System | Command |
 |--------|:---------|
-| Host   | `cat /etc/*release` |
-| Docker | `sudo docker run --rm -it debian:latest cat /etc/*release` |
-| Singularity | `singularity exec debian-latest.simg cat /etc/*release` |
+| Host   | `cat /etc/os-release` |
+| Docker | `docker run --rm -it debian:latest cat /etc/os-release` |
+| Singularity | `singularity exec debian_latest.sif cat /etc/os-release` |
 
 > *note*: It is impossible to modify a singularity image without `sudo` so no additional flag like `--rm` is necessary.
 
@@ -187,17 +136,40 @@ Use the `whoami` command to see who you are running as.
 
 #### When are commands expanded?
 
-Change cat to head. You may notice an error this time since our `/etc/*release` glob is evaluated on host. If we wanted it evaluated in the container, we would need to run something like
+Change `etc/os-release` to `/etc/*release`:
+```
+docker run --rm -it debian:latest cat /etc/*release
+singularity exec debian_latest.sif cat /etc/*release
+```
+Do you notice the errors, ex: `cat: /etc/centos-release: No such file or directory`? Why is this command looking for files that don't exist in the container? It's because the `/etc/*release` glob is evaluated on host.
+If we wanted it evaluated in the container, we would need to run something like:
 
 ```
-bash -c 'head /etc/*release'
+bash -c 'cat /etc/*release'
 ```
+See where the different `/etc/*release` files exist on the different systems:
+
+| System | Command |
+|--------|:---------|
+| Host   | `cat /etc/*release` |
+| Docker | `docker run debian:latest bash -c 'ls /etc/*release'` |
+| Singularity | `singularity exec debian_latest.sif bash -c 'ls /etc/*release'` |
+
+So the issue here was the wildcard was listing on the files that match `/etc/*release` on the host, but not all of those files exist inside the container. We use the `bash -c 'cat /etc/*release'` to ensure the wildcard does not get expanded until the command running inside the container.
+
 
 #### Can you chain commands?
 
 Try running `whoami && whoami` in each environment.
+```
+docker run debian:latest whoami && whoami
+```
 
-> Just like with globs, you would need to encapsulate chained commands.
+
+Just like with globs, you would need to encapsulate chained commands:
+```
+docker run debian:latest bash -c "whoami && whoami"
+```
 
 #### Can you see your files?
 
@@ -217,10 +189,10 @@ You can also enter a container to help prototyping in the actual environment.
 
 ```
 # Singularity
-singularity shell debian-latest.simg
+singularity shell debian_latest.sif
 
 # Docker
-sudo docker run --rm -it debian:latest bash
+docker run --rm -it debian:latest bash
 ```
 
 > In both cases you need to type `exit` to leave the container.
@@ -248,27 +220,15 @@ To make development of Singularity images for use at TACC, I have been assemblin
 
 ### Filesystems
 
-My top-level image
+Top-level images
 
-- Source - https://github.com/zyndagj/tacc-base
-- Docker Hub - https://hub.docker.com/r/gzynda/tacc-base/
+- Source - <https://github.com/zyndagj/tacc-base>
+- Docker Hub - <https://hub.docker.com/r/gzynda/tacc-base/>
 
 starts `FROM` Ubuntu 18.04 LTS and includes
 
 - mounts for every filesystem at TACC
 - a `docker-clean` utility for deleting temporary files
- - Docker images track all changes, and grow quickly. You can test this with
- ```
- RUN dd if=/dev/zero of=1g.img bs=1 count=0 seek=1G
- RUN rm 1g.img
- RUN dd if=/dev/zero of=1g.img bs=1 count=0 seek=1G
- RUN rm 1g.img
- ```
- and circumvent this limitation with
- ```
- RUN dd if=/dev/zero of=1g.img bs=1 count=0 seek=1G && rm 1g.img
- RUN dd if=/dev/zero of=1g.img bs=1 count=0 seek=1G && rm 1g.img
- ```
 
 This is a great starting point for simple serial or threaded applications, since it is a barebones system plus mount points for interacting with data.
 
@@ -280,8 +240,8 @@ The general rule is that you want the version of MPI inside the container to be 
 
 I reduce the burdeon on developers by having system-specific containers with MPI stacks pre-installed. For the Maverick supercomputer, my image
 
-- Source - https://github.com/zyndagj/tacc-maverick-cuda8
-- Docker Hub - https://hub.docker.com/r/gzynda/tacc-maverick-cuda8/
+- Source - <https://github.com/zyndagj/tacc-maverick-cuda8>
+- Docker Hub - <https://hub.docker.com/r/gzynda/tacc-maverick-cuda8/>
 
 starts `FROM nvidia/cuda:8.0-cudnn7-devel-ubuntu16.04` to include the correct cuda stack, and then immediately replicates `gzynda/tacc-base`.
 
