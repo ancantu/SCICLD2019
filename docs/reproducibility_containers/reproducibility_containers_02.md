@@ -160,6 +160,8 @@ Since all filesystems are mounted in the container because we added those empty 
 Copy this bash script `run_tophat_yeast.sh`.
 
 ```
+# we'll drop the data in the "PUBLIC" location,
+# replace $USERNAME with your username
 PUBLIC=/home/$USERNAME/ctls2019
 VER=Saccharomyces_cerevisiae/Ensembl/EF4
 GENES=${PUBLIC}/${VER}/Annotation/Genes/genes.gtf
@@ -169,9 +171,13 @@ REF=${PUBLIC}/${VER}/Sequence/Bowtie2Index/genome
 tophat2 -p 1 -G $GENES -o WT_CR_A_500K_tophat --no-novel-juncs $REF ${PUBLIC}/WT_CR_A_500K.fastq &> WT_CR_A_500K_tophat.log
 ```
 
-Singularity will not mount my home directory into your userspace, so we'll need to copy the files from my home dir to yours. We can do this with the following command:
+Due to the way we've setup the Singularity mounting points, Singularity will not mount *my* home directory into *your* userspace, so we'll need to copy the files from my home dir to yours. We can do this with the following command:
 ```
 rsync -rltv /home/urrutia/ctls2019 /home/$USERNAME/
+```
+Let's also make sure we grant execute permissions to our run_tophat_yeast.sh script:
+```
+chmod +x run_tophat_yeast.sh
 ```
 
 Now at this point, we can run it in the container
