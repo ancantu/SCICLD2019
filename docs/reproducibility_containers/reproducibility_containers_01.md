@@ -64,30 +64,17 @@ We've already installed Docker and Singularity for you on our training nodes. Bu
 
 on your development systems.
 
-### Creating a development instance on Jetstream
+### Creating a development instance on a VM
 
 While singularity can pull and run containers in unprivileged userspace, you cannot create containers without administrative privileges (root).
-It would be unreasonable to require that everyone install linux and run new programs as root, so we will be using Ubuntu VM instances on the Jetstream cloud as our development environment.
-
-
-
-
-### Installing Singularity
-
+It would be unreasonable to require that everyone install linux and run new programs as root, so we will be using Ubuntu VM instances as our development environment.
+To login to our VM simply ssh in with your username and password:
 ```
-sudo apt-get update
-sudo apt-get install -y libarchive-dev squashfs-tools
-VERSION=2.5.2
-wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
-tar -xvf singularity-$VERSION.tar.gz
-cd singularity-$VERSION
-./configure --prefix=/usr/local
-make
-sudo make install
-cd ..
-rm -rf singularity*
-singularity --version
+ssh $USERNAME@training01.tacc.utexas.edu
 ```
+If you still need to create a TACC account and setup MFA you can do that here:
+- [Account](https://portal.tacc.utexas.edu/account-request)
+- [MFA](https://portal.tacc.utexas.edu/tutorials/multifactor-authentication)
 
 
 ### Checking the Installation
@@ -125,7 +112,7 @@ Print out `/etc/os-release` with `cat`
 | System | Command |
 |--------|:---------|
 | Host   | `cat /etc/os-release` |
-| Docker | `docker run --rm -it debian:latest cat /etc/os-release` |
+| Docker | `docker run --rm debian:latest cat /etc/os-release` |
 | Singularity | `singularity exec debian_latest.sif cat /etc/os-release` |
 
 > *note*: It is impossible to modify a singularity image without `sudo` so no additional flag like `--rm` is necessary.
@@ -138,10 +125,14 @@ Use the `whoami` command to see who you are running as.
 
 Change `etc/os-release` to `/etc/*release`:
 ```
-docker run --rm -it debian:latest cat /etc/*release
+docker run --rm debian:latest cat /etc/*release
 singularity exec debian_latest.sif cat /etc/*release
 ```
-Do you notice the errors, ex: `cat: /etc/centos-release: No such file or directory`? Why is this command looking for files that don't exist in the container? It's because the `/etc/*release` glob is evaluated on host.
+Do you notice the errors? Ex:
+```
+cat: /etc/centos-release: No such file or directory
+```
+Why is this command looking for files that don't exist in the container? It's because the `/etc/*release` glob is evaluated on host.
 If we wanted it evaluated in the container, we would need to run something like:
 
 ```
@@ -151,11 +142,11 @@ See where the different `/etc/*release` files exist on the different systems:
 
 | System | Command |
 |--------|:---------|
-| Host   | `cat /etc/*release` |
+| Host   | `ls /etc/*release` |
 | Docker | `docker run debian:latest bash -c 'ls /etc/*release'` |
 | Singularity | `singularity exec debian_latest.sif bash -c 'ls /etc/*release'` |
 
-So the issue here was the wildcard was listing on the files that match `/etc/*release` on the host, but not all of those files exist inside the container. We use the `bash -c 'cat /etc/*release'` to ensure the wildcard does not get expanded until the command running inside the container.
+So the issue here was the wildcard was listing on the files that match `/etc/*release` on the host, but not all of those files exist inside the container. We use the `bash -c 'cat /etc/*release'` to ensure the wildcard does not get expanded until the command running inside the container. It's important to always keep the host/container dichotomy in the back of your mind, otherwise you may be in for a surprise when you deploy your container on a new machine.
 
 
 #### Can you chain commands?
