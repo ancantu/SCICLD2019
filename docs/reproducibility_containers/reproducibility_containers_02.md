@@ -178,7 +178,7 @@ Now at this point, we can run it in the container
 
 ```
 $ singularity pull docker://[username]/tophat:0.0.1
-$ singularity exec tophat_2.2.1.sif $PWD/run_tophat_yeast.sh
+$ singularity exec tophat_0.0.1.sif $PWD/run_tophat_yeast.sh
 ```
 
 Assuming all went well, you just ran your fully reproducible analysis.
