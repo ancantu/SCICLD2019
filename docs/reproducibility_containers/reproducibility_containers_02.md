@@ -27,7 +27,7 @@ To save yourself headaches in the future, and enable future work, lets begin by 
 #### On Github
 
 - Click "New repository"
-- Name it tophat (*again*)
+- Name it tophat
 - Make it public
 - Initialize it with README
 
@@ -150,13 +150,14 @@ Now that you're logged into your account, you can push the image you just create
 $ docker push [username]/tophat:0.0.1
 ```
 
-After the upload process is complete, you should see your new image online when you log in to https://hub.docker.com
+After the upload process is complete, you should see your new image online when you log in to <https://hub.docker.com>
 
 ## Running your container @ TACC
 
 Now that your build process and final container are being tracked online, you can pull that image to a TACC system and use it for your work.
 
-Since all filesystems are mounted in the container because we added those empty mount points, we just need to comment out our module commands in `run_tophat_yeast.sh`.
+Since all filesystems are mounted in the container because we added those empty mount points, we can run this container on data that is located on the VM.
+Copy this bash script `run_tophat_yeast.sh`.
 
 ```
 PUBLIC=/home/urrutia/ctls2019
