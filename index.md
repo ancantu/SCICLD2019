@@ -1,87 +1,63 @@
 <center>
-<h2>July 16-20, 2018</h2>
+<h2>July 23-26, 2019</h2>
 <h2>Texas Advanced Computing Center</h2></center>
 <center><img src="https://www.tacc.utexas.edu/documents/1084364/1275944/tacc.png" alt="Drawing" style="height:100px;"/></center>
 
-Learn the skills necessary to develop and execute life sciences workflows on large-scale computational systems. Run parallel analyses, use Bash and Python to chain common life sciences applications together to form more complex workflows, and leverage reproducibility techniquest to ensure your efforts are enduring. Spend time one-on-one with TACC's Life Sciences Computing group discussing how to accelerate your existing research, or how to start a new project by beginning with the best computational practices.
+The key to scientific discovery in the cloud is an orchestrated, reproducible scientific workflow that combines data from many experimental sources. This reproducibility not only enhances your productivity but also allows others to validate your data and discover the story inside the data. The Science in the Cloud Institute is designed to teach you the tools required to help you explore and find that story, and create a reproducible environment that allows others to explore and validate your findings. In this Institute, we introduce virtualization tools such as Virtual Machines, container technologies such as Docker and Singularity, and orchestration tools such as Kubernetes. Led by TACC's expert domain scientists and developers, we show you hands-on how to use these tools in conjunction with scientific analysis software to develop a production-ready workflow that can easily be applied to your science while also introducing you to the latest hardware that powers TACC's Cloud platform. By the end of this institute, you will be ready to take your science to the cloud.
 
 Participants should bring their laptops and plan to participate actively. Laptops will require a terminal application for accessing compute resources.
-
-## AT&T wifi:
-
-Coupon Code: WPiL-1T3C-1J
 
 ## Instructors:
 
 Click [here](docs/instructors.md) for more information about the course instructors.
 
-## Etherpad
-
-[https://public.etherpad-mozilla.org/p/ctls2018](https://public.etherpad-mozilla.org/p/ctls2018)
-
 ## Agenda
-
-### Monday
-
-| Time | Topic |
-|----------|--------------------------------------------------|
-|  8:30 - 10:00 | [Introduction to Computational Techniques for Life Science Research](docs/welcome/welcome_01.md) |
-| 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | [Introduction to High Performance Computing I: Introduction to Linux](docs/intro_to_linux/intro_to_linux_01.md) |
-| 11:45 - 13:00 | Lunch and Small Group Discussions|
-| 13:00 - 14:30 | [Introduction to High Performance Computing II: Command Line Utilities](docs/intro_to_hpc/intro_to_hpc_01.md) |
-| 14:30 - 14:45 | Break |
-| 14:45 - 16:15 | [Applied Hands-on Command Line - Examples for Life Sciences](docs/gnu_utils/gnu_utils_01.md) |
-| 16:15 - 16:30 | Break |
-| 16:30 - 17:00 | [Daily Review and Hands-on Exercises](docs/hands_on_01.md) |
 
 ### Tuesday
 
 | Time | Topic |
-|--------|--------------------------------------------------|
-|  8:30 - 10:00 | [HPC Software Environment](docs/hpc_software_environment/hpc_software_environment_01.md) |
-| 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | [Data Management and Collaboration Best Practices](docs/data_management/data_management.md) |
-| 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | Choice of [Intro to Python](resources/Python-AdvPython2018.ppx.pdf), [Intro to RStudio](https://drive.google.com/open?id=0B3FV8Ena5NQKSnFNUnMyVXlMWGc), or [Intermediate Bash](docs/bash_scripting/bash_scripting.md) |
-| 14:30 - 14:45 | Break |
-| 14:45 - 16:15 | Choice of [Intermediate Python](resources/Python-AdvPython2018.ppx.pdf), [Intermediate RStudio](https://drive.google.com/open?id=0B3FV8Ena5NQKSnFNUnMyVXlMWGc), or [Advanced Bash](docs/bash_scripting/bash_scripting.md) |
-| 16:15 - 16:30 | Break |
-| 16:30 - 17:00 | [Hands-on Exercises & Bring-your-own-code Workshop](docs/hands_on_02.md) |
+|----------|--------------------------------------------------|
+|  9:00 - 10:15 | [Cloud Concepts](docs/welcome/welcome_01.md) |
+| 10:15 - 10:30 | Break |
+| 10:30 - 11:45 | [VM Setup](docs/intro_to_linux/intro_to_linux_01.md) |
+| 11:45 - 13:00 | Lunch and Small Group Discussions|
+| 13:00 - 14:15 | [Docker Containers](docs/intro_to_hpc/intro_to_hpc_01.md) |
+| 14:15 - 14:30 | Break |
+| 14:30 - 16:00 | [Docker Compose](docs/gnu_utils/gnu_utils_01.md) |
 
 ### Wednesday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  8:30 - 10:00 | [Developing Life Sciences Workflows Part 1](docs/workflows/workflows1_1.md) |
-| 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | [Developing Life Sciences Workflows Part 2](docs/LSworflow2_JWS.md) |
+|  9:00 - 10:15 | [Reproducibility](docs/hpc_software_environment/hpc_software_environment_01.md) |
+| 10:15 - 10:30 | Break |
+| 10:30 - 11:45 | [Docker in the Cloud](docs/data_management/data_management.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | [Optimization and Parallelization of Workflows for HPC Part 1](docs/optimization_parallelization/optimization_parallelization_01.md) |
-| 14:30 - 14:45 | Break |
-| 14:45 - 16:00 | [Optimization and Parallelization of Workflows for HPC Part 2](docs/optimization_parallelization/optimization_parallelization_04.md) |
-| 16:00 - 16:30 | Break |
-| 16:30 - 17:00 | [Hands-on Exercises & Bring-your-own-code Workshop](docs/hands_on_03.md) |
+| 13:00 - 14:15 | [Jupyter](docs/bash_scripting/bash_scripting.md) |
+| 14:15 - 14:30 | Break |
+| 14:30 - 16:00 | [Pandas](docs/bash_scripting/bash_scripting.md) |
 
 ### Thursday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  8:30 - 10:00 | [Best Practices for Reproducibility: Version Control](docs/reproducibility_git/reproducibility_git_01.md) |
-| 10:00 - 10:15 | Break |
-| 10:15 - 11:45 | [Best Practices for Reproducibility in Research: Containers](docs/reproducibility_containers/reproducibility_containers_01.md) |
+|  9:00 - 10:15 | [Human SNP Analysis Part 1](docs/workflows/workflows1_1.md) |
+| 10:15 - 10:30 | Break |
+| 10:30 - 11:45 | [Human SNP Analysis Part 2](docs/LSworflow2_JWS.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:30 | [Best Practices for Reproducibility in Research: Reproducible Containers](docs/reproducibility_containers/reproducibility_containers_02.md) |
-| 14:30 - 14:45 | Break |
-| 14:45 - 16:15 |  [Best Practices for Reproducibility in Research: Reproducible Containers](docs/reproducibility_containers/reproducibility_containers_02.md) |
-| 16:15 - 16:30 | Break |
-| 16:30 - 17:00 | [Daily Review and Hands-on Exercises](docs/hands_on_04.md) |
+| 13:00 - 14:15 | [Title TBD](docs/optimization_parallelization/optimization_parallelization_01.md) |
+| 14:15 - 14:30 | Break |
+| 14:30 - 16:00 | [Title TBD](docs/optimization_parallelization/optimization_parallelization_04.md) |
 
 ### Friday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  8:30 - 9:30  | Course Review and Next Steps |
-|  9:30 - 11:45 | Bring your own code workshop / one-on-one assistance |
+|  9:00 - 10:15 | [Kubernetes](docs/reproducibility_git/reproducibility_git_01.md) |
+| 10:15 - 10:30 | Break |
+| 10:30 - 11:45 | [TACC as Cloud](docs/reproducibility_containers/reproducibility_containers_01.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 17:00 | Bring your own code workshop / one-on-one assistance |
+| 13:00 - 14:15 | [TACC Tour](docs/reproducibility_containers/reproducibility_containers_02.md) |
+| 14:15 - 14:30 | Break |
+| 14:30 - 16:00 | One-on-one by request |
+
