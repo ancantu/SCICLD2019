@@ -1,7 +1,6 @@
-# Computational Techniques for Life Sciences 2018
+# Science in the Cloud 2019
 
 ### Website
-https://www.tacc.utexas.edu/education/institutes/computational-techniques-for-life-sciences
 
 ### Materials
-[Course Material](https://jamescarson3.github.io/ctls2018)
+[Course Material](https://ancantu.github.io/SCICLD2019)
