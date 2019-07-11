@@ -17,47 +17,47 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 | Time | Topic |
 |----------|--------------------------------------------------|
-|  9:00 - 10:15 | [Cloud Concepts](docs/welcome/welcome_01.md) |
+|  9:00 - 10:15 | [Cloud Concepts](docs/cloud_concepts/cloud_concepts.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [VM Setup](docs/intro_to_linux/intro_to_linux_01.md) |
+| 10:30 - 11:45 | [VM Setup](docs/vm_setup/vm_setup.md) |
 | 11:45 - 13:00 | Lunch and Small Group Discussions|
-| 13:00 - 14:15 | [Docker Containers](docs/intro_to_hpc/intro_to_hpc_01.md) |
+| 13:00 - 14:15 | [Docker Containers](docs/docker_containers/docker_containers.md) |
 | 14:15 - 14:30 | Break |
-| 14:30 - 16:00 | [Docker Compose](docs/gnu_utils/gnu_utils_01.md) |
+| 14:30 - 16:00 | [Docker Compose](docs/docker_compose/docker_compose.md) |
 
 ### Wednesday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Reproducibility](docs/hpc_software_environment/hpc_software_environment_01.md) |
+|  9:00 - 10:15 | [Reproducibility](docs/reproducibility/reproducibility.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [Docker in the Cloud](docs/data_management/data_management.md) |
+| 10:30 - 11:45 | [Docker in the Cloud](docs/docker_in_cloud/docker_in_cloud.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | [Jupyter](docs/bash_scripting/bash_scripting.md) |
+| 13:00 - 14:15 | [Jupyter](docs/jupyter/jupyter.md) |
 | 14:15 - 14:30 | Break |
-| 14:30 - 16:00 | [Pandas](docs/bash_scripting/bash_scripting.md) |
+| 14:30 - 16:00 | [Pandas](docs/pandas/pandas.md) |
 
 ### Thursday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Human SNP Analysis Part 1](docs/workflows/workflows1_1.md) |
+|  9:00 - 10:15 | [Human SNP Analysis Part 1](docs/human_snp/human_snp.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [Human SNP Analysis Part 2](docs/LSworflow2_JWS.md) |
+| 10:30 - 11:45 | [Human SNP Analysis Part 2](docs/human_snp/human_snp.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | [Title TBD](docs/optimization_parallelization/optimization_parallelization_01.md) |
+| 13:00 - 14:15 | Title TBD |
 | 14:15 - 14:30 | Break |
-| 14:30 - 16:00 | [Title TBD](docs/optimization_parallelization/optimization_parallelization_04.md) |
+| 14:30 - 16:00 | Title TBD |
 
 ### Friday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Kubernetes](docs/reproducibility_git/reproducibility_git_01.md) |
+|  9:00 - 10:15 | [Kubernetes](docs/kubernetes/kubernetes.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [TACC as Cloud](docs/reproducibility_containers/reproducibility_containers_01.md) |
+| 10:30 - 11:45 | [TACC as Cloud](docs/tacc_as_cloud/tacc_as_cloud.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | [TACC Tour](docs/reproducibility_containers/reproducibility_containers_02.md) |
+| 13:00 - 14:15 | TACC Tour |
 | 14:15 - 14:30 | Break |
 | 14:30 - 16:00 | One-on-one by request |
 
