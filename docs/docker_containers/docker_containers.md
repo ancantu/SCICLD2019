@@ -85,7 +85,69 @@ Step-by-step guide
 
  8. Now we can simply select an image that has docker installed:
 
- <https://use.jetstream-cloud.org/application/images/717>
+     <https://use.jetstream-cloud.org/application/images/717>
+
+ 9. To get started using a Jetstream virtual machine, click Launch New Instance from the Dashboard screen. On the list of images page, scroll through the the list of images or enter an image name, tag or description in the search box. For instance, to locate images named or tagged with “Docker”, enter that text in the search bar. The search is not case sensitive.  
+    <center><img src="../../resources/launch_jetstream.png" style="height:300px;"></center>
+
+10. After selecting an image, details about that image will be displayed.  From here, add the selected image to a project, star it as a favorite, or edit image information.  Click Edit details to:
+
+    * Update the name of the image
+    * Set a date to hide the image from public view
+    * Modify the description
+    * Add or delete tags
+    * Click Save
+    * Click Launch
+    ```
+    Notes:
+    You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
+
+    DSA/DSS keys are deprecated for Ubuntu 16.04 and newer instances. Please use RSA keys.
+    ```
+
+3.  On the Launch an Instance / Basic Options screen:
+
+    * Enter a name for the instance
+    * Select the image version if there are multiple versions available
+    * Select or create a project to hold this instance. If you have any existing projects, they will be shown here and you can select one. If you don't have any existing projects, click Create New Project and fill in Project Name and Description. A detailed description is optional, but it is recommended to include any grant names or other easily identifying details so others working with you may easily find it. Click Create to create the new project.
+    * Indicate the allocation source
+    * Choose the provider to run on, Indiana or TACC
+    * Choose the instance size. This indicates the vCPUs, memory, and disk size for the VM. See the Virtual Machine Sizes table to show the available options and the SUs consumed per hour.  Check projected resource usage: Allocation Used and Resources Instance will Use.
+    * Click Launch Instance to start the initialization and build of the instance.
+    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465484/launch-instance.jpg?version=1&modificationDate=1472579039601&cacheVersion=1&api=v2&width=476&height=400">
+
+Below are several screens that typically displayed during the provisioning process.
+
+
+Atmosphere deployment will add two keys to your authorized_keys file – one for GateOne (the old web shell) and one for Apache Guacamole (the new web shell) - the comment for both will just have your XSEDE username. We are working on updating that to indicate that they are web shell keys.
+Step-by-step guide to Adding SSH public keys to Atmosphere settings:
+1. To add your ssh key(s) to Jetstream, click on your username in the upper right hand corner and then click Settings.
+
+    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture7.jpg?version=1&modificationDate=1457462028632&cacheVersion=1&api=v2&width=596&height=400" height="400">
+
+
+
+2.  On the Settings screen, under Advanced, click Show More, to expand the section for adding your SSH key.  Check the box that says “Enable ssh access into launched instances” and then click the green plus sign to actually add your key.
+
+    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture8.jpg?version=1&modificationDate=1457462028835&cacheVersion=1&api=v2&width=600&height=400" height="400">
+
+
+
+3. On the next screen give the key a descriptive name and then paste the contents of your PUBLIC ssh key into the dialog box.
+```
+cat ~/.ssh/id_rsa.pub
+```
+<img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture9.jpg?version=1&modificationDate=1457462028445&cacheVersion=1&api=v2&width=599&height=400" height="400">
+
+4. After you have pasted in your SSH key, click Confirm.  You will then be back at the Settings screen with your key shown in the SSH Configuration section.
+
+5. You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
+
+
+
+4. After you have pasted in your SSH key, click Confirm.  You will then be back at the Settings screen with your key shown in the SSH Configuration section.
+
+5. You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
 
 Typically, accessing the docker daemon requires root or to be in the docker group. For the purposes of this introduction,
  we can simply do everything as the root user:
