@@ -2,7 +2,7 @@
 
 **Joe Allen** works with biomedical researchers in the Houston area to help solve challenging problems using high performance computing resources. Most of his experience is in computational structural biology and drug discovery, but lately he has been involved in several image processing, genomics, and pipeline / automation projects.
 
-**Brian Beck** explores protein:protein interactions with a mixture of structural bioinformatics and traditional molecular modeling. He is the embedded liaison from TACC to researchers in the Dallas/Forth Worth area and also helps researchers new to cloud-computing use NSF's JETSTREAM cloud-computing resource. 
+**Brian Beck** explores protein:protein interactions with a mixture of structural bioinformatics and traditional molecular modeling. He is the embedded liaison from TACC to researchers in the Dallas/Forth Worth area and also helps researchers new to cloud-computing use NSF's Jetstream cloud-computing resource. 
 
 **Alyssa Cantu** is working to mobilize researchers across the UT System to use TACC resources. Her background is in computational biology, and she has engaged in gut microbiome research.
 
@@ -14,7 +14,7 @@
 
 **John Fonner** builds tools and infrastructure to make HPC broadly accessible for the biomedical researchers that need it. His background is in molecular modeling, but he has collaborated on projects for immunology, crop modeling, microbiome, drug discovery, and genomics.
 
-**Mike Packard**
+**Mike Packard** builds and supports various research systems at TACC, including those based on Openstack, Kubernetes, VMWare, and all manner of other virtualization technologies.
 
 **Jawon Song** studies genetics and epigenetics for plant biology using bioinformatics workflows on TACC systems. Jawon works primarily on supporting biologists in both developing analytic methods for biological data and teaching students how to use HPC for routine genomics pipeline.
 
