@@ -137,7 +137,7 @@
       dest: "/home/{{ loginuser.stdout }}/.kube/config"
       owner: "{{ loginuser.stdout }}"
       
-  - name: Ensure SELinux is set to enforcing mode
+  - name: bashrc kubectl alias
     lineinfile:
       path: "/home/{{ loginuser.stdout }}/.bashrc"
       line: alias k=kubectl
