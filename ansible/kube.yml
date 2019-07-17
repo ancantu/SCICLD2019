@@ -95,33 +95,50 @@
     command: kubeadm init --pod-network-cidr=10.244.0.0/16
     args:
       creates: /etc/kubernetes/admin.conf
-    register: kubeinit
+
+  - name: check flannel    
+    command: kubectl -n kube-system get daemonset.apps/kube-flannel-ds-amd64
+    environment:
+      KUBECONFIG: /etc/kubernetes/admin.conf
+    ignore_errors: yes
+    register: flannelup
 
   - name: flannel setup
     command: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml
-    args:
-      creates: /etc/kubernetes/admin.conf
     environment:
       KUBECONFIG: /etc/kubernetes/admin.conf
-    when: kubeinit.changed
+    when: flannelup.rc != 0
+
+  - name: enable master node pods
+    command: kubectl taint nodes --all node-role.kubernetes.io/master-
+    environment:
+      KUBECONFIG: /etc/kubernetes/admin.conf
 
   - name: get the username running the deploy
     become: false
     local_action: command whoami
-    register: username_on_the_host
+    register: loginuser
 
-#  - debug: var=username_on_the_host
+  - name: get kube config
+    local_action: command cat /etc/kubernetes/admin.conf
+    register: kubeconf
+
+  - debug: var=kubeconf
 
   - name: user kube config dir
     file:
-      path: "/home/{{username_on_the_host.stdout}}/.kube"
+      path: "/home/{{ loginuser.stdout }}/.kube"
       state: directory
-      owner: "{{username_on_the_host}}"
+      owner: "{{ loginuser.stdout }}"
 
   - name: copy kube config
     copy:
-      src: /etc/kubernetes/admin.conf
-      dest: "/home/{{username_on_the_host.stdout}}/.kube/config"
-      owner: "{{username_on_the_host}}"
+      content: "{{ kubeconf.stdout }}"
+      dest: "/home/{{ loginuser.stdout }}/.kube/config"
+      owner: "{{ loginuser.stdout }}"
       
+  - name: Ensure SELinux is set to enforcing mode
+    lineinfile:
+      path: "/home/{{ loginuser.stdout }}/.bashrc"
+      line: alias k=kubectl
 
