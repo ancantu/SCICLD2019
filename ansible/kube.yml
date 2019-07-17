@@ -1,0 +1,127 @@
+---
+
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+
+  handlers:
+  - name: restart_docker
+    systemd:
+      name: docker
+      state: restarted
+      daemon_reload: yes
+
+  tasks:
+  - name: print out the hostname of target
+    command: hostname
+  
+  - name: update the apt package index i.e. apt-get update
+    apt: 
+      update_cache: yes
+
+  - name: upgrade system packages i.e. apt-get upgrade
+    apt: 
+      upgrade: yes
+    
+  - name: install a list of packages
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - vim
+      - tmux 
+      - apt-transport-https
+      - curl
+
+  - name: kube apt key
+    shell: "curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -"
+    args:
+      warn: no
+
+  - name: kube apt package source
+    copy: 
+      dest: /etc/apt/sources.list.d/kubernetes.list
+      content: "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+
+  - name: update the apt package index i.e. apt-get update
+    apt: 
+      update_cache: yes
+
+  - name: install kube packages
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - kubelet 
+      - kubeadm
+      - kubectl
+
+  - name: docker systemd dir
+    file:
+      path: /etc/systemd/system/docker.service.d
+      state: directory
+
+  - name: docker config
+    template:
+      src: daemon.json 
+      dest: /etc/docker/daemon.json 
+    notify:
+      - restart_docker
+
+  - name: services
+    systemd:
+      name: "{{ item }}"
+      state: started
+      enabled: yes
+    with_items:
+      - 'docker'
+      - 'kubelet'
+
+  - name: pull kube stuff
+    docker_image:
+      name: "{{ item }}"
+      source: pull
+    with_items: 
+      - k8s.gcr.io/kube-proxy:v1.15.0
+      - k8s.gcr.io/kube-apiserver:v1.15.0
+      - k8s.gcr.io/kube-scheduler:v1.15.0
+      - k8s.gcr.io/kube-controller-manager:v1.15.0
+      - k8s.gcr.io/coredns:1.3.1
+      - k8s.gcr.io/etcd:3.3.10
+      - k8s.gcr.io/pause:3.1
+      - busybox
+
+  - name: kube init
+    command: kubeadm init --pod-network-cidr=10.244.0.0/16
+    args:
+      creates: /etc/kubernetes/admin.conf
+    register: kubeinit
+
+  - name: flannel setup
+    command: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml
+    args:
+      creates: /etc/kubernetes/admin.conf
+    environment:
+      KUBECONFIG: /etc/kubernetes/admin.conf
+    when: kubeinit.changed
+
+  - name: get the username running the deploy
+    become: false
+    local_action: command whoami
+    register: username_on_the_host
+
+#  - debug: var=username_on_the_host
+
+  - name: user kube config dir
+    file:
+      path: "/home/{{username_on_the_host.stdout}}/.kube"
+      state: directory
+      owner: "{{username_on_the_host}}"
+
+  - name: copy kube config
+    copy:
+      src: /etc/kubernetes/admin.conf
+      dest: "/home/{{username_on_the_host.stdout}}/.kube/config"
+      owner: "{{username_on_the_host}}"
+      
+
