@@ -45,47 +45,108 @@ Key concepts:
   * Security groups - firewall rules enabling or disabling network traffic to/from ports on the VMs.
 
 
+### Initial setup
+First we need to login to Atomosphere:
+
+Step-by-step guide
+1. To start the VM provisioning process, navigate to <https://use.jetstream-cloud.org>.
+
+2. Click Login in the top right to authenticate using your XSEDE credentials:
+<img src="../../resources/login.webp" height="400">
+
+3. On the Globus Auth screen select XSEDE and click Continue.
+<img src="../../resources/globus.webp" height="400">
+
+4. Enter your XSEDE credentials. Best results will occur if you treat your username as if it were case-sensitive when using Jetstream.
+<img src="../../resources/xsedecredweb.webp" height="400">
+
+
+5. After you type in your XSEDE username and password, confirm whether you will allow your credentials to be used to access Jetstream.  You may wish to review the terms of service and privacy policies linked on that page. Generally, this screen will only be displayed the first time you log into Jetstream, however, changes to Globus Auth might cause this screen to be displayed on a later login to Jetstream.  To use Jetstream, click Allow.
+<img src="../../resources/webapp.webp" height="400">
+
+
+6. To proceed, click  Allow and the web interface to Jetstream will load.
+<img src="../../resources/allow.webp" height="400">
+
+7. Once authenticated via Globus Auth, the Jetstream Dashboard will be displayed.  On this page you will be able to:
+
+     * launch a new instancedas
+     * browse help resources
+     * change settings
+     * view resources and usage history
+     * view a Jetstream Community Activity feed
+     <img src="../../resources/dashboard.webp" height="400">
+
+ 8. Now we can simply select an image that has docker installed:
+
+     <https://use.jetstream-cloud.org/application/images/717>
+
+ 9. To get started using a Jetstream virtual machine, click Launch New Instance from the Dashboard screen. On the list of images page, scroll through the the list of images or enter an image name, tag or description in the search box. For instance, to locate images named or tagged with “Docker”, enter that text in the search bar. The search is not case sensitive.  
+    <center><img src="../../resources/launch_jetstream.png" style="height:300px;"></center>
+
+10. After selecting an image, details about that image will be displayed.  From here, add the selected image to a project, star it as a favorite, or edit image information.  Click Edit details to:
+
+    * Update the name of the image
+    * Set a date to hide the image from public view
+    * Modify the description
+    * Add or delete tags
+    * Click Save
+    * Click Launch
+
+    ```
+    Notes:
+    You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
+
+    DSA/DSS keys are deprecated for Ubuntu 16.04 and newer instances. Please use RSA keys.
+    ```
+
+3.  On the Launch an Instance / Basic Options screen:
+
+    * Enter a name for the instance
+    * Select the image version if there are multiple versions available
+    * Select or create a project to hold this instance. If you have any existing projects, they will be shown here and you can select one. If you don't have any existing projects, click Create New Project and fill in Project Name and Description. A detailed description is optional, but it is recommended to include any grant names or other easily identifying details so others working with you may easily find it. Click Create to create the new project.
+    * Indicate the allocation source
+    * Choose the provider to run on, Indiana or TACC
+    * Choose the instance size. This indicates the vCPUs, memory, and disk size for the VM. See the Virtual Machine Sizes table to show the available options and the SUs consumed per hour.  Check projected resource usage: Allocation Used and Resources Instance will Use.
+    * Click Launch Instance to start the initialization and build of the instance.
+    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465484/launch-instance.jpg?version=1&modificationDate=1472579039601&cacheVersion=1&api=v2&width=476&height=400">
+
+Below are several screens that typically displayed during the provisioning process.
+
+
+Atmosphere deployment will add two keys to your authorized_keys file – one for GateOne (the old web shell) and one for Apache Guacamole (the new web shell) - the comment for both will just have your XSEDE username. We are working on updating that to indicate that they are web shell keys.
+Step-by-step guide to Adding SSH public keys to Atmosphere settings:
+1. To add your ssh key(s) to Jetstream, click on your username in the upper right hand corner and then click Settings.
+
+    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture7.jpg?version=1&modificationDate=1457462028632&cacheVersion=1&api=v2&width=596&height=400" height="400">
+
+
+
+2.  On the Settings screen, under Advanced, click Show More, to expand the section for adding your SSH key.  Check the box that says “Enable ssh access into launched instances” and then click the green plus sign to actually add your key.
+
+    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture8.jpg?version=1&modificationDate=1457462028835&cacheVersion=1&api=v2&width=600&height=400" height="400">
+
+
+
+3. On the next screen give the key a descriptive name and then paste the contents of your PUBLIC ssh key into the dialog box.
+```
+cat ~/.ssh/id_rsa.pub
+```
+<img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture9.jpg?version=1&modificationDate=1457462028445&cacheVersion=1&api=v2&width=599&height=400" height="400">
+
+4. After you have pasted in your SSH key, click Confirm.  You will then be back at the Settings screen with your key shown in the SSH Configuration section.
+
+5. You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
+
+If you decide to use the web shell instead of ssh-ing in you'll likely want to setup the webshell to accept copy/paste from your clipboard:
+<https://iujetstream.atlassian.net/wiki/spaces/JWT/pages/141525076/Logging+in+with+Web+Shell+-+also+copying+and+pasting>
+
 
 ## Intro to Docker
 
 Intro slides: <https://docs.google.com/presentation/d/1RVyQ1CDamNLRw9mIcUec-IoTcH0-wbQcXsjbRB5NAws/edit?usp=sharing>
 
 
-### Initial setup
-First we need to login to Atomosphere:
-
-Step-by-step guide
-1. To start the VM provisioning process, navigate to https://use.jetstream-cloud.org.
-
-2. Click Login in the top right to authenticate using your XSEDE credentials:
-<img src="https://api.media.atlassian.com/file/989bbcab-fe19-4109-8b41-fdf870548501/image?mode=full-fit&client=cbd6d75b-cac5-4436-ac50-212b458d4ae5&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjYmQ2ZDc1Yi1jYWM1LTQ0MzYtYWM1MC0yMTJiNDU4ZDRhZTUiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOjk4OWJiY2FiLWZlMTktNDEwOS04YjQxLWZkZjg3MDU0ODUwMSI6WyJyZWFkIl19LCJleHAiOjE1NjMzMDExMjgsIm5iZiI6MTU2MzI5Nzc2OH0.I8vBtz6OYmVl9C3YeF0JjzKy4DiEdI9DidI1wCMf6aI" height="400">
-
-3. On the Globus Auth screen select XSEDE and click Continue.
-<img src="https://api.media.atlassian.com/file/33861b5f-bf45-4b74-ae14-dc5e6cb98439/image?mode=full-fit&client=cbd6d75b-cac5-4436-ac50-212b458d4ae5&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjYmQ2ZDc1Yi1jYWM1LTQ0MzYtYWM1MC0yMTJiNDU4ZDRhZTUiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOjMzODYxYjVmLWJmNDUtNGI3NC1hZTE0LWRjNWU2Y2I5ODQzOSI6WyJyZWFkIl19LCJleHAiOjE1NjMzMDE4MDQsIm5iZiI6MTU2MzI5ODQ0NH0.8AXt845_p5dRZnBdSARx46x6Q9zqXEvQxg_tnP0YuJo" height="400">
-
-4. Enter your XSEDE credentials. Best results will occur if you treat your username as if it were case-sensitive when using Jetstream.
-<img src="https://api.media.atlassian.com/file/67e6e2ef-5dec-4b89-9e99-d969447799b8/image?mode=full-fit&client=cbd6d75b-cac5-4436-ac50-212b458d4ae5&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjYmQ2ZDc1Yi1jYWM1LTQ0MzYtYWM1MC0yMTJiNDU4ZDRhZTUiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOjY3ZTZlMmVmLTVkZWMtNGI4OS05ZTk5LWQ5Njk0NDc3OTliOCI6WyJyZWFkIl19LCJleHAiOjE1NjMzMDE4NDQsIm5iZiI6MTU2MzI5ODQ4NH0.ohLYiQbVOtyQzZoVDxSvwVgA4i7fmx-j0DcdxdTonwE" height="400">
-
-
-5. After you type in your XSEDE username and password, confirm whether you will allow your credentials to be used to access Jetstream.  You may wish to review the terms of service and privacy policies linked on that page. Generally, this screen will only be displayed the first time you log into Jetstream, however, changes to Globus Auth might cause this screen to be displayed on a later login to Jetstream.  To use Jetstream, click Allow.
-<img src="https://api.media.atlassian.com/file/29519a20-ba4e-4cb4-8f96-7b35cb91f761/image?mode=full-fit&client=cbd6d75b-cac5-4436-ac50-212b458d4ae5&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjYmQ2ZDc1Yi1jYWM1LTQ0MzYtYWM1MC0yMTJiNDU4ZDRhZTUiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOjI5NTE5YTIwLWJhNGUtNGNiNC04Zjk2LTdiMzVjYjkxZjc2MSI6WyJyZWFkIl19LCJleHAiOjE1NjMzMDE4OTEsIm5iZiI6MTU2MzI5ODUzMX0.gFEi5uVANd8-6Vq4XL6m7JRrTilixfbygbixRR81Prw" height="400">
-
-
-6. To proceed, click  Allow and the web interface to Jetstream will load.
-<img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465442/Picture5.jpg?version=1&modificationDate=1457456989493&cacheVersion=1&api=v2&width=568&height=400" height="400">
-
-7. Once authenticated via Globus Auth, the Jetstream Dashboard will be displayed.  On this page you will be able to:
-
-     * launch a new instance
-     * browse help resources
-     * change settings
-     * view resources and usage history
-     * view a Jetstream Community Activity feed
-     <img src="https://api.media.atlassian.com/file/f4945fc4-b382-4f61-b348-3654786c9c0e/image?mode=full-fit&client=cbd6d75b-cac5-4436-ac50-212b458d4ae5&token=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjYmQ2ZDc1Yi1jYWM1LTQ0MzYtYWM1MC0yMTJiNDU4ZDRhZTUiLCJhY2Nlc3MiOnsidXJuOmZpbGVzdG9yZTpmaWxlOmY0OTQ1ZmM0LWIzODItNGY2MS1iMzQ4LTM2NTQ3ODZjOWMwZSI6WyJyZWFkIl19LCJleHAiOjE1NjMzMDI0NDYsIm5iZiI6MTU2MzI5OTA4Nn0.maEE1t1TRJ5qbGZAujsB_Y3oEUl7FTK1LiPWN1HGf4w" height="400">
-
- 8. Now we can simply select an image that has docker installed:
-
- <https://use.jetstream-cloud.org/application/images/717>
 
 Typically, accessing the docker daemon requires root or to be in the docker group. For the purposes of this introduction,
  we can simply do everything as the root user:
@@ -97,22 +158,23 @@ Make sure you can access the docker daemon; you can verify this by checking the 
 ```
 $ docker version
 Client:
- Version:	17.12.1-ce
- API version:	1.35
- Go version:	go1.10.1
- Git commit:	7390fc6
- Built:	Wed Apr 18 01:23:11 2018
- OS/Arch:	linux/amd64
+  Version:           18.09.7
+  API version:       1.39
+  Go version:        go1.10.1
+  Git commit:        2d0083d
+  Built:             Wed Jul  3 12:13:59 2019
+  OS/Arch:           linux/amd64
+  Experimental:      false
 
 Server:
- Engine:
-  Version:	17.12.1-ce
-  API version:	1.35 (minimum version 1.12)
-  Go version:	go1.10.1
-  Git commit:	7390fc6
-  Built:	Wed Feb 28 17:46:05 2018
-  OS/Arch:	linux/amd64
-  Experimental:	false
+  Engine:
+   Version:          18.09.7
+   API version:      1.39 (minimum version 1.12)
+   Go version:       go1.10.1
+   Git commit:       2d0083d
+   Built:            Mon Jul  1 19:31:12 2019
+   OS/Arch:          linux/amd64
+   Experimental:     false
 
 ```
 
@@ -128,12 +190,12 @@ containers launched from it. The image also contains metadata describing options
 containers from the image.
 
 One of the great things about Docker is that a lot of software has already been packaged into Docker images. One source
-of 100s of thousands of public images is the official docker hub: https://hub.docker.com.
+of 100s of thousands of public images is the official docker hub: <https://hub.docker.com>.
 
 The docker hub contains images contributed by individual users and organizations as well as "official images". Explore
-the official docker images here: https://hub.docker.com/explore/
+the official docker images here: <https://hub.docker.com/explore/>
 
-Most modern programming languages offer an official image. For example, there is an official image for the Python programming language: https://hub.docker.com/_/python/
+Most modern programming languages offer an official image. For example, there is an official image for the Python programming language: <https://hub.docker.com/_/python/>
 
 Docker supports the notion of image tags, similar to tags in a git repository. Tags identify a specific version of an
 image.
@@ -181,13 +243,17 @@ to running other programs on Unix systems, we can run containers in the foregrou
 To run a container and attach to it in one command, use the `-it` flags. Here we run `bash` in a container from the ubuntu image:
 ```
 docker run -it ubuntu bash
+root@c10f52ac8ba2:/# ls
+root@c10f52ac8ba2:/# exit
+ls
 ```
 #### Running a Container in Daemon mode ####
 We can also run a container in the background. We do so using the `-d` flag:
 ```
 docker run -d ubuntu sleep infinity
+docker ps
+docker ps -a
 ```
-Keep in mind that the command given to the `docker run` statement will be given PID 1 in the container, and as soon as this process exits the container will stop.
 
 
 ### Installing and Running the Containerized Classifier Application
@@ -226,25 +292,41 @@ Finally, we can execute commands in a running container using the `docker exec` 
 ```
 ~ $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-a2f968b8443f        ubuntu:16.04        "sleep infinity"    9 seconds ago       Up 8 seconds                            awesome_goldwasser
+e372ff3fde69        ubuntu              "sleep infinity"    2 minutes ago       Up 2 minutes                                   jovial_lewin
 ```
 
-Here we see the container id is `a2f968b8443f`. To execute `bash` in this container we do:
+Here we see the container id is `e372ff3fde69`. To execute `bash` in this container we do:
 ```
-docker exec -it a2f968b8443f bash
+docker exec -it e372ff3fde69 bash
+ls
+exit
 ```
 At this point we are attached to the running container. If our bash session exits, the container will keep running because the `sleep infinity` command is still running.
 
 *Note: The `docker ps` command only shows you running containers - it does not show you containers that have exited. In order to see all containers
 on the system use `docker ps -a`.
 
+```
+root@js-104-88:~/docker# docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
+e372ff3fde69        ubuntu              "sleep infinity"    2 minutes ago       Up 2 minutes                                   jovial_lewin
+c10f52ac8ba2        ubuntu              "bash"              7 minutes ago       Exited (0) 6 minutes ago                       focused_payne
+```
+
 
 ### Removing Docker Containers ###
+You can stop the container with the `docker stop` command. Pass either the container ID or the Name to docker stop:
+```
+docker stop e372ff3fde69
+docker stop jovial_lewin
+```
 We can remove a docker container using the `docker rm` command (optionally passing `-f` to "force" the removal if the container is running). You will need the container name or id to remove the container:
 ```
-$ docker rm -f a2f968b8443f
+$ docker rm -f e372ff3fde69
 ```
 
+
+These IDs will be unique for your container.
 
 ### Building Images From a DockerFile
 We can build images from a text file called a Dockerfile. You can think of a Dockerfile as a recipe for creating images.
@@ -276,7 +358,7 @@ ADD test.txt /root/text.txt
 ```
 
 A complete Dockerfile for the classify_image application as well as the necessary scripts and supporting files is available from the Tutorial gihub repo:
-https://github.com/TACC/taccster18_Cloud_Tutorial/tree/master/classifier
+<https://github.com/TACC/taccster18_Cloud_Tutorial/tree/master/classifier>
 
 
 #### Building the Image
