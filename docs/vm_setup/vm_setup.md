@@ -26,7 +26,7 @@ First we need to login to Atmosphere:
      * change settings
      * view resources and usage history
      * view a Jetstream Community Activity feed
-<img src="../../resources/dashboard.webp">
+<img src="../../resources/atmo-dashboard.png">
 
 ### Setup SSH Keys
 Step-by-step guide to Adding SSH public keys to Atmosphere settings:
