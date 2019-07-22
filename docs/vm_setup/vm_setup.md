@@ -50,10 +50,22 @@ First we need to login to Atmosphere:
 
 4. When the instance is finished building and deploying, you'll see the label changes to *Status* "<font style="color:Green;">● </font> **Active**" and shows the IP Address: <br> <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465484/active.jpg?version=1&modificationDate=1457464079048&cacheVersion=1&api=v2&width=808&height=188">
 
-5. Click on the Instance name to see the characteristics of the Instance as well a various <a src="https://wiki.jetstream-cloud.org/Instance+management+actions">management actions</a> that can be taken
+5. Click on the Instance name to see the characteristics of the Instance as well a various [management actions](https://wiki.jetstream-cloud.org/Instance+management+actions) that can be taken.
+ + Image: create a new Image from this Instance)
+ + Suspend: put the Instance to "sleep"
+ + Shelve: shutdown and store the Instance
+ + Stop: shutdown the Instance but do not store
+ + Reboot: restart the instance
+ + Redeploy: renew the cloud and IP status of the instance
+ + **DELETE**: remove the Instances
+ + Open Web Shell: Open a command line window to the Instances
+ + Open Web Desktop: Open a VNC Desktop to the Instances
 
-### Using WebShell/Guacamole to Access Your Instance
-### SSH Into Your Instance
+### Using WebShell to Access Your Instance
+WebShell (based on Guacamole) provide a web-based alternative to terminal command line software for rapid access or for those times when you installing a terminal is not an option.
+ + Jump to [web shell documentation](https://wiki.jetstream-cloud.org/Logging+in+with+Web+Shell+-+also+copying+and+pasting)
+
+### Using Terminal Software to SSH Into Your Instance
 First you'll want to find your IP Address:
 
 <img src="../../resources/IP_address.png" width="800" height="380">
@@ -63,7 +75,7 @@ For Mac OS X open a terminal window (from Finder, go to Applications, click Util
 For Linux, there are many terminal options, including xterm, konsole, or gnome-terminal.
 In the terminal window, enter the following command, using your XSEDE username and the instance IP address:
 ```
-ssh your_xsede_username@instance_ip_address
+ssh <your_xsede_username>@<instance_ip_address>
 ```
 
 Press Enter.
