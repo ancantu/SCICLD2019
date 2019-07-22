@@ -28,7 +28,8 @@ First we need to login to Atmosphere:
      * view a Jetstream Community Activity feed
 <img src="../../resources/atmo-dashboard.png">
 
-
+---
+---
 ### Launch an Instance
 
 1. Jetstream virtual machines (VMs) are organized by projects. To create a new project, click on <img src="../../resources/atmo-projects-button.png" height=30> from any screen. To create a new project click <img src="../../resources/atmo-create-proj-button.png" height=30>. Fill out the name and description. <br><img src="../../resources/atmo-create-project.png" width="40%">.
@@ -70,7 +71,7 @@ First you'll want to find your IP Address:
 
 <img src="../../resources/IP_address.png" width="800" height="380">
 
-### MacOS X & Unix/Linux
+#### MacOS X & Unix/Linux Terminal
 For Mac OS X open a terminal window (from Finder, go to Applications, click Utilities, and then double-click Terminal).
 For Linux, there are many terminal options, including xterm, konsole, or gnome-terminal.
 In the terminal window, enter the following command, using your XSEDE username and the instance IP address:
@@ -78,12 +79,12 @@ In the terminal window, enter the following command, using your XSEDE username a
 ssh <your_xsede_username>@<instance_ip_address>
 ```
 
-Press Enter.
+Press <Enter>.
 A successful login will look similar to the following:
 
 <img src="../../resources/ssh.jpg">
 
-### Windows using PuTTY
+#### Windows Terminal using PuTTY
 PuTTY is an SSH client for Windows.  It operates a bit differently than Terminal to make the initial SSH connection. For a useful guide to using PuTTY, see [PuTTY – Remote Terminal and SSH Connectivity](https://support.suso.com/supki/SSH_Tutorial_for_Windows).
 
 1. Download the PuTTY application.
@@ -102,8 +103,15 @@ Enter your XSEDE username when prompted for a login name and click Enter.
 
 <img src="../../resources/Putty-config-sshauth.png">
 
-If you decide to use the web shell instead of ssh-ing in you'll likely want to setup the webshell to accept copy/paste from your clipboard:
-<https://iujetstream.atlassian.net/wiki/spaces/JWT/pages/141525076/Logging+in+with+Web+Shell+-+also+copying+and+pasting>
+---
+---
+### Creating a Storage Volume
+[Jump to documentation on Volumes](https://wiki.jetstream-cloud.org/Volumes)
+
+---
+---
+### Atmosphere Command Line Utilities
+[Jump to documentation on Atmosphere Command Line Utilities](https://wiki.jetstream-cloud.org/Atmosphere+Command+Line+Interface)
 
 
 Next: [Building Containers](../docker_containers/docker_containers.md) | Top: [Course Overview](../../index.md)
