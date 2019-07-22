@@ -21,7 +21,7 @@ First we need to login to Atmosphere:
 
 7. Once authenticated via Globus Auth, the Jetstream Dashboard will be displayed.  On this page you will be able to:
 
-     * launch a new instancedas
+     * launch a new instance
      * browse help resources
      * change settings
      * view resources and usage history
