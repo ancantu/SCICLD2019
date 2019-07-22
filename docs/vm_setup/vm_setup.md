@@ -1,6 +1,6 @@
 # Initial cloud setup
 
-First we need to login to Atmosphere:
+First we need to login to Jetstream:
 1. To start the VM provisioning process, navigate to <https://use.jetstream-cloud.org>.
 
 2. Click `Login` in the top right to authenticate using your XSEDE credentials:
@@ -20,7 +20,7 @@ First we need to login to Atmosphere:
 <img src="../../resources/webapp.webp">
 
 
-6. After clicking `Allow` and the web interface to Jetstream called `Atmosphere` will load.
+6. After clicking `Allow`, the web interface to Jetstream called `Atmosphere` will load.
 <img src="../../resources/atmo-loading.png">
 
 7. The Jetstream `Dashboard` will be displayed. <br>On this page you will be able to:
