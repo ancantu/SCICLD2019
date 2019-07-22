@@ -17,7 +17,7 @@ First we need to login to Atmosphere:
 
 
 6. To proceed, click  Allow and the web interface to Jetstream will load.
-<img src="../../resources/allow.webp">
+<img src="../../resources/atmo-loading.png">
 
 7. Once authenticated via Globus Auth, the Jetstream Dashboard will be displayed.  On this page you will be able to:
 
@@ -28,51 +28,16 @@ First we need to login to Atmosphere:
      * view a Jetstream Community Activity feed
 <img src="../../resources/atmo-dashboard.png">
 
-### Setup SSH Keys
-Step-by-step guide to Adding SSH public keys to Atmosphere settings:
-1. To add your ssh key(s) to Jetstream, click on your username in the upper right hand corner and then click Settings.
-
-    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture7.jpg?version=1&modificationDate=1457462028632&cacheVersion=1&api=v2&width=596&height=400" height="400">
-
-
-
-2.  On the Settings screen, under Advanced, click Show More, to expand the section for adding your SSH key.  Check the box that says “Enable ssh access into launched instances” and then click the green plus sign to actually add your key.
-
-    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture8.jpg?version=1&modificationDate=1457462028835&cacheVersion=1&api=v2&width=600&height=400" height="400">
-
-
-
-3. On the next screen give the key a descriptive name and then paste the contents of your PUBLIC ssh key into the dialog box.
-```
-cat ~/.ssh/id_rsa.pub
-```
-<img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture9.jpg?version=1&modificationDate=1457462028445&cacheVersion=1&api=v2&width=599&height=400" height="400">
-
-4. After you have pasted in your SSH key, click Confirm.  You will then be back at the Settings screen with your key shown in the SSH Configuration section.
-
-5. You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
 
 ### Launch an Instance
 
-1. To get started using a Jetstream virtual machine, click Launch New Instance from the Dashboard screen. On the list of images page, scroll through the the list of images or enter an image name, tag or description in the search box. For instance, to locate images named or tagged with “Docker”, enter that text in the search bar. The search is not case sensitive.  
-  <!-- <center><img src="../../resources/launch_jetstream.png"></center> -->
+1. Jetstream virtual machines (VMs) are organized by projects. To create a new project, click on <img src="../../resources/atmo-projects-button.png" height=30> from any screen. To create a new project click <img src="../../resources/atmo-create-proj-button.png" height=30>. Fill out the name and description. <br><img src="../../resources/atmo-create-project.png" width="40%">.
 
-2. Now we can simply select an image that has docker installed:
-
-    <https://use.jetstream-cloud.org/application/images/717>
-
-3. After selecting an image, details about that image will be displayed.  From here, add the selected image to a project, star it as a favorite, or edit image information.  Click Edit details to:
-
-    * Update the name of the image
-    * Set a date to hide the image from public view
-    * Modify the description
-    * Add or delete tags
-    * Click Save
-    * Click Launch
+2. To get started using a Jetstream virtual machine, click Launch New Instance from the Dashboard screen. On the list of images page, scroll through the the list of images or enter an image name, tag or description in the search box. For instance, to locate images named or tagged with “Docker”, enter that text in the search bar. The search is not case sensitive.  
+  <img src="../../resources/atmo-image-select.png" width="50%">
 
 
-
-4.  On the Launch an Instance / Basic Options screen:
+3.  On the Launch an Instance / Basic Options screen:
 
     * Enter a name for the instance
     * Select the image version if there are multiple versions available
@@ -81,9 +46,13 @@ cat ~/.ssh/id_rsa.pub
     * Choose the provider to run on, Indiana or TACC
     * Choose the instance size. This indicates the vCPUs, memory, and disk size for the VM. See the Virtual Machine Sizes table to show the available options and the SUs consumed per hour.  Check projected resource usage: Allocation Used and Resources Instance will Use.
     * Click Launch Instance to start the initialization and build of the instance.
-    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465484/launch-instance.jpg?version=1&modificationDate=1472579039601&cacheVersion=1&api=v2&width=476&height=400">
+    <img src="../../resources/atmo-instance-launch.png" width="80%">
 
+4. When the instance is finished building and deploying, you'll see the label changes to *Status* "<font style="color:Green;">● </font> **Active**" and shows the IP Address: <br> <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465484/active.jpg?version=1&modificationDate=1457464079048&cacheVersion=1&api=v2&width=808&height=188">
 
+5. Click on the Instance name to see the characteristics of the Instance as well a various <a src="https://wiki.jetstream-cloud.org/Instance+management+actions">management actions</a> that can be taken
+
+### Using WebShell/Guacamole to Access Your Instance
 ### SSH Into Your Instance
 First you'll want to find your IP Address:
 
