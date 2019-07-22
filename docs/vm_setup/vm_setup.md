@@ -1,4 +1,4 @@
-# Initial setup
+# Initial cloud setup
 
 First we need to login to Atmosphere:
 1. To start the VM provisioning process, navigate to <https://use.jetstream-cloud.org>.
