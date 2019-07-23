@@ -19,7 +19,8 @@ SSH public keys must be added to your Atmosphere settings:
 
 
 3. On the next screen give the key a descriptive name (e.g. Smith_laptop) and then paste the contents of your PUBLIC ssh key into the dialog box.
-<img src="../../resources/atmo-add-ssh-key.png" width=50%>
+
+<img src="../../resources/atmo-add-ssh-key.png" width="50%">
 
  * In Linux and MacOS you can find your originating Public SSH key via:<br>
  ```
