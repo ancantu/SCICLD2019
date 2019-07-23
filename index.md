@@ -20,8 +20,8 @@ Click [here](docs/instructors.md) for more information about the course instruct
 |  9:00 - 10:15 | [Cloud Concepts](docs/cloud_concepts/cloud_concepts.md) |
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [Deploying VMs and Volumes in Jetstream](docs/vm_setup/vm_init_cloud.md) |
-| 11:45 - 13:00 | Lunch and Small Group Discussions|
-| 13:00 - 14:15 | [Docker Containers](docs/docker_containers/docker_containers.md) |
+| 11:45 - 13:00 | Lunch |
+| 13:00 - 14:15 | [Introduction to Cloud Computing](docs/docker_containers/docker_containers.md) |
 | 14:15 - 14:30 | Break |
 | 14:30 - 16:00 | [Docker Compose](docs/docker_compose/docker_compose.md) |
 
@@ -29,7 +29,7 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Reproducibility](docs/reproducibility/reproducibility.md) |
+|  9:00 - 10:15 | [Best Practices for Reproducibility in Research: Version Control](docs/reproducibility/reproducibility.md) |
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [Docker in the Cloud](docs/docker_in_cloud/docker_in_cloud.md) |
 | 11:45 - 13:00 | Lunch |
