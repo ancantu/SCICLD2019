@@ -21,7 +21,7 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [Deploying VMs and Volumes in Jetstream](docs/vm_setup/vm_init_cloud.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | [Introduction to Cloud Computing](docs/docker_containers/docker_containers.md) |
+| 13:00 - 14:15 | [Introduction to Docker Containers](docs/docker_containers/docker_containers.md) |
 | 14:15 - 14:30 | Break |
 | 14:30 - 16:00 | [Docker Compose](docs/docker_compose/docker_compose.md) |
 

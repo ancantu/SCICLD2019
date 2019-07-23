@@ -1,57 +1,11 @@
-# Introduction to Cloud Computing
-
-
-This module will be partially interactive. Please follow along on your own computer.
-
-
-## What is a cloud?
-
-A "cloud" is a computer system that provides users with shared access to on-demand computing resources via the internet.
-
-
-<center><img src="../../resources/cloud.jpg" style="height:300px;"></center>
-
-
-### Goals/Benefits
-  * Resource utilization
-  * Scalability and Elasticity
-  * Reproducibility by way of Programmability
-  * Reliability through redundancy
-
-
-### Cloud Means Different Things to Different Groups
-
-Different kinds of people use clouds for different purposes.
-  * System Administrators - use cloud to automate operations.
-  * Software Developers - build applications on cloud servers and platforms.
-  * Computational scientists - Write codes to analyze scientific data in the cloud.
-
-In this course we will try to expose you to each of these views.
-
-### Cloud service models
-
-Clouds can offer different service models:
-  * Infrastructure-as-a-service (Iaas) - virtual servers, networks, firewalls, etc. (Openstack, Jetstream, AWS, Azure)
-  * Platform-as-a-service (Paas) - deploy applications without managing virtual servers (Agave, Google App Engine, Heroku)
-  * Software-as-a-service (Saas) - Ready to use software application (Jupyterhub, Gmail, Office365)
-
-Also: emerging models such as functions-as-a-service.
-
-### Infrastructure-as-a-service
-
-Key concepts:
-  * Virtual Machines (VMs) - Simulate a physical computer through software.
-  * Software defined networking: Routers, networks and subnets - used to connect VMs to other computers.
-  * Security groups - firewall rules enabling or disabling network traffic to/from ports on the VMs.
-
-
 
 ## Intro to Docker
 
 <!--Intro slides: <https://docs.google.com/presentation/d/1djCYBhKmbDo9L_GZHaarZVUbyrQerPCTctoOAZEVrWk/edit#slide=id.g3c300aa957_0_6> -->
 
-We're going to use an image on Jetstream that already has Docker installed,
-but if you'd like to install docker on your laptop here are a few links:
+This is going to be a hands-on interactive session. We're going to use an image on Jetstream that already has Docker installed
+(go ahead and kick that off now if you haven't already),
+but if you'd like to install docker locally on your laptop here are a few links:
 
 - Docker
   - [Mac](https://docs.docker.com/docker-for-mac/install/)
@@ -62,14 +16,16 @@ but if you'd like to install docker on your laptop here are a few links:
   - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
 
 ### Docker Hub Account
-You'll want to create a dockerhub account in order to easily share your containers with other researchers.
+You'll want to create a Docker Hub account in order to easily share your containers with other researchers.
 To create an account, go to <https://hub.docker.com/>, click `Sign up for Docker Hub`,
 and create a username/password to associate with your email.
 
 Typically, accessing the docker daemon requires root or to be in the docker group. For the purposes of this introduction,
- we can simply do everything as the root user:
+ we can simply do everything as the root user. Login to your virtual machine and
+ switch to the root user:
 ```
-$ sudo su - root
+ssh $USERNAME@$IP_ADDRESS
+sudo su - root
 ```
 
 Make sure you can access the docker daemon; you can verify this by checking the version:
@@ -291,6 +247,6 @@ To build an image from a Dockerfile we use the `docker build` command. We use th
 docker build -t classify_image .
 ```
 
-Note that this command requires all the files in the `classifier` directory in the Tutorial github repo (https://github.com/TACC/taccster18_Cloud_Tutorial/tree/master/classifier)
+Note that this command requires all the files in the `classifier` directory in the Tutorial github repo (<https://github.com/TACC/taccster18_Cloud_Tutorial/tree/master/classifier>)
 
 Next: [Docker Compose](../docker_compose/docker_compose.md) | Top: [Course Overview](../../index.md)

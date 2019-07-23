@@ -83,38 +83,15 @@ Each one of these alignments will take ~6 minutes, so be sure to start the secon
 after the first is completed.
 <!-- *6 min *m1.medium (CPU: 6, Mem: 16 GB, Disk: 60 GB) -->
 
-### Scaling Containers
-You can scale containers as necessary, for example if you'd like multiple instances of
-the trimmomatic app, you can scale up that service specifically:
-
-```
-docker-compose up --scale trimmomatic=4
-docker-ps
-docker-compose down
-```
-Let's take a look at the outputs of our pipeline. MultiQC aggregates logs and displays
-them as a webpage, it gives a nice summary of important alignment statistics.
-
-Open a web shell, and navigate to the MultiQC report:
-<img src="../../resources/web_desktop.png" height="300" >
-
-Or use `scp` (secure copy) to copy the report from jetstream to your machine:
-```
-scp $USERNAME@$IP_ADDRESS:/home/$USERNAME/docker_compose_pipeline/working/multiqc/multiqc_report_1.html .
-```
-
-Once you've tested and you're happy with the containers you can push them all to your Docker Hub so
-so anyone can pull and use them:
-```
-docker-compose push
-```
-
-### What Are We Doing With This Pipeline
-This pipeline does QC and alignment for sequencing data.
+### What Are We Doing With This Pipeline and This Data?
+This pipeline performs QC and alignment on sequencing data.
 I've taken some public sequencing data from human cancer cell lines that were
 treated with siRNA to knockdown a particular gene (REST).
-GEO:
+
+GEO links:
+
 <https://www.ncbi.nlm.nih.gov/sra?term=SRX5331845>
+
 <https://www.ncbi.nlm.nih.gov/sra?term=SRX5331843>
 
 REST is a transcriptional repressor that is often deactivated in aggressive prostate cancers.
@@ -142,4 +119,39 @@ affected by REST knockdown we would want to align to the whole genome (or at lea
 the CDS), and run differential expression analysis with another tool (DESeq2,
 RSubread, EdgeR, etc.) to get statistics on genes that are affected.
 
-Top: [Course Overview](../../index.md)
+### Pipeline Outputs
+Let's take a look at the outputs of our pipeline. MultiQC aggregates logs and displays
+them as a webpage, it gives a nice summary of important alignment statistics.
+
+Open a web shell, and navigate to the MultiQC report:
+<img src="../../resources/web_desktop.png">
+
+Or use `scp` (secure copy) to copy the report from jetstream to your machine:
+```
+scp $USERNAME@$IP_ADDRESS:/home/$USERNAME/docker_compose_pipeline/working/multiqc/multiqc_report_1.html .
+```
+
+
+### Scaling Containers
+You can scale containers as necessary, for example if you'd like multiple instances of
+the trimmomatic app, you can scale up that service specifically:
+
+```
+docker-compose up --scale trimmomatic=4
+docker-compose down
+```
+
+### Further Exploration
+While it is often useful to build your own images, it is not necessary to build images
+yourself when using `docker-compose`. You can also deploy public images from Docker Hub,
+BioContainers in particular are very useful for life science research:
+<https://hub.docker.com/r/biocontainers/biocontainers>
+
+Take some time to look around for a containerized version of a tool you commonly use,
+or containerize it yourself starting from a Dockerfile.
+
+Or if you like sequencing analysis, try pulling the full raw data files and
+aligning them to the whole human genome or CDS (may need to scale up your VM
+  resources).
+
+Back: [Docker Containers](../docker_containers/docker_containers.md) | Top: [Course Overview](../../index.md)
