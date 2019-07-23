@@ -19,7 +19,7 @@ Click [here](docs/instructors.md) for more information about the course instruct
 |----------|--------------------------------------------------|
 |  9:00 - 10:15 | [Cloud Concepts](docs/cloud_concepts/cloud_concepts.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [Deploying VMs and Volumes in Jetstream](docs/vm_setup/vm_setup.md) |
+| 10:30 - 11:45 | [Deploying VMs and Volumes in Jetstream](docs/vm_setup/vm_init_cloud.md) |
 | 11:45 - 13:00 | Lunch and Small Group Discussions|
 | 13:00 - 14:15 | [Docker Containers](docs/docker_containers/docker_containers.md) |
 | 14:15 - 14:30 | Break |
@@ -60,4 +60,3 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 13:00 - 14:15 | TACC Tour |
 | 14:15 - 14:30 | Break |
 | 14:30 - 16:00 | One-on-one by request |
-
