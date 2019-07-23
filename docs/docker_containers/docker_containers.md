@@ -24,9 +24,9 @@ A "cloud" is a computer system that provides users with shared access to on-dema
 Different kinds of people use clouds for different purposes.
   * System Administrators - use cloud to automate operations.
   * Software Developers - build applications on cloud servers and platforms.
-  * Computational scientists - Write codes to analysis scientific data in the cloud.
+  * Computational scientists - Write codes to analyze scientific data in the cloud.
 
-In this course we will try to exposure you to each of these views.
+In this course we will try to expose you to each of these views.
 
 ### Cloud service models
 
@@ -35,9 +35,9 @@ Clouds can offer different service models:
   * Platform-as-a-service (Paas) - deploy applications without managing virtual servers (Agave, Google App Engine, Heroku)
   * Software-as-a-service (Saas) - Ready to use software application (Jupyterhub, Gmail, Office365)
 
-Also: emerging models such as functioni-as-a-service.
+Also: emerging models such as functions-as-a-service.
 
-### Infrastrcture-as-a-service
+### Infrastructure-as-a-service
 
 Key concepts:
   * Virtual Machines (VMs) - Simulate a physical computer through software.
