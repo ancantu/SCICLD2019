@@ -45,108 +45,26 @@ Key concepts:
   * Security groups - firewall rules enabling or disabling network traffic to/from ports on the VMs.
 
 
-### Initial setup
-First we need to login to Atomosphere:
-
-Step-by-step guide
-1. To start the VM provisioning process, navigate to <https://use.jetstream-cloud.org>.
-
-2. Click Login in the top right to authenticate using your XSEDE credentials:
-<img src="../../resources/login.webp" height="400">
-
-3. On the Globus Auth screen select XSEDE and click Continue.
-<img src="../../resources/globus.webp" height="400">
-
-4. Enter your XSEDE credentials. Best results will occur if you treat your username as if it were case-sensitive when using Jetstream.
-<img src="../../resources/xsedecredweb.webp" height="400">
-
-
-5. After you type in your XSEDE username and password, confirm whether you will allow your credentials to be used to access Jetstream.  You may wish to review the terms of service and privacy policies linked on that page. Generally, this screen will only be displayed the first time you log into Jetstream, however, changes to Globus Auth might cause this screen to be displayed on a later login to Jetstream.  To use Jetstream, click Allow.
-<img src="../../resources/webapp.webp" height="400">
-
-
-6. To proceed, click  Allow and the web interface to Jetstream will load.
-<img src="../../resources/allow.webp" height="400">
-
-7. Once authenticated via Globus Auth, the Jetstream Dashboard will be displayed.  On this page you will be able to:
-
-     * launch a new instancedas
-     * browse help resources
-     * change settings
-     * view resources and usage history
-     * view a Jetstream Community Activity feed
-     <img src="../../resources/dashboard.webp" height="400">
-
- 8. Now we can simply select an image that has docker installed:
-
-     <https://use.jetstream-cloud.org/application/images/717>
-
- 9. To get started using a Jetstream virtual machine, click Launch New Instance from the Dashboard screen. On the list of images page, scroll through the the list of images or enter an image name, tag or description in the search box. For instance, to locate images named or tagged with “Docker”, enter that text in the search bar. The search is not case sensitive.  
-    <center><img src="../../resources/launch_jetstream.png" style="height:300px;"></center>
-
-10. After selecting an image, details about that image will be displayed.  From here, add the selected image to a project, star it as a favorite, or edit image information.  Click Edit details to:
-
-    * Update the name of the image
-    * Set a date to hide the image from public view
-    * Modify the description
-    * Add or delete tags
-    * Click Save
-    * Click Launch
-
-    ```
-    Notes:
-    You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
-
-    DSA/DSS keys are deprecated for Ubuntu 16.04 and newer instances. Please use RSA keys.
-    ```
-
-3.  On the Launch an Instance / Basic Options screen:
-
-    * Enter a name for the instance
-    * Select the image version if there are multiple versions available
-    * Select or create a project to hold this instance. If you have any existing projects, they will be shown here and you can select one. If you don't have any existing projects, click Create New Project and fill in Project Name and Description. A detailed description is optional, but it is recommended to include any grant names or other easily identifying details so others working with you may easily find it. Click Create to create the new project.
-    * Indicate the allocation source
-    * Choose the provider to run on, Indiana or TACC
-    * Choose the instance size. This indicates the vCPUs, memory, and disk size for the VM. See the Virtual Machine Sizes table to show the available options and the SUs consumed per hour.  Check projected resource usage: Allocation Used and Resources Instance will Use.
-    * Click Launch Instance to start the initialization and build of the instance.
-    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465484/launch-instance.jpg?version=1&modificationDate=1472579039601&cacheVersion=1&api=v2&width=476&height=400">
-
-Below are several screens that typically displayed during the provisioning process.
-
-
-Atmosphere deployment will add two keys to your authorized_keys file – one for GateOne (the old web shell) and one for Apache Guacamole (the new web shell) - the comment for both will just have your XSEDE username. We are working on updating that to indicate that they are web shell keys.
-Step-by-step guide to Adding SSH public keys to Atmosphere settings:
-1. To add your ssh key(s) to Jetstream, click on your username in the upper right hand corner and then click Settings.
-
-    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture7.jpg?version=1&modificationDate=1457462028632&cacheVersion=1&api=v2&width=596&height=400" height="400">
-
-
-
-2.  On the Settings screen, under Advanced, click Show More, to expand the section for adding your SSH key.  Check the box that says “Enable ssh access into launched instances” and then click the green plus sign to actually add your key.
-
-    <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture8.jpg?version=1&modificationDate=1457462028835&cacheVersion=1&api=v2&width=600&height=400" height="400">
-
-
-
-3. On the next screen give the key a descriptive name and then paste the contents of your PUBLIC ssh key into the dialog box.
-```
-cat ~/.ssh/id_rsa.pub
-```
-<img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/17465474/Picture9.jpg?version=1&modificationDate=1457462028445&cacheVersion=1&api=v2&width=599&height=400" height="400">
-
-4. After you have pasted in your SSH key, click Confirm.  You will then be back at the Settings screen with your key shown in the SSH Configuration section.
-
-5. You must redeploy or reboot an instance AFTER adding or updating your SSH public-keys in order to have those keys added to the instance.
-
-If you decide to use the web shell instead of ssh-ing in you'll likely want to setup the webshell to accept copy/paste from your clipboard:
-<https://iujetstream.atlassian.net/wiki/spaces/JWT/pages/141525076/Logging+in+with+Web+Shell+-+also+copying+and+pasting>
-
 
 ## Intro to Docker
 
-Intro slides: <https://docs.google.com/presentation/d/1RVyQ1CDamNLRw9mIcUec-IoTcH0-wbQcXsjbRB5NAws/edit?usp=sharing>
+<!--Intro slides: <https://docs.google.com/presentation/d/1djCYBhKmbDo9L_GZHaarZVUbyrQerPCTctoOAZEVrWk/edit#slide=id.g3c300aa957_0_6> -->
 
+We're going to use an image on Jetstream that already has Docker installed,
+but if you'd like to install docker on your laptop here are a few links:
 
+- Docker
+  - [Mac](https://docs.docker.com/docker-for-mac/install/)
+  - [Windows](https://docs.docker.com/docker-for-windows/install/)
+  - [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+  - [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+  - [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+  - [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+
+### Docker Hub Account
+You'll want to create a dockerhub account in order to easily share your containers with other researchers.
+To create an account, go to <https://hub.docker.com/>, click `Sign up for Docker Hub`,
+and create a username/password to associate with your email.
 
 Typically, accessing the docker daemon requires root or to be in the docker group. For the purposes of this introduction,
  we can simply do everything as the root user:
@@ -181,6 +99,12 @@ Server:
 Create a test directory to contain your docker work:
 ```
 $ mkdir docker; cd docker
+```
+
+We'll also want to login to your Docker Hub account so we can push images:
+```
+docker login
+# Enter username/password
 ```
 
 ### Docker Images and Tags, Docker Hub, and Pulling Images
@@ -336,7 +260,7 @@ The instructions within a dockerfile either add files/folders to the image, add 
 We can use the `FROM` instruction to start our new image from a known image. This should be the first line of our Dockerfile. We will start our image from an official Ubuntu 16.04 image:
 
 ```
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 ```
 
@@ -369,15 +293,4 @@ docker build -t classify_image .
 
 Note that this command requires all the files in the `classifier` directory in the Tutorial github repo (https://github.com/TACC/taccster18_Cloud_Tutorial/tree/master/classifier)
 
-
-## Jupyter
-
-Online notebooks and access to other TACC resources.
-
-(https://jupyter.tacc.cloud)
-
-## Atmosphere (Jetstream Project)
-
-1-Click access to VMs.
-
-(https://use.jetstream-cloud.org)
+Next: [Docker Compose](../docker_compose/docker_compose.md) | Top: [Course Overview](../../index.md)
