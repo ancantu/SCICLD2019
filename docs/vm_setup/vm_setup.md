@@ -1,7 +1,7 @@
 # Initial cloud setup
+Before we can create an launch a Virtual Machine Instance, we need to first login to Jetstream:
 
-First we need to login to Jetstream:
-1. To start the VM provisioning process, navigate to <https://use.jetstream-cloud.org>.
+1. Navigate to <https://use.jetstream-cloud.org>.
 
 2. Click `Login` in the top right to authenticate using your XSEDE credentials:
 <img src="../../resources/login.webp" align="center">
@@ -368,8 +368,6 @@ prompt> atmo instance show 690c98d0-674e-4c7b-b6aa-20318568e90c
 | vnc               | True                                 |
 +-------------------+--------------------------------------+
 ```
----
-[Jump to documentation on Atmosphere Command Line Utilities](https://wiki.jetstream-cloud.org/Atmosphere+Command+Line+Interface)
 
 <br>
 
