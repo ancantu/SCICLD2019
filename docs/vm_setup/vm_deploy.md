@@ -2,13 +2,13 @@
 ---
 
 1. Jetstream virtual machines (VMs) are organized by projects.
- * To access projects, click on <img src="../../resources/atmo-projects-button.png" height=30> from any screen.
- * To create a new project click <img src="../../resources/atmo-create-proj-button.png" height=30>.
+ * To access projects, click on <img src="../../resources/atmo-projects-button.png" height="30"> from any screen.
+ * To create a new project, click <img src="../../resources/atmo-create-proj-button.png" height="30">.
  * Fill out the name and description. <br><img src="../../resources/atmo-create-project.png" width="40%">.<br> Best practice is to name a project something concise and informative so that, along with the description, one can quickly identify instance roles.
 
 2. Jetstream VMs may be started clicking `New> Instance`. <br> <img src="../../resources/atmo-new-item.png" width="30%">.
  * This shows a catalog of `Images`: _Instances whose configurations have been saved as template from which to launch identical Instances_.
- * On the list of images page, scroll through the the list of images or enter an image name, tag or description in the search box. For instance, to locate images named or tagged with “Docker”, enter that text in the search bar. The search is not case sensitive.  
+ * On the page listing of images, scroll through the list or enter an image name, tag or description in the search box.<br>For instance, to locate images named or tagged with “Docker”, enter that text in the search bar.<br>The search is not case sensitive.<br>  
   <img src="../../resources/atmo-image-select.png" width="50%">.
   * `Featured` (system maintained) and `Public` images are shown. `Featured` images are recommended as these have been tested by Jetstream staff.
 
@@ -47,4 +47,4 @@
 
 <br>
 
-Next: [Webshell to VM](vm_webshell.md) | Top: [Course Overview](../../index.md)
+Previous: [Initial Cloud Setup](vm_init_cloud.md) | Next: [Webshell to VM](vm_webshell.md) | Top: [Course Overview](../../index.md)

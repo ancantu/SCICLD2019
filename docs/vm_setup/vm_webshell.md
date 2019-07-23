@@ -12,7 +12,7 @@ WebShell (based on Guacamole) provides a web-based alternative to terminal comma
  * `Shift-Ctrl-Alt` to close the clipboard
  * Text in the clipboard may be pasted now with `Shift-Ctrl-V` or `right-clicking`
  * Alternatively, selecting text in the `WebShell` automatically places it in the Clipboard where it may be cut or pasted normally.<br>
- 
+
  <img src="https://iujetstream.atlassian.net/wiki/download/thumbnails/141525076/Webshell_copy_paste.png?version=1&modificationDate=1510086328092&cacheVersion=1&api=v2&width=600&height=738">
 
 
@@ -22,4 +22,4 @@ WebShell (based on Guacamole) provides a web-based alternative to terminal comma
 
 <br>
 
-Next: [Terminal SSH to VM](vm_terminal_ssh.md) | Top: [Course Overview](../../index.md)
+Previous: [Deploy VM](vm_deploy.md) | Next: [Terminal SSH to VM](vm_terminal_ssh.md) | Top: [Course Overview](../../index.md)

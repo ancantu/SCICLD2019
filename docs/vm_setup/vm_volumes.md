@@ -50,4 +50,4 @@ tmpfs           7.8G  148K  7.8G   1% /dev/shm
 
 <br>
 
-Next: [Atmo CLI](vm_atmo-cli.md) | Top: [Course Overview](../../index.md)
+Previous: [Terminal SSH to VM](vm_terminal_ssh.md) | Next: [Atmo CLI](vm_atmo-cli.md) | Top: [Course Overview](../../index.md)
