@@ -137,7 +137,9 @@ You can scale containers as necessary, for example if you'd like multiple instan
 the trimmomatic app, you can scale up that service specifically:
 
 ```
+docker-compose ps
 docker-compose up --scale trimmomatic=4
+docker-compose ps
 docker-compose down
 ```
 
