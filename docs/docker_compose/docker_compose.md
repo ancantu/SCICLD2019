@@ -98,7 +98,7 @@ them as a webpage, it gives a nice summary of important alignment statistics.
 Open a web shell, and navigate to the MultiQC report:
 <img src="../../resources/web_desktop.png" height="300" >
 
-Or use `scp` (secure copy) to copy the report from jestream to your machine:
+Or use `scp` (secure copy) to copy the report from jetstream to your machine:
 ```
 scp $USERNAME@$IP_ADDRESS:/home/$USERNAME/docker_compose_pipeline/working/multiqc/multiqc_report_1.html .
 ```

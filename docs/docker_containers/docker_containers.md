@@ -257,7 +257,7 @@ We can build images from a text file called a Dockerfile. You can think of a Doc
 The instructions within a dockerfile either add files/folders to the image, add metadata to the image, or both.
 
 #### The FROM instruction
-We can use the `FROM` instruction to start our new image from a known image. This should be the first line of our Dockerfile. We will start our image from an official Ubuntu 16.04 image:
+We can use the `FROM` instruction to start our new image from a known image. This should be the first line of our Dockerfile. We will start our image from an official Ubuntu image:
 
 ```
 FROM ubuntu:latest
@@ -269,7 +269,7 @@ We can add files to our image by running commands with the `RUN` instruction. We
 
 The Dockerfile will look like this now:
 ```
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y wget
 ```
