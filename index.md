@@ -41,13 +41,13 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Human SNP Analysis Part 1](docs/human_snp/human_snp.md) |
+|  9:00 - 10:15 | [Exercise: Human SNP Analysis Part 1](docs/human_snp/human_snp.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [Human SNP Analysis Part 2](docs/human_snp/human_snp.md) |
+| 10:30 - 11:45 | [Exercise: Human SNP Analysis Part 2](docs/human_snp/human_snp.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | Title TBD |
+| 13:00 - 14:15 | [Data Management and Movement](docs/data_move/data_move.md) |
 | 14:15 - 14:30 | Break |
-| 14:30 - 16:00 | Title TBD |
+| 14:30 - 16:00 | [Exercise: Testing and Reproducibility](docs/testing_repro/testing_repro.md) |
 
 ### Friday
 
