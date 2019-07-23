@@ -18,7 +18,8 @@ SSH public keys must be added to your Atmosphere settings:
 
 
 
-3. On the next screen give the key a descriptive name (e.g. Smith_laptop) and then paste the contents of your PUBLIC ssh key into the dialog box.<br>
+3. On the next screen give the key a descriptive name (e.g. Smith_laptop) and then paste the contents of your PUBLIC ssh key into the dialog box.
+
 <img src="../../resources/atmo-add-ssh-key.png" width=50%><br>
  * In Linux and MacOS you can find your originating Public SSH key via:
  ```
@@ -27,7 +28,7 @@ SSH public keys must be added to your Atmosphere settings:
 
 4. After you have pasted in your SSH key, click `Confirm`.  You will then be back at the Settings screen with your key shown in the SSH Configuration section.
 
-5. **You must redeploy or reboot** an instance WHENEVER adding or updating your SSH public-keys in order to have those keys added to the instance.
+5. **You must redeploy or reboot** an instance **WHENEVER** adding or updating your SSH public-keys in order to have those keys added to the instance.
 
 
 #### Terminal Software:

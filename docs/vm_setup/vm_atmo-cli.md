@@ -6,7 +6,7 @@ Jetstream has a command-line alternative to the Atmosphere web-interface, called
 `atmo` can be installed into any Linux/MacOS environment using:
 
 ```
-pip install --user atmospher-cli
+pip install --user atmosphere-cli
 ```
 Two specific environment variables allow one to point `atmo` at your account on Jetstream. We recommend you add these to your `.bashrc` file in your `$HOME` directory:
 ```
@@ -169,4 +169,4 @@ prompt> atmo instance show 690c98d0-674e-4c7b-b6aa-20318568e90c
 
 <br>
 
-Next: [Building Containers](../docker_containers/docker_containers.md) | Top: [Course Overview](../../index.md)
+Next: **BREAK** followed by [Building Containers](../docker_containers/docker_containers.md) | Top: [Course Overview](../../index.md)
