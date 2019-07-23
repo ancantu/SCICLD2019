@@ -52,11 +52,11 @@ PuTTY is an SSH client for Windows.  It operates a bit differently than Terminal
 2. Launch PuTTY.
 3. The first time PuTTY is used for login, add your private key.
   * Single click the "Default Settings" session to save your private key for all future sessions.
-  * Click on the + symbol next to the 'SSH' category on the left hand side.
-  * Click on the 'Auth' category to bring up the PuTTY Configuration screen (see screenshot below).
-  * The key is set down at the bottom under 'Private key file for authentication'. Click on the Browse button next to the 'Private key file for authentication' field and locate your private key file on the file system. Select the file and press 'Ok'. (It is probably in your My Documents folder. )
-  * Click the 'Session' category from the left hand side.
-  * Make sure "Default Settings" is still selected.
+  * Click on the `+` symbol next to the `SSH` category on the left hand side.
+  * Click on the `Auth` category to bring up the PuTTY Configuration screen (see screenshot below).
+  * The key is set down at the bottom under `Private key file for authentication`. Click on the Browse button next to the `Private key file for authentication` field and locate your private key file on the file system. Select the file and press `Ok`. (It is probably in your My Documents folder. )
+  * Click the `Session` category from the left hand side.
+  * Make sure `Default Settings` is still selected.
   * Click Save.
 
 Enter the IP address, either copied from your My Instances list or from the confirmation email, and click Connect.
