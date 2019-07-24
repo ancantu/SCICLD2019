@@ -33,7 +33,8 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [Docker in the Cloud](docs/docker_in_cloud/docker_in_cloud.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | [Jupyter](docs/jupyter/jupyter.md) |
+| 13:00 - 14:15 | [Jupyter Intro](docs/jupyter/jupyter.md) |
+|               |
 | 14:15 - 14:30 | Break |
 | 14:30 - 16:00 | [Pandas](docs/pandas/pandas.md) |
 
