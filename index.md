@@ -33,10 +33,15 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [Docker in the Cloud](docs/docker_in_cloud/docker_in_cloud.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | [Jupyter Intro](docs/jupyter/jupyter.md) |
-|               |
+| 13:00 - 14:15 | [Python 101](docs/jupyter/Python101-201%20-%20SIC.pdf)|
+|               | [Power Python](docs/jupyter/Power%20Python%20101%20-%20SIC.pdf)
+|               | [Matplotlib](docs/jupyter/Matplotlib%20-%20SIC.pdf)
+|               | [Numpy 101](docs/jupyter/Numerical%20Python%20-%20SIC.pdf)
 | 14:15 - 14:30 | Break |
-| 14:30 - 16:00 | [Pandas](docs/pandas/pandas.md) |
+| 14:30 - 16:00 | [Pandas](docs/pandas/Pandas%20101%20-%20SIC.pdf) |
+|               | [Data Science Introduction](docs/pandas/DataScience%20101%20-%20SIC.pdf)
+|               | [Disease Propogation](docs/pandas/Disease%20Propagation%20Model%20-%20SIC.pdf)
+|               |
 
 ### Thursday
 
