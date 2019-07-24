@@ -30,10 +30,10 @@ across different computers, facilitating collaboration among different people.
 
 ### Setting up Git
 
-Log on to `training01`, and check which version of Git is in your `PATH`.
+Log on to your Jetstream VM, and check which version of Git is in your `PATH`.
 
 ```
-$ ssh username@training01.tacc.utexas.edu
+$ ssh train123@123.45.67.890   # use your training account and ip address
 (enter password)
 (enter token)
 
