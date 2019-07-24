@@ -1,4 +1,4 @@
-# Best Practices for Reproducibility in Research - Version Control
+# Reproducibility in Research: Version Control
 
 ### Module Learning Objectives
 
@@ -63,7 +63,7 @@ GitHub is a web platform where you can host and share Git repositories ("repos")
 GitHub and version control with Git are not just for useful for scientific reproducibility. There are many other applications in the scientific lab that make Git an attractive tool to learn:
 
  * [Develop software collaboratively](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
- * [Disseminate a tutorial](https://github.com/jamescarson3/ctls2018)
+ * [Disseminate a tutorial](https://github.com/ancantu/SCICLD2019)
  * [Centralize lab protocols](https://github.com/search?q=lab+protocols)
  * [Write a manuscript for publication](https://livecomsjournal.github.io/about/paper_code/)
  * [Create and host a personal website](http://jmcglone.com/guides/github-pages/)
@@ -76,4 +76,8 @@ Control with Git."  Version 2016.06, June 2016,
 https://github.com/swcarpentry/git-novice, 10.5281/zenodo.57467.
 
 
-Next: [The Basics of Git](docs/reproducibility_git_02.md) | Back: [Science in the Cloud](../../index.md)
+Next: [The Basics of Git](docs/reproducibility_git_02.md) |
+
+<br>
+
+[Return to Science in the Cloud](../../index.md) 

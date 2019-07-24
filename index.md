@@ -29,7 +29,7 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Best Practices for Reproducibility in Research: Version Control](docs/reproducibility/reproducibility.md) |
+|  9:00 - 10:15 | [Reproducibility in Research: Version Control](docs/reproducibility/reproducibility.md) |
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [Docker in the Cloud](docs/docker_in_cloud/docker_in_cloud.md) |
 | 11:45 - 13:00 | Lunch |

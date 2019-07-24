@@ -180,6 +180,6 @@ the pi estimate after 100000000 points is 3.141400
 
 If the pi estimate is based on the modified number of points, it is a success!
 
-<br><br>
+<br>
 
-Previous: [Collaborating with Others](reproducibility_git_07.md) | Top: [Course Overview](../reproducibility.md)
+Top: [Course Overview](../reproducibility.md) |
