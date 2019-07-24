@@ -4,13 +4,6 @@
   connection: local
   become: yes
 
-  handlers:
-  - name: restart_docker
-    systemd:
-      name: docker
-      state: restarted
-      daemon_reload: yes
-
   tasks:
   - name: print out the hostname of target
     command: hostname
@@ -65,8 +58,14 @@
     template:
       src: daemon.json 
       dest: /etc/docker/daemon.json 
-    notify:
-      - restart_docker
+    register: dockerconfig
+
+  - name: restart_docker
+    systemd:
+      name: docker
+      state: restarted
+      daemon_reload: yes
+    when: dockerconfig.changed
 
   - name: services
     systemd:
@@ -123,7 +122,7 @@
     local_action: command cat /etc/kubernetes/admin.conf
     register: kubeconf
 
-  - debug: var=kubeconf
+  #- debug: var=kubeconf
 
   - name: user kube config dir
     file:
