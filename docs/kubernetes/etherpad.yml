@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: etherpad
+spec:
+  selector:
+    matchLabels:
+      app: etherpad
+  template:
+    metadata:
+      labels:
+        app: etherpad
+    spec:
+      containers:
+      - name: etherpad
+        image: etherpad/etherpad
+        ports:
+        - name: http
+          containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: etherpad
+spec:
+  selector:
+    app: etherpad
+  type: NodePort
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
