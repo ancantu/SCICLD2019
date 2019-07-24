@@ -35,4 +35,4 @@ Most repos will also contain a few standard files in the top directory, includin
 `LICENSE.txt`: See if your repository needs a license [here](https://help.github.com/articles/licensing-a-repository/)
 
 
-Previous: [Link a Local Repository to GitHub](reproducibility_git_06.md) | Top: [Course Overview](../reproducibility.md)
+Previous: [Link a Local Repository to GitHub](reproducibility_git_06.md) | Next: [Build an App with a Github-Docker Integration](reproducibility_git_08.md) | Top: [Course Overview](../reproducibility.md)
