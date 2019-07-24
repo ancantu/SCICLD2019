@@ -60,7 +60,7 @@ $ vim Dockerfile
 ```
 FROM frolvlad/alpine-python3
 
-ADD pi.py /usr/bin/pi
+COPY pi.py /usr/bin/pi
 RUN chmod +x /usr/bin/pi
 ```
 
