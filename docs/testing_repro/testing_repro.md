@@ -15,7 +15,7 @@ Continuous Delivery is an extension of Continuous Integration in that the codeba
 
 Continuous Deployment is the final phase of the process and basically **automates** the deployment of the build artifacts into a production system.
 
-![CD vs CD](../../resources/continuous-delivery-vs-continuous-deployment.webp)
+![CD vs CD](../../resources/continuous-delivery-vs-continuous-deployment.png)
 
 ## What is the benefit of CI/CD?
 
