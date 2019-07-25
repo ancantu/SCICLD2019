@@ -92,7 +92,7 @@
       - busybox
 
   - name: kube init
-    command: kubeadm init --pod-network-cidr=10.244.0.0/16
+    command: kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=NumCPU 
     args:
       creates: /etc/kubernetes/admin.conf
 

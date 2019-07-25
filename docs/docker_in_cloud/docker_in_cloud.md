@@ -417,3 +417,5 @@ Executing the command: jupyter notebook
 In order to view the Jupyter notebook, copy the URL printed to STDOUT and replace the text in parentheses with the public IP address of your Jetstream VM.
 
 ![Jupyter notebook](../../resources/jupyter_notebook.png)
+
+Top: [Course Overview](../../index.md)

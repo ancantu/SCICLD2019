@@ -318,4 +318,4 @@ You should get a long list of output, and you should be able to see both commit 
 2. Create a new Git repo in a new folder. Create or copy in two files with text in them (any text is fine). Separately, add and commit those files to the new repo.
 
 
-Previous: [Tracking Changes](reproducibility_git_04.md) | Next: [Link a Local Repository to GitHub](reproducibility_git_06.md) | Top: [Course Overview](../reproducibility.md)
+Next: [Link a Local Repository to GitHub](reproducibility_git_06.md) | Top: [Course Overview](../reproducibility.md)

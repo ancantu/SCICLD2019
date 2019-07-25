@@ -75,4 +75,4 @@ wording of the output might be slightly different.
 1. Explore the files and folders in the `.git/` directory
 2. Can you find a file with your name and e-mail in it? How did it get there?
 
-Previous: [The Basics of Git](reproducibility_git_02.md) | Next: [Tracking Changes](reproducibility_git_04.md) | Top: [Course Overview](../reproducibility.md)
+Next: [Tracking Changes](reproducibility_git_04.md) | Top: [Course Overview](../reproducibility.md)

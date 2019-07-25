@@ -128,4 +128,4 @@ Checking connectivity... done.
 
 
 
-Previous: [Exploring History](reproducibility_git_05.md) | Next: [Collaborating with Others](reproducibility_git_07.md) | Top: [Course Overview](../reproducibility.md)
+Next: [Collaborating with Others](reproducibility_git_07.md) | Top: [Course Overview](../reproducibility.md)

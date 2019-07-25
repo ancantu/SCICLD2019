@@ -19,9 +19,9 @@ Click [here](docs/instructors.md) for more information about the course instruct
 |----------|--------------------------------------------------|
 |  9:00 - 10:15 | [Cloud Concepts](docs/cloud_concepts/cloud_concepts.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [VM Setup](docs/vm_setup/vm_setup.md) |
-| 11:45 - 13:00 | Lunch and Small Group Discussions|
-| 13:00 - 14:15 | [Docker Containers](docs/docker_containers/docker_containers.md) |
+| 10:30 - 11:45 | [Deploying VMs and Volumes in Jetstream](docs/vm_setup/vm_init_cloud.md) |
+| 11:45 - 13:00 | Lunch |
+| 13:00 - 14:15 | [Introduction to Docker Containers](docs/docker_containers/docker_containers.md) |
 | 14:15 - 14:30 | Break |
 | 14:30 - 16:00 | [Docker Compose](docs/docker_compose/docker_compose.md) |
 
@@ -29,25 +29,31 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Reproducibility](docs/reproducibility/reproducibility.md) |
+|  9:00 - 10:15 | [Reproducibility in Research: Version Control](docs/reproducibility/reproducibility.md) |
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [Docker in the Cloud](docs/docker_in_cloud/docker_in_cloud.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | [Jupyter](docs/jupyter/jupyter.md) |
+| 13:00 - 14:15 | [Python 101](docs/jupyter/Python101-201%20-%20SIC.pdf)|
+|               | [Power Python](docs/jupyter/Power%20Python%20101%20-%20SIC.pdf)
+|               | [Matplotlib](docs/jupyter/Matplotlib%20-%20SIC.pdf)
+|               | [Numpy 101](docs/jupyter/Numerical%20Python%20-%20SIC.pdf)
 | 14:15 - 14:30 | Break |
-| 14:30 - 16:00 | [Pandas](docs/pandas/pandas.md) |
+| 14:30 - 16:00 | [Pandas](docs/pandas/Pandas%20101%20-%20SIC.pdf) |
+|               | [Data Science Introduction](docs/pandas/DataScience%20101%20-%20SIC.pdf)
+|               | [Disease Propogation](docs/pandas/Disease%20Propagation%20Model%20-%20SIC.pdf)
+|               |
 
 ### Thursday
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Human SNP Analysis Part 1](docs/human_snp/human_snp.md) |
+|  9:00 - 10:15 | [Exercise: Human SNP Analysis Part 1](docs/human_snp/human_snp.md) |
 | 10:15 - 10:30 | Break |
-| 10:30 - 11:45 | [Human SNP Analysis Part 2](docs/human_snp/human_snp.md) |
+| 10:30 - 11:45 | [Exercise: Human SNP Analysis Part 2](docs/human_snp/human_snp.md) |
 | 11:45 - 13:00 | Lunch |
-| 13:00 - 14:15 | Title TBD |
+| 13:00 - 14:15 | [Data Management and Movement](docs/data_move/data_move.md) |
 | 14:15 - 14:30 | Break |
-| 14:30 - 16:00 | Title TBD |
+| 14:30 - 16:00 | [Exercise: Testing and Reproducibility](docs/testing_repro/testing_repro.md) |
 
 ### Friday
 
@@ -60,4 +66,3 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 13:00 - 14:15 | TACC Tour |
 | 14:15 - 14:30 | Break |
 | 14:30 - 16:00 | One-on-one by request |
-

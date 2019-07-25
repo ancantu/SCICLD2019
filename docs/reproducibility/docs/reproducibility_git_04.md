@@ -422,4 +422,4 @@ Part 4: Exploring history
 4. Browse the `.git/` folder to find where commits are located
 
 
-Previous: [Create a New Repository](reproducibility_git_03.md) | Next: [Exploring History](reproducibility_git_05.md) | Top: [Course Overview](../reproducibility.md)
+Next: [Exploring History](reproducibility_git_05.md) | Top: [Course Overview](../reproducibility.md)
