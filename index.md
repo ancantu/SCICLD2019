@@ -41,7 +41,7 @@ Click [here](docs/instructors.md) for more information about the course instruct
 | 14:30 - 16:00 | [Pandas](docs/pandas/Pandas%20101%20-%20SIC.pdf) |
 |               | [Data Science Introduction](docs/pandas/DataScience%20101%20-%20SIC.pdf)
 |               | [Disease Propogation](docs/pandas/Disease%20Propagation%20Model%20-%20SIC.pdf)
-|               | #### Sample Notebooks
+#### Sample Notebooks
 [Pandas101](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas101.ipynb)  
 [Matplotlib](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Matplotlib101.ipynb) 
 [Numpy Jacobi](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/JacobiPython.ipynb)   
