@@ -42,13 +42,15 @@ Click [here](docs/instructors.md) for more information about the course instruct
 |               | [Data Science Introduction](docs/pandas/DataScience%20101%20-%20SIC.pdf) |
 |               | [Disease Propogation](docs/pandas/Disease%20Propagation%20Model%20-%20SIC.pdf) |
 
-#### Sample Notebooks
+##### Sample Notebooks
 [Pandas101](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas101.ipynb)  
 [Matplotlib](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Matplotlib101.ipynb) 
 [Numpy Jacobi](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/JacobiPython.ipynb)   
 [Pandas Example](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas_RealWorld.ipynb)  
-[Austin Traffic](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/AustinTrafficAnalysis.ipynb)  
+[Austin Traffic*](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/AustinTrafficAnalysis.ipynb)  
 
+###### Sample Data
+[*Traffic.csv needed for AustinTraffic Notebook](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/traffic.csv)  
 
 
 ### Thursday
