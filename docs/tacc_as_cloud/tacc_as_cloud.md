@@ -134,3 +134,4 @@ Try creating your own private fastqc app using singularity.
 You can use these files as a starting point:  https://github.com/wonaya/utrc_fastqc
 
 
+[Course Overview](../../index.md)
