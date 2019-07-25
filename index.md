@@ -43,6 +43,12 @@ Click [here](docs/instructors.md) for more information about the course instruct
 |               | [Disease Propogation](docs/pandas/Disease%20Propagation%20Model%20-%20SIC.pdf)
 |               |
 
+#### Sample Notebooks
+[Pandas101](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas101.ipynb)
+[Matplotlib](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Matplotlib101.ipynb)
+[Pandas Example](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas_RealWorld.ipynb)
+[Austin Traffic](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/AustinTrafficAnalysis.ipynb)
+
 ### Thursday
 
 | Time | Topic |
