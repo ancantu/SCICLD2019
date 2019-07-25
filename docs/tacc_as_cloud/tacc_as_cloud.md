@@ -100,7 +100,9 @@ singularity shell docker://jurrutia/tapis_cli:3.0.3
 
 Inside the container, connect to `portals` tenant using
 
-```auth-session-init```
+```
+auth-session-init
+```
 
 Enter training account username, and then enter password twice
 
@@ -117,7 +119,7 @@ For the files-list command above, you will need to change it to match your own u
 ### Step 4 - Register your private App 
 
 You need to update the app json file.
-Specifically, the "owner", "executionSystem", "deploymentPath" and  "deploymentSystem"
+Specifically, the `owner`, `executionSystem`, `deploymentPath` and `deploymentSystem`
 
 Once the json file is ready, you can register it as a private app
 
