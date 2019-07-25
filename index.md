@@ -44,10 +44,10 @@ Click [here](docs/instructors.md) for more information about the course instruct
 |               |
 
 #### Sample Notebooks
-[Pandas101](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas101.ipynb)
-[Matplotlib](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Matplotlib101.ipynb)
-[Pandas Example](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas_RealWorld.ipynb)
-[Austin Traffic](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/AustinTrafficAnalysis.ipynb)
+[Pandas101](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas101.ipynb)\s\s
+[Matplotlib](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Matplotlib101.ipynb)\s\s
+[Pandas Example](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas_RealWorld.ipynb)\s\s
+[Austin Traffic](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/AustinTrafficAnalysis.ipynb)\s\s
 
 ### Thursday
 
