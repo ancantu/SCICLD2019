@@ -396,7 +396,7 @@ Volumes are the mechanism that Docker uses to persist data generated and used by
 #### Run the Jupyter notebook container
 
 ```bash
-$ docker run -p 8888:8888 -v $PWD:/home/jupyter/work <dockerhub username>/jupyter_notebook:<version>
+$ docker run -p 80:8888 -v $PWD:/home/jupyter/work <dockerhub username>/jupyter_notebook:<version>
 id: ‘jovyan’: no such user
 Executing the command: jupyter notebook
 [I 05:24:58.827 NotebookApp] Writing notebook server cookie secret to /home/jupyter/.local/share/jupyter/runtime/notebook_cookie_secret
