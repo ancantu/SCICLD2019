@@ -45,7 +45,8 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 #### Sample Notebooks
 [Pandas101](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas101.ipynb)  
-[Matplotlib](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Matplotlib101.ipynb)  
+[Matplotlib](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Matplotlib101.ipynb) 
+[Numpy Jacobi](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/JacobiPython.ipynb)   
 [Pandas Example](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/Pandas_RealWorld.ipynb)  
 [Austin Traffic](https://github.com/ancantu/SCICLD2019/blob/master/docs/jupyter/sampleNotebooks/AustinTrafficAnalysis.ipynb)  
 
