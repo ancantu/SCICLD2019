@@ -171,7 +171,7 @@ If you are able, install Cyberduck on your laptop and follow along.
 
 If you click the `+` in the bottom left corner of Cyberduck, it will open a window where you can configure a connection to a remote host.  It will look something like the following:
 
-<center><img src="../../resources/cyberduck.png"></center>
+<center><img src="../../resources/cyberduck.png" style="height:300px;"></center>
 
 - at the top, be sure to select "SFTP"
 - Nickname: this can be whatever you want.  A human readable nickname for your Jetstream VM
