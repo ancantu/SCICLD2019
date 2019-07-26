@@ -12,12 +12,18 @@ Kubernetes is more developer-centric than some of the other technologies we've l
 * Deployment: Multiple pods.
 * Service: Expose a pod or deployment to network.
 * Volume: Attach storage.
+* Namespace: Permissions-based grouping of objects.
+* Job: Run a container to completion.
+
+And more not covered today:
+
 * ConfigMap: Store strings or files for pods to use.
 * Secret: Cncrypted configmap.
+* Ingress: Expose HTTP+S routes to the network. Like a HTTP-specific Service.
+* DaemonSet, ReplicaSet, LoadBalancer, etc.: More ways to do things. 
 
-...many more
 
-## Kube install
+## Kube install check
 
 Once ansible has finished ( [Ansible](ansible.md) ), you can check that everything is up:
 
@@ -120,6 +126,14 @@ Edit the yml file and change "replicas" to 2, then save and re-apply.
 
 Hit the URL again, create an etherpad, and hit refresh a couple times. What happens? 
 
+Try killing one of the pods:
+
+    kubectl delete pod/mpackard-etherpad-5bd7855697-4vgcb 
+    kubectl get pods
+
+...it comes back!
+
+
 #### Discussion Questions
 
 - Why do you think the etherpad fails 50% of the time?
@@ -169,7 +183,29 @@ Now point your browser at your IP & port (31523 here). Hit refresh a few times. 
 - What issues would you have with read-write data (e.g. if you were hosting a database)?
 - How would you chain some apps together to make a workflow?
 - What other features would you like to make this work for your environment?
-- What could you accom
+
+
+### Job example
+
+Run a container to completion.
+
+    kubectl apply -f https://k8s.io/examples/controllers/job.yaml
+    
+Wait a second... did you just run that without looking at it first? :)
+
+    kubectl logs job.batch/pi
+
+
+#### Discussion Questions
+
+- How are Pods and Jobs different?
+- What might be another way to run "jobs" using a queueing system like RabbitMQ or Redis?
+- Why shouldn't I run random untrusted stuff off the internet? 
+- What sorts of things could you accomplish by stringing a bunch of jobs/pods/services together?
+
+
+
+## _Fin_
 
 
 ## Kubernetes Reset (destroys all current data)
@@ -182,7 +218,7 @@ If you really need to reset Kubernetes and start over with new install:
     systemctl stop kubelet
     rm -rf /etc/kubernetes /var/lib/kubelet /var/lib/etcd
 
-Then re-run the playbook.
+Then re-run the install playbook.
 
 Previous: [Ansible](ansible.md) | Top: [Course Overview](../../index.md)
 
