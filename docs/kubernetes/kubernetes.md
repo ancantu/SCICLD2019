@@ -193,6 +193,8 @@ Run a container to completion.
     
 Wait a second... did you just run that without looking at it first? :)
 
+Anyway, check the output:
+
     kubectl logs job.batch/pi
 
 
