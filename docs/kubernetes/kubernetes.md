@@ -2,6 +2,10 @@
 
 Kubernetes is an orchestration tool that allows management of conainers across multiple nodes.
 
+This demo uses only 1 node, but you could have 10s-1000s.
+
+Kubernetes is more developer-centric than some of the other technologies we've looked at. The idea is to run your code without having to know anything about the underlying system its running on.
+
 ## Overview
 
 * Pod: Smallest deployable unit. Consists of 1 or more containers. Kind of like "localhost".
@@ -49,6 +53,12 @@ Should look something like this (node everything in "Running" status):
     NAMESPACE     NAME                                 DESIRED   CURRENT   READY   AGE
     kube-system   replicaset.apps/coredns-5c98db65d4   2         2         2       25m
     
+    
+Check out how many nodes we have registered:
+
+    kubectl get nodes 
+    NAME                             STATUS   ROLES    AGE     VERSION
+    js-104-106.jetstream-cloud.org   Ready    master   6h12m   v1.15.1
 
 ### Run interactive container
 
@@ -113,6 +123,7 @@ Hit the URL again, create an etherpad, and hit refresh a couple times. What happ
 #### Discussion Questions
 
 - Why do you think the etherpad fails 50% of the time?
+- What would be the advantage of adding more nodes?
 
 ## Storage
 
@@ -158,6 +169,7 @@ Now point your browser at your IP & port (31523 here). Hit refresh a few times. 
 - What issues would you have with read-write data (e.g. if you were hosting a database)?
 - How would you chain some apps together to make a workflow?
 - What other features would you like to make this work for your environment?
+- What could you accom
 
 
 ## Kubernetes Reset (destroys all current data)
