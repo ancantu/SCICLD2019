@@ -2,19 +2,20 @@
 
 Kubernetes is an orchestration tool that allows management of conainers across multiple nodes.
 
-First we'll install it on our instance using Ansible.
+## Overview
 
-## Single-Node Kubernetes on a Jetstream Instance using Ansible
+* Pod: smallest deployable unit
+* Deployment: multiple pods
+* Service: expose a pod or deployment to network
+* Volume: attach storage to pod
+* ConfigMap: store strings for files for pods to use
+* Secret: encrypted configmap
 
-After running this playbook hopefully you will have a viable 1-node Kubernetes deployment.
+...many more
 
-Requires Ubuntu 18 + Docker Jetstream image.
+## Kube install
 
-Run as user (not root):
-
-    ansible-playbook ansible-kube-playbook.yml
-
-Once it is finished, you can check that everything is up:
+Once ansible has finished ( [Ansible](ansible.md) ), you can check that everything is up:
 
     kubectl get all --all-namespaces
 
@@ -51,24 +52,29 @@ Should look something like this (node everything in "Running" status):
 
 ### Run interactive container
 
-    kubectl run busybox -i --tty --image=busybox--restart=Never --rm -- bash
+You can do most anything in Kubernetes that you can do in Docker. E.g. run a simple interactive container:
+
+    kubectl run busybox -i --tty --image=busybox --restart=Never --rm -- sh
 
     / # 
     / # busybox | head -1
     BusyBox v1.31.0 (2019-07-16 01:13:11 UTC) multi-call binary.
     
+### Etherpad example
 
-### Kube object files
+You can put as many Kube objects as you want in a YAML file and "apply" it all as one big chunk.
 
-Kubernetes has different types of objects. You can put as many as you want in a file and "apply" it all as one big chunk.
+For example, take a look at mpackard-etherpad.yml.
 
-For example, Etherpad.
+    vim mpackard-etherpad.yml
 
-    cat etherpad.yml
+If you're on a shared system, change all the "mpackard" to your name. Note there is Deployment and a Service section. The Deployment indicates what container(s) to run, and the Service creates a network route to the containers.
+
+    cat mpackard-etherpad.yml
 
 Deploy it:
 
-    kubectl apply -f etherpad.yml
+    kubectl apply -f mpackard-etherpad.yml
 
 See if it's running:
 
@@ -87,32 +93,83 @@ See if it's running:
 
 Point your browser at your vm and that port number, e.g. http://129.114.104.121:31763
 
-### Remove example
-
-To take down the objects:
+Now take it down:
 
     kubectl delete -f etherpad.yml 
     deployment.apps "etherpad" deleted
     service "etherpad" deleted
 
+Edit the yml file and change "replicas" to 2, then save and re-apply.
 
-### Storage
+    kubectl apply -f mpackard-etherpad.yml
+    kubectl get pods
+
+    NAME                            READY   STATUS              RESTARTS   AGE
+    pod/mpackard-etherpad-5bd7855697-4vgcb   1/1     Running   0          5s
+    pod/mpackard-etherpad-5bd7855697-wcfw4   1/1     Running   0          144m
+
+Hit the URL again, create an etherpad, and hit refresh a couple times. What happens? 
+
+#### Discussion Questions
+
+- Why do you think the etherpad fails 50% of the time?
+
+## Storage
 
 Kube has many ways to handle persistent storage for your pods.
 
-### Trimmomatic
+- persisten volume claims 
+- more traditional file mounting (nfs, etc)
 
-    docker pull jurrutia/dockercomposepipeline_trimmomatic
-    docker pull jurrutia/dockercomposepipeline_star
-    docker pull jurrutia/dockercomposepipeline_multiqc
+### Volume example
 
-### Kubernetes Reset (destroys all current data)
+Hopefully you have a working local NFS server from the Ansible step.
 
-To reset Kubernetes and start over with new Kube install:
+    ls /kubedata/nginx
+    enterprise.jpg index.html
+
+This is going to get mounted inside our container so that nginx web server can serve it.
+
+Take a look at mpackard-nginx.html. Change the "mpackard" to your username. Note the addition of the Volume and Volumemounts section.
+
+Apply it:
+
+    kubectl apply -f mpackard-nginx.html
+
+Check for running:
+
+
+    kubectl get pods,deployments,services
+    NAME                                     READY   STATUS    RESTARTS   AGE
+    pod/mpackard-nginx-688877c6f9-b99d7      1/1     Running   0          16m
+    pod/mpackard-nginx-688877c6f9-ksdp4      1/1     Running   0          16m
+
+    NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.extensions/mpackard-nginx      2/2     2            2           16m
+
+    NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+    service/mpackard-nginx      NodePort    10.97.84.239    <none>        80:31523/TCP     16m
+
+Now point your browser at your IP & port (31523 here). Hit refresh a few times. Even though there are 2 nginx pods, they are serving the same data.
+
+
+#### Discussion Questions
+
+- What issues would you have with read-write data (e.g. if you were hosting a database)?
+
+
+
+## Kubernetes Reset (destroys all current data)
+
+**Caution** 
+
+If you really need to reset Kubernetes and start over with new install:
 
     kubeadm reset -f
     systemctl stop kubelet
     rm -rf /etc/kubernetes /var/lib/kubelet /var/lib/etcd
 
 Then re-run the playbook.
+
+Previous: [Ansible](ansible.md) | Top: [Course Overview](../../index.md)
 

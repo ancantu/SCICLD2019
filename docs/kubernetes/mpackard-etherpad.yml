@@ -2,15 +2,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: etherpad
+  name: mpackard-etherpad
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      app: etherpad
+      app: mpackard-etherpad
   template:
     metadata:
       labels:
-        app: etherpad
+        app: mpackard-etherpad
     spec:
       containers:
       - name: etherpad
@@ -23,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: etherpad
+  name: mpackard-etherpad
 spec:
   selector:
-    app: etherpad
+    app: mpackard-etherpad
   type: NodePort
   ports:
   - name: http

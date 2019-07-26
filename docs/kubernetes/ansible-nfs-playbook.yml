@@ -1,0 +1,63 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+
+  tasks:
+    - name: Create export dir
+      file: 
+        path: /export
+        state: directory 
+        mode: 0777 
+        owner: root 
+        group: root
+
+    - name: Create kube dir
+      file: 
+        path: /kubedata
+        state: directory 
+        mode: 0777 
+        owner: root 
+        group: root
+
+    - name: Ensure NFS utilities are installed.
+      apt: 
+        name: ['nfs-common', 'nfs-kernel-server']
+        state: installed 
+        update_cache: yes
+
+    - name: create /etc/exports
+      lineinfile:
+        create: yes
+        path: /etc/exports
+        line: /export 127.0.0.1(rw,sync,no_subtree_check)
+
+    - name: restart nfs server
+      service: 
+        name: nfs-kernel-server 
+        state: restarted
+
+    - name: exportfs
+      command: exportfs -r
+
+#    - name: /kubedata
+#      command: mkdir  /kubedata
+
+    - name: mount /kubedata
+      command: mount -t nfs -o proto=tcp,port=2049 127.0.0.1:/export /kubedata 
+
+    - name: nginx dir
+      file: 
+        path: /export/nginx
+        state: directory 
+        mode: 0777 
+
+    - name: nginx content
+      copy: 
+        dest: "/export/nginx/{{item}}"
+        src: "{{item}}"
+      with_items:
+        - enterprise.jpg
+        - index.html 
+
+      

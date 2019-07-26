@@ -69,7 +69,7 @@ Click [here](docs/instructors.md) for more information about the course instruct
 
 | Time | Topic |
 |--------|--------------------------------------------------|
-|  9:00 - 10:15 | [Kubernetes](docs/kubernetes/kubernetes.md) |
+|  9:00 - 10:15 | [Ansible](docs/kubernetes/ansible.md) & [Kubernetes](docs/kubernetes/kubernetes.md) |
 | 10:15 - 10:30 | Break |
 | 10:30 - 11:45 | [TACC as Cloud](docs/tacc_as_cloud/tacc_as_cloud.md) |
 | 11:45 - 13:00 | Lunch |
