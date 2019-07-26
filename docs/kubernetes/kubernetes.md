@@ -215,8 +215,8 @@ Anyway, check the output:
 If you really need to reset Kubernetes and start over with new install:
 
     kubeadm reset -f
-    systemctl stop kubelet
-    rm -rf /etc/kubernetes /var/lib/kubelet /var/lib/etcd
+    sudo systemctl stop kubelet
+    sudo rm -rf /etc/kubernetes /var/lib/kubelet /var/lib/etcd
 
 Then re-run the install playbook.
 
