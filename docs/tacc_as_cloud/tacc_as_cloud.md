@@ -118,8 +118,8 @@ For the files-list command above, you will need to change it to match your own u
 
 ### Step 4 - Register your private App 
 
-You need to update the app json file.
-Specifically, the `owner`, `executionSystem`, `deploymentPath` and `deploymentSystem`
+You need to update the app json file to match your own username etc.
+Specifically, the `id`, `name`, `label`, `owner`, `executionSystem`, `deploymentPath` and `deploymentSystem`
 
 Once the json file is ready, you can register it as a private app
 
