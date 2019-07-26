@@ -1,10 +1,8 @@
 ## Kubernetes
 
-Kubernetes is an orchestration tool that allows management of conainers across multiple nodes.
+Kubernetes is an orchestration tool that allows management of containers across multiple nodes. This demo uses only 1 node, but you could have 10s-1000s.
 
-This demo uses only 1 node, but you could have 10s-1000s.
-
-Kubernetes is more developer-centric than some of the other technologies we've looked at. The idea is to run your code without having to know anything about the underlying system its running on.
+Kubernetes might be more developer-centric than some of the other technologies we've looked at. The idea is to run your code without having to know anything about the underlying system its running on.
 
 ## Overview
 
