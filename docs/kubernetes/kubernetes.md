@@ -4,12 +4,12 @@ Kubernetes is an orchestration tool that allows management of conainers across m
 
 ## Overview
 
-* Pod: smallest deployable unit
-* Deployment: multiple pods
-* Service: expose a pod or deployment to network
-* Volume: attach storage to pod
-* ConfigMap: store strings for files for pods to use
-* Secret: encrypted configmap
+* Pod: Smallest deployable unit. Consists of 1 or more containers. Kind of like "localhost".
+* Deployment: Multiple pods.
+* Service: Expose a pod or deployment to network.
+* Volume: Attach storage.
+* ConfigMap: Store strings or files for pods to use.
+* Secret: Cncrypted configmap.
 
 ...many more
 
