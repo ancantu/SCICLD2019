@@ -19,11 +19,11 @@ For many scientists, the command line interface can be barrier for computation.
 As science becomes increasingly collaborative, it can be beneficial to reduce these barriers to sharing computing steps and results.
 For this reason, TACC is developing Science-themed Gateways or Portals that allow users to leverage the computing resources at TACC without accessing the command line.
 
-[Science Gateways at TACC](https://raw.githubusercontent.com/ancantu/SCICLD2019/master/docs/tacc_as_cloud/SciCloud2019_TACCasCloudSlides.pdf)
+[PDF on Science Gateways at TACC](https://raw.githubusercontent.com/ancantu/SCICLD2019/master/docs/tacc_as_cloud/SciCloud2019_TACCasCloudSlides.pdf)
 
 ## Using a Portal
 
-We'll interactively explore the UTRC portal using TACC training accounts.
+We'll interactively explore the [UTRC portal](https://utrc.tacc.utexas.edu) using TACC training accounts.
 
 ## Building a Private Portal App
 
