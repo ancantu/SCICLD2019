@@ -156,12 +156,13 @@ Now point your browser at your IP & port (31523 here). Hit refresh a few times. 
 #### Discussion Questions
 
 - What issues would you have with read-write data (e.g. if you were hosting a database)?
-
+- How would you chain some apps together to make a workflow?
+- What other features would you like to make this work for your environment?
 
 
 ## Kubernetes Reset (destroys all current data)
 
-**Caution** 
+**Caution, destroys data** 
 
 If you really need to reset Kubernetes and start over with new install:
 
