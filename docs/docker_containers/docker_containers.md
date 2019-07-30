@@ -142,7 +142,7 @@ We have packaged up a self-contained image classifier application based on the T
 available from the DockerHub. To download it, issue the following commnand:
 
 ```
-$ docker pull taccsciapps/classify_image
+$ docker pull jurrutia/classify_image:1.0.0
 ```
 
 What you are downloading is a complete application that will run an image classifier algorithm on an image
@@ -158,9 +158,9 @@ For example, we can run our image classifier program on the 3 different images:
 <img src="https://www.dropbox.com/s/80o4vbzrz4eyzp0/mpackard.jpg?raw=1" height="300">
 
 ```
-$ docker run -it --rm -e URL=https://raw.githubusercontent.com/TACC/taccster18_Cloud_Tutorial/master/classifier/data/dog.jpeg taccsciapps/classify_image
-$ docker run -it --rm -e URL=https://www.dropbox.com/s/f93aixy0r5f1fz1/jimo.jpeg?raw=1 taccsciapps/classify_image
-$ docker run -it --rm -e URL=https://www.dropbox.com/s/80o4vbzrz4eyzp0/mpackard.jpg?raw=1 taccsciapps/classify_image
+$ docker run -it --rm -e URL=https://raw.githubusercontent.com/TACC/taccster18_Cloud_Tutorial/master/classifier/data/dog.jpeg jurrutia/classify_image:1.0.0
+$ docker run -it --rm -e URL=https://www.dropbox.com/s/f93aixy0r5f1fz1/jimo.jpeg?raw=1 jurrutia/classify_image:1.0.0
+$ docker run -it --rm -e URL=https://www.dropbox.com/s/80o4vbzrz4eyzp0/mpackard.jpg?raw=1 jurrutia/classify_image:1.0.0
 ```
 
 
